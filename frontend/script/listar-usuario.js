@@ -25,7 +25,7 @@ async function carregarUsuarios() {
         if (usuarios.length === 0) {
             tabelaUsuarios.innerHTML = `
                 <tr>
-                    <td colpspan="6" class="empty">Nenhum usuario cadastrado.</td>
+                    <td colspan="6" class="empty">Nenhum usuario cadastrado.</td>
                 </tr>
             `;  
             return;

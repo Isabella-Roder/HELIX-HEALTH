@@ -26,3 +26,5 @@ function carregarTipo() {
         document.querySelector("[data-admin]").style.display = "none";
     }
 }
+
+carregarTipo();

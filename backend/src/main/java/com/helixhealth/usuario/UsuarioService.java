@@ -46,4 +46,25 @@ public class UsuarioService {
             .orElseThrow(() -> new IllegalArgumentException("Email ou senha invalidos."));
     }
 
+    public Usuario atualizar(Long id, Usuario dadosAtualizados) {
+        Usuario usuario = buscarPorId(id);
+
+        usuario.setEmail(dadosAtualizados.getEmail());
+        usuario.setSenha(dadosAtualizados.getSenha());
+        usuario.setNome(dadosAtualizados.getNome());
+        usuario.setNomeSocial(dadosAtualizados.getNomeSocial());
+        usuario.setTipoUsuario(dadosAtualizados.getTipoUsuario());
+        usuario.setAtivo(dadosAtualizados.getAtivo());
+
+        verificacoesCadastro(usuario);
+
+        return usuarioRepository.save(usuario);
+    }
+
+    public void deletar(Long id) {
+        Usuario usuario = buscarPorId(id);
+
+        usuarioRepository.delete(usuario);
+    }
+
 }

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Profissional - Helix Health</title>
+  <link rel="stylesheet" href="../style/cadastro-profissional.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="header-actions">
+        <a href="portal-usuario.html" class="voltar">Portal</a>
+        <a href="listar-profissional.html" class="voltar">Listar profissionais</a>
+      </div>
+
+      <p class="eyebrow" id="modoPagina">Cadastro</p>
+      <h1 id="tituloPagina">Cadastro de Profissional</h1>
+      <p id="descricaoPagina">Dados da equipe que atua no atendimento e operacao hospitalar.</p>
+    </header>
+
+    <form id="formProfissional">
+      <div class="campo">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" required>
+      </div>
+
+      <div class="campo">
+        <label for="nomeSocial">Nome social</label>
+        <input type="text" id="nomeSocial">
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="cpf">CPF</label>
+          <input type="text" id="cpf" required>
+        </div>
+
+        <div class="campo">
+          <label for="telefone">Telefone</label>
+          <input type="text" id="telefone" required>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="tipoProfissional">Tipo profissional</label>
+          <select id="tipoProfissional" required>
+            <option value="">Selecione</option>
+            <option value="MEDICO">Medico</option>
+            <option value="ENFERMEIRO">Enfermeiro</option>
+            <option value="RECEPCAO">Recepcao</option>
+            <option value="FICHARIO">Fichario</option>
+            <option value="FINANCEIRO">Financeiro</option>
+            <option value="FARMACIA">Farmacia</option>
+            <option value="ALMOXARIFADO">Almoxarifado</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="ativo">Status</label>
+          <select id="ativo" required>
+            <option value="true">Ativo</option>
+            <option value="false">Inativo</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="especialidade">Especialidade</label>
+          <select id="especialidade">
+            <option value="">Selecione</option>
+            <option value="CLINICO_GERAL">Clinico geral</option>
+            <option value="CARDIOLOGIA">Cardiologia</option>
+            <option value="PEDIATRIA">Pediatria</option>
+            <option value="ORTOPEDIA">Ortopedia</option>
+            <option value="GINECOLOGIA">Ginecologia</option>
+            <option value="DERMATOLOGIA">Dermatologia</option>
+            <option value="NEUROLOGIA">Neurologia</option>
+            <option value="PSIQUIATRIA">Psiquiatria</option>
+            <option value="ENDOCRINOLOGIA">Endocrinologia</option>
+            <option value="RADIOLOGIA">Radiologia</option>
+            <option value="EMERGENCIA">Emergencia</option>
+            <option value="TRIAGEM">Triagem</option>
+            <option value="ADMINISTRATIVO">Administrativo</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="registroProfissional">Registro profissional</label>
+          <input type="text" id="registroProfissional">
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" id="botaoSalvar">Cadastrar profissional</button>
+        <a href="listar-profissional.html" class="secondary-link">Cancelar</a>
+      </div>
+    </form>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js"></script>
+  <script src="../script/cadastro-profissional.js"></script>
+</body>
+</html>

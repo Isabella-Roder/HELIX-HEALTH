@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profissionais - Helix Health</title>
+  <link rel="stylesheet" href="../style/listar-profissional.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="portal-usuario.html" class="brand">Helix Health</a>
+
+    <nav class="menu">
+      <a href="portal-usuario.html">Portal</a>
+      <a href="cadastro-profissional.html">Cadastrar profissional</a>
+      <a href="#" id="botaoSair">Sair</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="page-header">
+      <div>
+        <p class="eyebrow">Equipe</p>
+        <h1>Profissionais cadastrados</h1>
+        <p class="subtitle">Consulte medicos, enfermeiros e profissionais administrativos.</p>
+      </div>
+
+      <a class="primary-link" href="cadastro-profissional.html">Novo profissional</a>
+    </section>
+
+    <section class="table-panel">
+      <div class="table-toolbar">
+        <span id="totalProfissionais">0 profissionais encontrados</span>
+        <button type="button" id="botaoAtualizar">Atualizar</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>Telefone</th>
+              <th>Email</th>
+              <th>Tipo</th>
+              <th>Especialidade</th>
+              <th>Status</th>
+              <th>Acoes</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaProfissionais">
+            <tr>
+              <td colspan="9" class="empty">Carregando profissionais...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js"></script>
+  <script src="../script/listar-profissional.js"></script>
+</body>
+</html>

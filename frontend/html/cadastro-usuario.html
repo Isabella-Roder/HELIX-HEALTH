@@ -2,52 +2,87 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro de Usuario</title>
   <link rel="stylesheet" href="../style/cadastro-usuario.css">
 </head>
 <body>
-  <h1>Cadastro de Usuario</h1>
+  <main>
+    <header>
+      <div class="header-actions">
+        <a href="portal-usuario.html" class="voltar">Portal</a>
+        <a href="listar-usuario.html" class="voltar">Listar usuarios</a>
+      </div>
 
-  <form id="formUsuario">
-    <div>
-      <label for="nome">Nome</label>
-      <input type="text" id="nome" required>
-    </div>
+      <p class="eyebrow" id="modoPagina">Cadastro</p>
+      <h1 id="tituloPagina">Cadastro de Usuario</h1>
+      <p id="descricaoPagina">Preencha os dados para criar uma conta de acesso.</p>
+    </header>
 
-    <div>
+    <form id="formUsuario">
+      <div class="campo">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" required>
+      </div>
+
+      <div class="campo">
         <label for="nomeSocial">Nome social</label>
         <input type="text" id="nomeSocial">
-    </div>
+      </div>
 
-    <div>
-      <label for="email">Email</label>
-      <input type="email" id="email" required>
-    </div>
+      <div class="linha">
+        <div class="campo">
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+        </div>
 
-    <div>
-      <label for="senha">Senha</label>
-      <input type="password" id="senha" required>
-    </div>
+        <div class="campo">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" required>
+        </div>
+      </div>
 
-    <div>
-      <label for="tipoUsuario">Tipo de Usuario</label>
-      <select id="tipoUsuario" required>
-        <option value="">Selecione</option>
-        <option value="ADMIN">Admin</option>
-        <option value="MEDICO">Medico</option>
-        <option value="ENFERMEIRO">Enfermeiro</option>
-        <option value="RECEPCAO">Recepcao</option>
-        <option value="FICHARIO">Fichario</option>
-        <option value="FINANCEIRO">Financeiro</option>
-        <option value="FARMACIA">Farmacia</option>
-        <option value="ALMOXARIFADO">Almoxarifado</option>
-      </select>
-    </div>
+      <div class="linha">
+        <div class="campo">
+          <label for="tipoUsuario">Tipo de Usuario</label>
+          <select id="tipoUsuario" required>
+            <option value="">Selecione</option>
+            <option value="ADMIN">Admin</option>
+            <option value="MEDICO">Medico</option>
+            <option value="ENFERMEIRO">Enfermeiro</option>
+            <option value="RECEPCAO">Recepcao</option>
+            <option value="FICHARIO">Fichario</option>
+            <option value="FINANCEIRO">Financeiro</option>
+            <option value="FARMACIA">Farmacia</option>
+            <option value="ALMOXARIFADO">Almoxarifado</option>
+            <option value="PACIENTE">Paciente</option>
+          </select>
+        </div>
 
-    <button type="submit">Cadastrar</button>
-  </form>
+        <div class="campo">
+          <label for="ativo">Status</label>
+          <select id="ativo" required>
+            <option value="true">Ativo</option>
+            <option value="false">Inativo</option>
+          </select>
+        </div>
 
-  <p id="mensagem"></p>
+        <div class="campo" id="campoPaciente">
+          <label for="paciente">Paciente vinculado</label>
+          <select id="paciente">
+            <option value="">Nenhum paciente selecionado</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" id="botaoSalvar">Cadastrar usuario</button>
+        <a href="listar-usuario.html" class="secondary-link">Cancelar</a>
+      </div>
+    </form>
+
+    <p id="mensagem"></p>
+  </main>
 
   <script src="../script/auth.js"></script>
   <script src="../script/cadastro-usuario.js"></script>

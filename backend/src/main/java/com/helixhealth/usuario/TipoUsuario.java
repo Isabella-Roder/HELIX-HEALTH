@@ -8,5 +8,6 @@ public enum TipoUsuario {
     FICHARIO,
     FINANCEIRO,
     FARMACIA,
-    ALMOXARIFADO
+    ALMOXARIFADO,
+    PACIENTE
 }

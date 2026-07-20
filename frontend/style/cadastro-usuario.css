@@ -8,22 +8,56 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background: #eef4f7;
   color: #1f2933;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 32px 16px;
 }
 
 main {
   width: 100%;
-  max-width: 520px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 22px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.voltar {
+  display: inline-block;
+  color: #1f7a8c;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.voltar:hover {
+  text-decoration: underline;
 }
 
 h1 {
-  margin: 0 0 24px;
-  text-align: center;
+  margin: 0;
   color: #174c5f;
-  font-size: 28px;
+  font-size: 30px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #1f7a8c;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+header p {
+  margin: 8px 0 0;
+  color: #52616b;
+  font-size: 16px;
 }
 
 form {
@@ -34,7 +68,13 @@ form {
   box-shadow: 0 12px 30px rgba(22, 62, 80, 0.12);
 }
 
-form div {
+.linha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.campo {
   margin-bottom: 18px;
 }
 
@@ -81,6 +121,33 @@ button:hover {
   background: #166476;
 }
 
+.form-actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.secondary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 18px;
+  border: 1px solid #c9d6dc;
+  border-radius: 6px;
+  color: #174c5f;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  background: #f7fbfc;
+}
+
+.secondary-link:hover {
+  border-color: #1f7a8c;
+  background: #eef8fa;
+}
+
 #mensagem {
   min-height: 22px;
   margin: 16px 0 0;
@@ -89,12 +156,25 @@ button:hover {
   color: #174c5f;
 }
 
-@media (max-width: 520px) {
+@media (max-width: 640px) {
+  body {
+    padding-top: 24px;
+  }
+
   form {
     padding: 22px;
   }
 
   h1 {
     font-size: 24px;
+  }
+
+  .linha {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-actions {
+    grid-template-columns: 1fr;
   }
 }

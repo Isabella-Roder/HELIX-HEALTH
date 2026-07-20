@@ -44,12 +44,36 @@ async function carregarPaciente() {
                 <td>${paciente.dataNascimento || "-"}</td>
                 <td>
                     <a href="cadastro-paciente.html?id=${paciente.id}">Editar</a>
+                    <button type="button" onclick="deletarPaciente(${paciente.id})">Excluir</button>
                 </td>
             `;
 
             tabelaPacientes.appendChild(linha);
         });
 
+    } catch (erro) {
+        mensagem.textContent = "Erro: " + erro.message;
+    }
+}
+
+async function deletarPaciente(id) {
+    const confirmar = confirm("Tem certeza que deseja excluir esse paciente?");
+
+    if (!confirmar) {
+        return;
+    }
+
+    try {
+        const resposta = await fetch(`${API_URL}/pacientes/${id}`, {
+            method: "DELETE"
+        });
+
+        if (!resposta.ok) {
+            throw new Error("Não foi possivel excluir paciente");
+        }
+
+        mensagem.textContent = "Paciente excluido com sucesso";
+        carregarPaciente();
     } catch (erro) {
         mensagem.textContent = "Erro: " + erro.message;
     }

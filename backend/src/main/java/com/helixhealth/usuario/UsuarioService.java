@@ -4,13 +4,18 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.helixhealth.paciente.Paciente;
+import com.helixhealth.paciente.PacienteRepository;
+
 @Service
 public class UsuarioService {
     
     private final UsuarioRepository usuarioRepository;
+    private final PacienteRepository pacienteRepository;
 
-    public UsuarioService(UsuarioRepository usuarioRepository) {
+    public UsuarioService(UsuarioRepository usuarioRepository, PacienteRepository pacienteRepository) {
         this.usuarioRepository = usuarioRepository;
+        this.pacienteRepository = pacienteRepository;
     }
 
     public List<Usuario> listar() {
@@ -37,6 +42,7 @@ public class UsuarioService {
 
     public Usuario cadastrar(Usuario usuario) {
         verificacoesCadastro(usuario);
+        prepararPacienteVinculado(usuario);
 
         return usuarioRepository.save(usuario);
     }
@@ -55,8 +61,10 @@ public class UsuarioService {
         usuario.setNomeSocial(dadosAtualizados.getNomeSocial());
         usuario.setTipoUsuario(dadosAtualizados.getTipoUsuario());
         usuario.setAtivo(dadosAtualizados.getAtivo());
+        usuario.setPaciente(dadosAtualizados.getPaciente());
 
         verificacoesCadastro(usuario);
+        prepararPacienteVinculado(usuario);
 
         return usuarioRepository.save(usuario);
     }
@@ -65,6 +73,23 @@ public class UsuarioService {
         Usuario usuario = buscarPorId(id);
 
         usuarioRepository.delete(usuario);
+    }
+
+    public void prepararPacienteVinculado(Usuario usuario) {
+        if (usuario.getTipoUsuario() != TipoUsuario.PACIENTE) {
+            usuario.setPaciente(null);
+            return;
+        }
+
+        if (usuario.getPaciente() == null || usuario.getPaciente().getId() == null) {
+            usuario.setPaciente(null);
+            return;
+        }
+
+        Paciente paciente = pacienteRepository.findById(usuario.getPaciente().getId())
+            .orElseThrow(() -> new IllegalArgumentException("Paciente nao encontrado."));
+
+        usuario.setPaciente(paciente);
     }
 
 }

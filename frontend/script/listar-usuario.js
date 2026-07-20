@@ -25,7 +25,7 @@ async function carregarUsuarios() {
         if (usuarios.length === 0) {
             tabelaUsuarios.innerHTML = `
                 <tr>
-                    <td colspan="6" class="empty">Nenhum usuario cadastrado.</td>
+                    <td colspan="7" class="empty">Nenhum usuario cadastrado.</td>
                 </tr>
             `;  
             return;
@@ -41,12 +41,38 @@ async function carregarUsuarios() {
                 <td>${usuario.email}</td>
                 <td>${usuario.tipoUsuario}</td>
                 <td>${usuario.ativo ? "Ativo" : "Inativo"}</td>
-
+                <td>
+                    <a href="cadastro-usuario.html?id=${usuario.id}">Editar</a>
+                    <button type="button" onclick="deletarUsuario(${usuario.id})">Excluir</button>
+                </td>
             `;
 
             tabelaUsuarios.appendChild(linha);
         });
 
+    } catch (erro) {
+        mensagem.textContent = "Erro: " + erro.message;
+    }
+}
+
+async function deletarUsuario(id) {
+    const confirmar = confirm("Tem certeza que deseja excluir este usuario?");
+
+    if (!confirmar) {
+        return;
+    }
+
+    try {
+        const resposta = await fetch(`${API_URL}/usuarios/${id}`, {
+            method: "DELETE"
+        });
+
+        if (!resposta.ok) {
+            throw new Error("Nao foi possivel excluir usuario");
+        }
+
+        mensagem.textContent = "Usuario excluido com sucesso.";
+        carregarUsuarios();
     } catch (erro) {
         mensagem.textContent = "Erro: " + erro.message;
     }

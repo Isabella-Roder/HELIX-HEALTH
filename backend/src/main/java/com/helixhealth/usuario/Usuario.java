@@ -1,11 +1,15 @@
 package com.helixhealth.usuario;
 
+import com.helixhealth.paciente.Paciente;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Usuario {
@@ -24,17 +28,22 @@ public class Usuario {
 
     private Boolean ativo;
 
+    @OneToOne
+    @JoinColumn(name = "paciente_id")
+    private Paciente paciente;
+
     public Usuario() {
 
     }
 
-    public Usuario(String nome, String nomeSocial, String email, String senha, TipoUsuario tipoUsuario, Boolean ativo) {
+    public Usuario(String nome, String nomeSocial, String email, String senha, TipoUsuario tipoUsuario, Boolean ativo, Paciente paciente) {
         this.nome = nome;
         this.nomeSocial = nomeSocial;
         this.email = email;
         this.senha = senha;
         this.tipoUsuario = tipoUsuario;
         this.ativo = ativo;
+        this.paciente = paciente;
     }
 
     public Long getId() {
@@ -65,6 +74,10 @@ public class Usuario {
         return ativo;
     }
 
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -87,6 +100,10 @@ public class Usuario {
 
     public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
     }
 
 }

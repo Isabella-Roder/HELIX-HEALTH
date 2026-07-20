@@ -1,0 +1,23 @@
+- sistema hospitalar completo
+
+- logins completo, de medicos, almoxarifado, recepção, admin, enfermeiro, paciente, financeiro, farmacia
+
+- cadastros de pacientes completo, cpf, telefone, endereço, convenio, contato/emergencia, hstórico de atendimentos
+
+- profissionais, medicos, enfermeiro, recepcionista, fichario, especialidades, pré e pos consulta, horas disponiveis
+
+- agendamento, marcar consulta, cancelar e remarcar, status, filtro medico paciente, data e prontuario
+
+- atendimento, fila de espera, triagem, sinais vitais, sintomas, prioridade, procedimentos
+
+- prontuario, evolução médica, diagnostico, prescrição, exames solicitados e historico
+
+- exames, pedido, resultado, upload ficticio, status
+
+- internação, quartos/leitos, entrada e alta, ocupação, paciente internado
+
+- farmacia/estoque, medicamentos, entrada e saida, controle validade, estoque minimo, almoxarifado
+
+- financeiro, pagamentos, convenio, faturas, custo
+
+- pronto socorro

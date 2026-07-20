@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Paciente</title>
+  <link rel="stylesheet" href="../style/cadastro-paciente.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="header-actions">
+        <a href="portal-usuario.html" class="voltar">Portal</a>
+        <a href="listar-paciente.html" class="voltar">Listar pacientes</a>
+      </div>
+
+      <p class="eyebrow" id="modoPagina">Cadastro</p>
+      <h1 id="tituloPagina">Cadastro de Paciente</h1>
+      <p id="descricaoPagina">Dados principais para identificar e atender o paciente.</p>
+    </header>
+
+    <form id="formPaciente">
+      <div class="campo">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" required>
+      </div>
+
+      <div class="campo">
+          <label for="nomeSocial">Nome social</label>
+          <input type="text" id="nomeSocial">
+      </div>
+
+      <div class="linha">
+        
+
+        <div class="campo">
+          <label for="cpf">CPF</label>
+          <input type="text" id="cpf" required>
+        </div>
+
+        <div class="campo">
+          <label for="dataNascimento">Data de nascimento</label>
+          <input type="date" id="dataNascimento" required>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="telefone">Telefone</label>
+        <input type="text" id="telefone" required>
+      </div>
+
+      <div class="campo">
+        <label for="endereco">Endereco</label>
+        <input type="text" id="endereco" required>
+      </div>
+
+      <div class="campo">
+        <label for="convenio">Convenio</label>
+        <input type="text" id="convenio">
+      </div>
+
+      <div class="campo">
+        <label for="contatoEmergencia">Contato de emergencia</label>
+        <input type="text" id="contatoEmergencia" required>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" id="botaoSalvar">Cadastrar paciente</button>
+        <a href="listar-paciente.html" class="secondary-link">Cancelar</a>
+      </div>
+    </form>
+
+    <p id="mensagem"></p>
+
+    <script src="../script/auth.js"></script>
+    <script src="../script/cadastro-paciente.js"></script>
+  </main>
+</body>
+</html>

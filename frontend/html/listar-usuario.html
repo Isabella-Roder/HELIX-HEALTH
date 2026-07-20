@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuarios - Helix Health</title>
+  <link rel="stylesheet" href="../style/listar-usuario.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="portal-usuario.html" class="brand">Helix Health</a>
+
+    <nav class="menu">
+      <a href="portal-usuario.html">Portal</a>
+      <a href="cadastro-usuario.html">Cadastrar usuario</a>
+      <a href="#" id="botaoSair">Sair</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="page-header">
+      <div>
+        <p class="eyebrow">Administracao</p>
+        <h1>Usuarios cadastrados</h1>
+        <p class="subtitle">Consulte as contas de acesso registradas no sistema.</p>
+      </div>
+
+      <a class="primary-link" href="cadastro-usuario.html">Novo usuario</a>
+    </section>
+
+    <section class="table-panel">
+      <div class="table-toolbar">
+        <span id="totalUsuarios">0 usuarios encontrados</span>
+        <button type="button" id="botaoAtualizar">Atualizar</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Nome social</th>
+              <th>Email</th>
+              <th>Tipo</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaUsuarios">
+            <tr>
+              <td colspan="6" class="empty">Carregando usuarios...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js"></script>
+  <script src="../script/listar-usuario.js"></script>
+</body>
+</html>

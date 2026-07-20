@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal do Usuario</title>
+  <link rel="stylesheet" href="../style/portal-usuario.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="brand">Helix Health</a>
+
+    <nav class="menu">
+      <a href="cadastro-usuario.html">Usuarios</a>
+      <a href="cadastro-paciente.html">Pacientes</a>
+      <a href="#" id="botaoSair">Sair</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">Conta de acesso</p>
+        <h1>Ola, <span id="nomeUsuario">Usuario</span></h1>
+        <p class="subtitle">Area da conta logada para acessar os modulos permitidos do sistema.</p>
+      </div>
+
+      <div class="profile-box">
+        <span class="profile-label">Perfil</span>
+        <strong id="tipoUsuarioPerfil">ADMIN</strong>
+        <small>Status: <span id="statusUsuarioPerfil">Ativo</span></small>
+      </div>
+    </section>
+
+    <section class="summary">
+      <article class="summary-card">
+        <span class="summary-number" id="statusUsuario">Ativo</span>
+        <span class="summary-label">Status da conta</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="tipoUsuario">ADMIN</span>
+        <span class="summary-label">Tipo de usuario</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number">Hoje</span>
+        <span class="summary-label">Ultimo acesso</span>
+      </article>
+    </section>
+
+    <section class="welcome-message">
+      <h2 id="bem-vinda">Mensagem de boas-vindas</h2>
+      <p id="mensagem-boas-vindas">
+        Escreva aqui a mensagem que o usuario vai ver ao entrar no portal.
+      </p>
+    </section>
+
+    <section class="content-grid">
+      <div class="panel">
+        <h2>Atalhos</h2>
+
+        <div class="actions">
+          <a href="cadastro-usuario.html" data-admin>Gerenciar usuarios</a>
+          <a href="listar-usuario.html" data-admin>Listar usuarios</a>
+          <a href="cadastro-paciente.html">Gerenciar pacientes</a>
+          <a href="listar-paciente.html">Listar pacientes</a>
+          <a href="#">Consultar prontuario</a>
+          <a href="#">Agendar consulta</a>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Informacoes</h2>
+
+        <ul class="info-list">
+          <li>
+            <strong>Permissoes</strong>
+            <span>Acesso definido conforme o tipo de usuario.</span>
+          </li>
+          <li>
+            <strong>Vinculo com paciente</strong>
+            <span>Uma conta pode ser vinculada a um paciente quando o tipo for PACIENTE.</span>
+          </li>
+          <li>
+            <strong>Dados da conta</strong>
+            <span>Nome, email, status e tipo de usuario ficam neste portal.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="../script/auth.js"></script>
+  <script src="../script/portal-usuario.js"></script>
+</body>
+</html>

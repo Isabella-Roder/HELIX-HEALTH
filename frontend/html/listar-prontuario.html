@@ -28,6 +28,27 @@
       <a class="primary-link" href="cadastro-prontuario.html">Novo prontuario</a>
     </section>
 
+    <section class="filter-panel">
+      <div class="filter-field">
+        <label for="filtroPaciente">Paciente</label>
+        <select id="filtroPaciente">
+          <option value="">Todos os pacientes</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroProfissional">Profissional</label>
+        <select id="filtroProfissional">
+          <option value="">Todos os profissionais</option>
+        </select>
+      </div>
+
+      <div class="filter-actions">
+        <button type="button" id="botaoFiltrar">Filtrar</button>
+        <button type="button" id="botaoLimparFiltro">Limpar</button>
+      </div>
+    </section>
+
     <section class="table-panel">
       <div class="table-toolbar">
         <span id="totalProntuarios">0 prontuarios encontrados</span>

@@ -6,6 +6,11 @@ const mensagem = document.getElementById("mensagem");
 const botaoAtualizar = document.getElementById("botaoAtualizar");
 const botaoSair = document.getElementById("botaoSair");
 
+const filtroPaciente = document.getElementById("filtroPaciente");
+const filtroProfissional = document.getElementById("filtroProfissional");
+const botaoFiltrar = document.getElementById("botaoFiltrar");
+const botaoLimparFiltro = document.getElementById("botaoLimparFiltro");
+
 function limitarTexto(texto) {
     if (!texto) {
         return "-";
@@ -18,11 +23,11 @@ function limitarTexto(texto) {
     return texto.substring(0, 70) + "...";
 }
 
-async function carregarProntuarios() {
+async function carregarProntuarios(url = `${API_URL}/prontuarios`) {
     try {
         mensagem.textContent = "";
 
-        const resposta = await fetch(`${API_URL}/prontuarios`);
+        const resposta = await fetch(url);
 
         if (!resposta.ok) {
             throw new Error("Nao foi possivel carregar prontuarios");
@@ -88,11 +93,75 @@ async function deletarProntuario(id) {
     }
 }
 
-botaoAtualizar.addEventListener("click", carregarProntuarios);
+async function carregarPacienteFiltro() {
+    const resposta = await fetch(`${API_URL}/pacientes`);
+    const pacientes = await resposta.json();
+
+    pacientes.forEach(function (paciente) {
+        const option = document.createElement("option");
+        option.value = paciente.id;
+        option.textContent = paciente.nome;
+        filtroPaciente.appendChild(option);
+    });
+}
+
+async function carregarProfissionalFiltro() {
+    const resposta = await fetch(`${API_URL}/profissionais`);
+    const profissionais = await resposta.json();
+
+    profissionais.forEach(function (profissional) {
+        const option = document.createElement("option");
+        option.value = profissional.id;
+        option.textContent = `${profissional.nome} - ${profissional.tipoProfissional}`;
+        filtroProfissional.appendChild(option);
+    });
+}
+
+function filtrarProntuarios() {
+    const pacienteId = filtroPaciente.value;
+    const profissionalId = filtroProfissional.value;
+
+    if (pacienteId && profissionalId) {
+        mensagem.textContent = "Use apenas um filtro por vez.";
+        return;
+    }
+
+    if (pacienteId) {
+        carregarProntuarios(`${API_URL}/prontuarios/paciente/${pacienteId}`);
+        return;
+    }
+
+    if (profissionalId) {
+        carregarProntuarios(`${API_URL}/prontuarios/profissional/${profissionalId}`);
+        return;
+    }
+
+    carregarProntuarios();
+}
+
+function limparFiltros() {
+    filtroPaciente.value = "";
+    filtroProfissional.value = "";
+    carregarProntuarios();
+}
+
+botaoAtualizar.addEventListener("click", function () {
+    carregarProntuarios();
+});
+
+botaoFiltrar.addEventListener("click", filtrarProntuarios);
+
+botaoLimparFiltro.addEventListener("click", limparFiltros);
 
 botaoSair.addEventListener("click", function () {
     localStorage.removeItem("usuarioLogado");
     window.location.href = "login.html";
 });
 
-carregarProntuarios();
+async function inicioPagina() {
+    await carregarPacienteFiltro();
+    await carregarProfissionalFiltro();
+    await carregarProntuarios();
+}
+
+inicioPagina();

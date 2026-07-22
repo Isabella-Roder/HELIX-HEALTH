@@ -6,16 +6,20 @@ import org.springframework.stereotype.Service;
 
 import com.helixhealth.paciente.Paciente;
 import com.helixhealth.paciente.PacienteRepository;
+import com.helixhealth.profissional.Profissional;
+import com.helixhealth.profissional.ProfissionalRepository;
 
 @Service
 public class UsuarioService {
     
     private final UsuarioRepository usuarioRepository;
     private final PacienteRepository pacienteRepository;
+    private final ProfissionalRepository profissionalRepository;
 
-    public UsuarioService(UsuarioRepository usuarioRepository, PacienteRepository pacienteRepository) {
+    public UsuarioService(UsuarioRepository usuarioRepository, PacienteRepository pacienteRepository, ProfissionalRepository profissionalRepository) {
         this.usuarioRepository = usuarioRepository;
         this.pacienteRepository = pacienteRepository;
+        this.profissionalRepository = profissionalRepository;
     }
 
     public List<Usuario> listar() {
@@ -43,6 +47,7 @@ public class UsuarioService {
     public Usuario cadastrar(Usuario usuario) {
         verificacoesCadastro(usuario);
         prepararPacienteVinculado(usuario);
+        prepararProfissionalVinculado(usuario);
 
         return usuarioRepository.save(usuario);
     }
@@ -62,9 +67,11 @@ public class UsuarioService {
         usuario.setTipoUsuario(dadosAtualizados.getTipoUsuario());
         usuario.setAtivo(dadosAtualizados.getAtivo());
         usuario.setPaciente(dadosAtualizados.getPaciente());
+        usuario.setProfissional(dadosAtualizados.getProfissional());
 
         verificacoesCadastro(usuario);
         prepararPacienteVinculado(usuario);
+        prepararProfissionalVinculado(usuario);
 
         return usuarioRepository.save(usuario);
     }
@@ -90,6 +97,23 @@ public class UsuarioService {
             .orElseThrow(() -> new IllegalArgumentException("Paciente nao encontrado."));
 
         usuario.setPaciente(paciente);
+    }
+
+    public void prepararProfissionalVinculado(Usuario usuario) {
+        if (usuario.getTipoUsuario() == TipoUsuario.PACIENTE) {
+            usuario.setProfissional(null);
+            return;
+        }
+
+        if (usuario.getProfissional() == null || usuario.getProfissional().getId() == null) {
+            usuario.setProfissional(null);
+            return;
+        }
+
+        Profissional profissional = profissionalRepository.findById(usuario.getProfissional().getId())
+            .orElseThrow(() -> new IllegalArgumentException("Profissional nao encontrado."));
+
+        usuario.setProfissional(profissional);
     }
 
 }

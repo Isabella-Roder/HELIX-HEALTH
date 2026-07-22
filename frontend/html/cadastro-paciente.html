@@ -31,8 +31,6 @@
       </div>
 
       <div class="linha">
-        
-
         <div class="campo">
           <label for="cpf">CPF</label>
           <input type="text" id="cpf" required>
@@ -41,6 +39,33 @@
         <div class="campo">
           <label for="dataNascimento">Data de nascimento</label>
           <input type="date" id="dataNascimento" required>
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="sexo">Sexo</label>
+          <select id="sexo" required>
+            <option value="">Selecione</option>
+            <option value="FEMININO">Feminino</option>
+            <option value="MASCULINO">Masculino</option>
+            <option value="INTERSEXO">Intersexo</option>
+            <option value="NAO_INFORMADO">Prefiro nao informar</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="genero">Genero</label>
+          <select id="genero" required>
+            <option value="">Selecione</option>
+            <option value="MULHER_CIS">Mulher cis</option>
+            <option value="HOMEM_CIS">Homem cis</option>
+            <option value="MULHER_TRANS">Mulher trans</option>
+            <option value="HOMEM_TRANS">Homem trans</option>
+            <option value="NAO_BINARIO">Nao binario</option>
+            <option value="OUTRO">Outro</option>
+            <option value="NAO_INFORMADO">Prefiro nao informar</option>
+          </select>
         </div>
       </div>
 

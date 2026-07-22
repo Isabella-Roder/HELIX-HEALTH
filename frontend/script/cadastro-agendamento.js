@@ -74,17 +74,35 @@ async function carregarPacientes() {
 }
 
 async function carregarProfissionais() {
-    const resposta = await fetch(`${API_URL}/profissionais`);
-    const profissionais = await resposta.json();
-
     const selectProfissional = document.getElementById("profissional");
 
-    profissionais.forEach(function (profissional) {
-        const option = document.createElement("option");
-        option.value = profissional.id;
-        option.textContent = `${profissional.nome} - ${profissional.tipoProfissional}`;
-        selectProfissional.appendChild(option);
-    });
+    try {
+        const resposta = await fetch(`${API_URL}/profissionais`);
+
+        if (!resposta.ok) {
+            throw new Error("Nao foi possivel carregar profissionais");
+        }
+
+        const profissionais = await resposta.json();
+
+        selectProfissional.innerHTML = `
+            <option value="">Selecione um profissional</option>
+        `;
+
+        if (profissionais.length === 0) {
+            mensagem.textContent = "Nenhum profissional cadastrado.";
+            return;
+        }
+
+        profissionais.forEach(function (profissional) {
+            const option = document.createElement("option");
+            option.value = profissional.id;
+            option.textContent = `${profissional.nome} - ${profissional.tipoProfissional}`;
+            selectProfissional.appendChild(option);
+        });
+    } catch (erro) {
+        mensagem.textContent = "Erro: " + erro.message;
+    }
 }
 
 async function carregarAgendamentoParaEdicao() {

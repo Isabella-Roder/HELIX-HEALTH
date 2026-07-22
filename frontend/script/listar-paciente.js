@@ -25,7 +25,7 @@ async function carregarPaciente() {
         if (pacientes.length === 0) {
             tabelaPacientes.innerHTML = `
                 <tr>
-                    <td colspan="8" class="empty">Nenhum paciente cadastrado.</td>
+                    <td colspan="10" class="empty">Nenhum paciente cadastrado.</td>
                 </tr>
             `;
             return;
@@ -40,11 +40,13 @@ async function carregarPaciente() {
                 <td>${paciente.nomeSocial || "-"}</td>
                 <td>${paciente.cpf}</td>
                 <td>${paciente.telefone}</td>
+                <td>${paciente.sexo || "-"}</td>
+                <td>${paciente.genero || "-"}</td>
                 <td>${paciente.convenio || "-"}</td>
                 <td>${paciente.dataNascimento || "-"}</td>
-                <td>
-                    <a href="cadastro-paciente.html?id=${paciente.id}">Editar</a>
-                    <button type="button" onclick="deletarPaciente(${paciente.id})">Excluir</button>
+                <td class="actions-cell">
+                    <a class="table-action" href="cadastro-paciente.html?id=${paciente.id}">Editar</a>
+                    <button class="table-action danger" type="button" onclick="deletarPaciente(${paciente.id})">Excluir</button>
                 </td>
             `;
 

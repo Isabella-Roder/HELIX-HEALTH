@@ -47,6 +47,11 @@ public class PacienteController {
     public void deletar(@PathVariable Long id) {
         pacienteService.deletar(id);
     }
+
+    @PostMapping("/pacientes/cadastrar-com-usuario")
+    public Paciente cadastrarComUsuario(@RequestBody PacienteUsuarioRequest request) {
+        return pacienteService.cadastrarComUsuario(request);
+    }
     
 
 }

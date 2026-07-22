@@ -3,6 +3,8 @@ package com.helixhealth.paciente;
 import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -22,12 +24,18 @@ public class Paciente {
     private String convenio;
     private String contatoEmergencia;
     private LocalDate dataNascimento;
+    
+    @Enumerated(EnumType.STRING)
+    private SexoPaciente sexo;
+
+    @Enumerated(EnumType.STRING)
+    private GeneroPaciente genero;
 
     public Paciente() {
 
     }
 
-    public Paciente(String nome, String nomeSocial, String cpf, String telefone, String endereco, String convenio, String contatoEmergencia, LocalDate dataNascimento) {
+    public Paciente(String nome, String nomeSocial, String cpf, String telefone, String endereco, String convenio, String contatoEmergencia, LocalDate dataNascimento, SexoPaciente sexo, GeneroPaciente genero) {
         this.nome = nome;
         this.nomeSocial = nomeSocial;
         this.cpf = cpf;
@@ -36,6 +44,8 @@ public class Paciente {
         this.convenio = convenio;
         this.contatoEmergencia = contatoEmergencia;
         this.dataNascimento = dataNascimento;
+        this.sexo = sexo;
+        this.genero = genero;
     }
 
     public Long getId() {
@@ -74,6 +84,14 @@ public class Paciente {
         return dataNascimento;
     }
 
+    public SexoPaciente getSexo() {
+        return sexo;
+    }
+
+    public GeneroPaciente getGenero() {
+        return genero;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -104,6 +122,14 @@ public class Paciente {
 
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+    public void setSexo(SexoPaciente sexo) {
+        this.sexo = sexo;
+    }
+
+    public void setGenero(GeneroPaciente genero) {
+        this.genero = genero;
     }
 
 }

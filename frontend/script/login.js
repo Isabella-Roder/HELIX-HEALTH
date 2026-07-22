@@ -28,7 +28,13 @@ form.addEventListener("submit", async function (event) {
 
         localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
 
-        window.location.href = "portal-usuario.html";
+        if (usuario.tipoUsuario === "PACIENTE") {
+            window.location.href = "portal-paciente.html";
+        } else if (usuario.profissional) {
+            window.location.href = "portal-profissional.html";
+        } else {
+            window.location.href = "portal-usuario.html";
+        }
     } catch (erro) {
         mensagem.textContent = "Erro: " + erro.message;
     }

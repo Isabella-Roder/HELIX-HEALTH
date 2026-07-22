@@ -11,13 +11,13 @@ body {
   padding: 32px 16px;
 }
 
-main {
+.page {
   width: 100%;
-  max-width: 680px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
-header {
+.page-header {
   margin-bottom: 22px;
 }
 
@@ -29,7 +29,6 @@ header {
 }
 
 .voltar {
-  display: inline-block;
   color: #1f7a8c;
   font-size: 14px;
   font-weight: 700;
@@ -40,12 +39,6 @@ header {
   text-decoration: underline;
 }
 
-h1 {
-  margin: 0;
-  color: #174c5f;
-  font-size: 30px;
-}
-
 .eyebrow {
   margin: 0 0 8px;
   color: #1f7a8c;
@@ -54,18 +47,50 @@ h1 {
   text-transform: uppercase;
 }
 
-header p {
+h1 {
+  margin: 0;
+  color: #174c5f;
+  font-size: 32px;
+}
+
+.page-header p {
   margin: 8px 0 0;
   color: #52616b;
   font-size: 16px;
 }
 
 form {
-  background: #ffffff;
   border: 1px solid #d8e2e7;
   border-radius: 8px;
+  background: #ffffff;
   padding: 28px;
   box-shadow: 0 12px 30px rgba(22, 62, 80, 0.12);
+}
+
+.form-section {
+  padding-bottom: 20px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid #e5edf1;
+}
+
+.form-section:last-of-type {
+  margin-bottom: 0;
+}
+
+.section-heading {
+  margin-bottom: 18px;
+}
+
+h2 {
+  margin: 0;
+  color: #174c5f;
+  font-size: 20px;
+}
+
+.section-heading p {
+  margin: 6px 0 0;
+  color: #52616b;
+  font-size: 14px;
 }
 
 .linha {
@@ -114,6 +139,7 @@ select:focus {
   grid-template-columns: 1fr auto;
   gap: 12px;
   align-items: center;
+  margin-top: 24px;
 }
 
 button {
@@ -155,9 +181,9 @@ button:hover {
 #mensagem {
   min-height: 22px;
   margin: 16px 0 0;
-  text-align: center;
   color: #174c5f;
   font-weight: 700;
+  text-align: center;
 }
 
 @media (max-width: 640px) {
@@ -169,12 +195,13 @@ button:hover {
     padding: 22px;
   }
 
-  .linha {
+  .linha,
+  .form-actions {
     grid-template-columns: 1fr;
     gap: 0;
   }
 
-  .form-actions {
-    grid-template-columns: 1fr;
+  .secondary-link {
+    margin-top: 12px;
   }
 }

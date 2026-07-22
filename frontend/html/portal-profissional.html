@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal do Profissional - Helix Health</title>
+  <link rel="stylesheet" href="../style/portal-profissional.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="brand">Helix Health</a>
+
+    <nav class="menu">
+      <a href="portal-profissional.html">Meu portal</a>
+      <a href="cadastro-prontuario.html">Prontuario</a>
+      <a href="#" id="botaoSair">Sair</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">Portal do profissional</p>
+        <h1>Ola, <span id="nomeProfissional">Profissional</span></h1>
+        <p class="subtitle">Acompanhe seus atendimentos, consultas agendadas e dados profissionais.</p>
+      </div>
+
+      <div class="profile-box">
+        <span class="profile-label">Perfil</span>
+        <strong id="tipoProfissional">-</strong>
+        <small id="emailUsuario">email@exemplo.com</small>
+      </div>
+    </section>
+
+    <section class="welcome-message">
+      <h2>Area de atendimento</h2>
+      <p id="mensagemBoasVindas">
+        Consulte seus agendamentos e use os atalhos para registrar informacoes do atendimento.
+      </p>
+    </section>
+
+    <section class="summary">
+      <article class="summary-card">
+        <span class="summary-number" id="totalAgendamentos">0</span>
+        <span class="summary-label">Consultas</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="especialidadeProfissional">-</span>
+        <span class="summary-label">Especialidade</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="statusConta">Ativa</span>
+        <span class="summary-label">Status</span>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Meus dados</h2>
+        </div>
+
+        <dl class="data-list">
+          <div>
+            <dt>Nome completo</dt>
+            <dd id="dadoNome">-</dd>
+          </div>
+
+          <div>
+            <dt>Nome social</dt>
+            <dd id="dadoNomeSocial">-</dd>
+          </div>
+
+          <div>
+            <dt>CPF</dt>
+            <dd id="dadoCpf">-</dd>
+          </div>
+
+          <div>
+            <dt>Telefone</dt>
+            <dd id="dadoTelefone">-</dd>
+          </div>
+
+          <div>
+            <dt>Registro</dt>
+            <dd id="dadoRegistro">-</dd>
+          </div>
+
+          <div>
+            <dt>Tipo</dt>
+            <dd id="dadoTipo">-</dd>
+          </div>
+        </dl>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Atalhos</h2>
+        </div>
+
+        <div class="actions">
+          <a href="#minhasConsultas">Minhas consultas</a>
+          <a href="cadastro-prontuario.html">Cadastrar prontuario</a>
+          <a href="listar-prontuario.html">Consultar prontuarios</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel full-panel" id="minhasConsultas">
+      <div class="panel-heading inline-heading">
+        <div>
+          <p class="eyebrow">Agenda</p>
+          <h2>Minhas consultas</h2>
+        </div>
+
+        <span class="panel-badge" id="statusAgendamentos">Carregando</span>
+      </div>
+
+      <div class="appointment-list" id="listaAgendamentos">
+        <p class="empty">Carregando consultas...</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="../script/auth.js"></script>
+  <script src="../script/portal-profissional.js"></script>
+</body>
+</html>

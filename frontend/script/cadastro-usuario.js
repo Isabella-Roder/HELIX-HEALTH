@@ -22,6 +22,9 @@ form.addEventListener("submit", async function (event) {
         ativo: document.getElementById("ativo").value === "true",
         paciente: document.getElementById("paciente").value
             ? { id: Number(document.getElementById("paciente").value)}
+            : null,
+        profissional: document.getElementById("profissional").value
+            ? {id: Number(document.getElementById("profissional").value)}
             : null
     };
 
@@ -85,6 +88,8 @@ async function carregarUsuarioParaEdicao() {
         document.getElementById("tipoUsuario").value = usuario.tipoUsuario || "";
         document.getElementById("ativo").value = String(usuario.ativo);
         document.getElementById("paciente").value = usuario.paciente ? usuario.paciente.id : "";
+        document.getElementById("profissional").value = usuario.profissional ? usuario.profissional.id : "";
+        controlarCamposVinculo();
     } catch (erro) {
         mensagem.textContent = "Erro: " + erro.message;
     }
@@ -105,15 +110,53 @@ async function carregarPacientes() {
 
 }
 
-function controlarCampoPaciente() {
-    const tipoUsuario = document.getElementById("tipoUsuario").value;
-    const campoPaciente = document.getElementById("campoPaciente");
+async function carregarProfissionais() {
+    const resposta = await fetch(`${API_URL}/profissionais`);
+    const profissionais = await resposta.json();
 
-    campoPaciente.style.display = tipoUsuario === "PACIENTE" ? "block" : "none";
+    const selectProfissional = document.getElementById("profissional");
+
+    profissionais.forEach(function (profissional) {
+        const option = document.createElement("option");
+        option.value = profissional.id;
+        option.textContent = `${profissional.nome} - ${profissional.tipoProfissional}`;
+        selectProfissional.appendChild(option);
+    });
 }
 
-document.getElementById("tipoUsuario").addEventListener("change", controlarCampoPaciente);
+function controlarCamposVinculo() {
+    const tipoUsuario = document.getElementById("tipoUsuario").value;
+    const campoPaciente = document.getElementById("campoPaciente");
+    const campoProfissional = document.getElementById("campoProfissional");
+    const tiposProfissionais = [
+        "MEDICO",
+        "ENFERMEIRO",
+        "RECEPCAO",
+        "FICHARIO",
+        "FINANCEIRO",
+        "FARMACIA",
+        "ALMOXARIFADO"
+    ];
 
-carregarPacientes();
-controlarCampoPaciente();
-carregarUsuarioParaEdicao();
+    campoPaciente.style.display = tipoUsuario === "PACIENTE" ? "block" : "none";
+    campoProfissional.style.display = tiposProfissionais.includes(tipoUsuario) ? "block" : "none";
+
+    if (tipoUsuario !== "PACIENTE") {
+        document.getElementById("paciente").value = "";
+    }
+
+    if (!tiposProfissionais.includes(tipoUsuario)) {
+        document.getElementById("profissional").value = "";
+    }
+}
+
+document.getElementById("tipoUsuario").addEventListener("change", controlarCamposVinculo);
+
+async function iniciarPagina() {
+    await carregarPacientes();
+    await carregarProfissionais();
+    controlarCamposVinculo();
+    await carregarUsuarioParaEdicao();
+}
+
+iniciarPagina();

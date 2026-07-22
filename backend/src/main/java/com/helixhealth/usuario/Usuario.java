@@ -1,6 +1,7 @@
 package com.helixhealth.usuario;
 
 import com.helixhealth.paciente.Paciente;
+import com.helixhealth.profissional.Profissional;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -32,11 +33,15 @@ public class Usuario {
     @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
+    @OneToOne
+    @JoinColumn(name = "profissional_id")
+    private Profissional profissional;
+
     public Usuario() {
 
     }
 
-    public Usuario(String nome, String nomeSocial, String email, String senha, TipoUsuario tipoUsuario, Boolean ativo, Paciente paciente) {
+    public Usuario(String nome, String nomeSocial, String email, String senha, TipoUsuario tipoUsuario, Boolean ativo, Paciente paciente, Profissional profissional) {
         this.nome = nome;
         this.nomeSocial = nomeSocial;
         this.email = email;
@@ -44,6 +49,7 @@ public class Usuario {
         this.tipoUsuario = tipoUsuario;
         this.ativo = ativo;
         this.paciente = paciente;
+        this.profissional = profissional;
     }
 
     public Long getId() {
@@ -78,6 +84,10 @@ public class Usuario {
         return paciente;
     }
 
+    public Profissional getProfissional() {
+        return profissional;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -104,6 +114,10 @@ public class Usuario {
 
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
+    }
+
+    public void setProfissional(Profissional profissional) {
+        this.profissional = profissional;
     }
 
 }

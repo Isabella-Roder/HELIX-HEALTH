@@ -139,7 +139,7 @@ button:hover {
 table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 980px;
+  min-width: 1120px;
 }
 
 th,
@@ -175,6 +175,7 @@ tbody tr:hover {
   align-items: center;
   justify-content: center;
   min-height: 32px;
+  height: 32px;
   padding: 0 12px;
   border: 1px solid #c9d6dc;
   border-radius: 6px;
@@ -188,6 +189,26 @@ tbody tr:hover {
 .table-action:hover {
   border-color: #1f7a8c;
   background: #eef8fa;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.table-action.danger {
+  width: auto;
+  border-color: #f0c6c6;
+  color: #8f2f2f;
+  background: #fff5f5;
+}
+
+.table-action.danger:hover {
+  border-color: #d76b6b;
+  color: #ffffff;
+  background: #b84a4a;
 }
 
 #mensagem {

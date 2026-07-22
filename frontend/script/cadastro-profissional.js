@@ -20,7 +20,7 @@ form.addEventListener("submit", async function (event) {
         telefone: document.getElementById("telefone").value,
         email: document.getElementById("email").value,
         tipoProfissional: document.getElementById("tipoProfissional").value,
-        especialidadeProfissional: document.getElementById("especialidade").value,
+        especialidadeProfissional: document.getElementById("especialidade").value || null,
         registroProfissional: document.getElementById("registroProfissional").value,
         ativo: document.getElementById("ativo").value === "true"
     };
@@ -41,7 +41,8 @@ form.addEventListener("submit", async function (event) {
         });
 
         if (!resposta.ok) {
-            throw new Error("Erro ao salvar profissional");
+            const textoErro = await resposta.text();
+            throw new Error(textoErro || "Erro ao salvar profissional");
         }
 
         await resposta.json();

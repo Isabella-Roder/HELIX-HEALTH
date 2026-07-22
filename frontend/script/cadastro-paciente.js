@@ -22,7 +22,9 @@ form.addEventListener("submit", async function (event) {
         telefone: document.getElementById("telefone").value,
         endereco: document.getElementById("endereco").value,
         convenio: document.getElementById("convenio").value,
-        contatoEmergencia: document.getElementById("contatoEmergencia").value
+        contatoEmergencia: document.getElementById("contatoEmergencia").value,
+        sexo: document.getElementById("sexo").value,
+        genero: document.getElementById("genero").value
     };
 
     try {
@@ -82,6 +84,8 @@ async function carregarPacienteParaEdicao() {
         document.getElementById("endereco").value = paciente.endereco || "";
         document.getElementById("convenio").value = paciente.convenio || "";
         document.getElementById("contatoEmergencia").value = paciente.contatoEmergencia || "";
+        document.getElementById("sexo").value = paciente.sexo || "";
+        document.getElementById("genero").value = paciente.genero || "";
     } catch (erro) {
         mensagem.textContent = "Erro: " + erro.message;
     }

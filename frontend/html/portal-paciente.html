@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal do Paciente - Helix Health</title>
+  <link rel="stylesheet" href="../style/portal-paciente.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="brand">Helix Health</a>
+
+    <nav class="menu">
+      <a href="portal-paciente.html">Meu portal</a>
+      <a href="#" id="botaoSair">Sair</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">Portal do paciente</p>
+        <h1>Ola, <span id="nomePaciente">Paciente</span></h1>
+        <p class="subtitle">Acompanhe seus dados, agendamentos e historico de atendimentos.</p>
+      </div>
+
+      <div class="profile-box">
+        <span class="profile-label">Conta</span>
+        <strong id="statusConta">Ativa</strong>
+        <small id="emailUsuario">email@exemplo.com</small>
+      </div>
+    </section>
+
+    <section class="welcome-message">
+      <h2>Bem-vindo ao seu portal</h2>
+      <p id="mensagemBoasVindas">
+        Aqui voce pode consultar suas informacoes de cadastro e acompanhar seus registros de atendimento.
+      </p>
+    </section>
+
+    <section class="summary">
+      <article class="summary-card">
+        <span class="summary-number" id="totalAgendamentos">0</span>
+        <span class="summary-label">Agendamentos</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalProntuarios">0</span>
+        <span class="summary-label">Registros medicos</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="convenioPaciente">-</span>
+        <span class="summary-label">Convenio</span>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Meus dados</h2>
+        </div>
+
+        <dl class="data-list">
+          <div>
+            <dt>Nome completo</dt>
+            <dd id="dadoNome">-</dd>
+          </div>
+
+          <div>
+            <dt>Nome social</dt>
+            <dd id="dadoNomeSocial">-</dd>
+          </div>
+
+          <div>
+            <dt>CPF</dt>
+            <dd id="dadoCpf">-</dd>
+          </div>
+
+          <div>
+            <dt>Data de nascimento</dt>
+            <dd id="dadoNascimento">-</dd>
+          </div>
+
+          <div>
+            <dt>Telefone</dt>
+            <dd id="dadoTelefone">-</dd>
+          </div>
+
+          <div>
+            <dt>Contato de emergencia</dt>
+            <dd id="dadoEmergencia">-</dd>
+          </div>
+        </dl>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Atalhos</h2>
+        </div>
+
+        <div class="actions">
+          <a href="#meusAgendamentos" id="linkMeusAgendamentos">Meus agendamentos</a>
+          <a href="#" id="linkMeuProntuario">Meu prontuario</a>
+          <a href="login.html">Trocar usuario</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel full-panel" id="meusAgendamentos">
+      <div class="panel-heading inline-heading">
+        <div>
+          <p class="eyebrow">Consultas</p>
+          <h2>Meus agendamentos</h2>
+        </div>
+
+        <span class="panel-badge" id="statusAgendamentos">Carregando</span>
+      </div>
+
+      <div class="appointment-list" id="listaAgendamentos">
+        <p class="empty">Carregando agendamentos...</p>
+      </div>
+    </section>
+
+    <section class="panel full-panel">
+      <div class="panel-heading">
+        <h2>Ultimos registros</h2>
+      </div>
+
+      <div class="records-list" id="listaRegistros">
+        <p class="empty">Nenhum registro carregado ainda.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="../script/auth.js"></script>
+  <script src="../script/portal-paciente.js"></script>
+</body>
+</html>

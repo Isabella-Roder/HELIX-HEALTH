@@ -1,3 +1,7 @@
+if (window.acessoBloqueado) {
+    throw new Error("Acesso bloqueado.");
+}
+
 const API_URL = "http://localhost:8080";
 
 const tabelaProntuarios = document.getElementById("tabelaProntuarios");

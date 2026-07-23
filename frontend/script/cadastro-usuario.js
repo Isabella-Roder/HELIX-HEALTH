@@ -1,3 +1,7 @@
+if (window.acessoBloqueado) {
+    throw new Error("Acesso bloqueado.");
+}
+
 const API_URL = "http://localhost:8080";
 
 const form = document.getElementById("formUsuario");
@@ -10,15 +14,42 @@ const botaoSalvar = document.getElementById("botaoSalvar");
 const parametros = new URLSearchParams(window.location.search);
 const usuarioId = parametros.get("id");
 
+function obterTiposSelecionados() {
+    const checkboxes = document.querySelectorAll("input[name='tipoUsuario']:checked");
+
+    return Array.from(checkboxes).map(function (checkbox) {
+        return checkbox.value;
+    });
+}
+
+function obterTiposUsuario(usuario) {
+    return Array.isArray(usuario.tipoUsuario)
+        ? usuario.tipoUsuario
+        : [usuario.tipoUsuario].filter(Boolean);
+}
+
+function marcarTiposUsuario(tiposUsuario) {
+    document.querySelectorAll("input[name='tipoUsuario']").forEach(function (checkbox) {
+        checkbox.checked = tiposUsuario.includes(checkbox.value);
+    });
+}
+
 form.addEventListener("submit", async function (event) {
     event.preventDefault();
+
+    const tiposSelecionados = obterTiposSelecionados();
+
+    if (tiposSelecionados.length === 0) {
+        mensagem.textContent = "Selecione pelo menos um perfil de acesso.";
+        return;
+    }
 
     const usuario = {
         nome: document.getElementById("nome").value,
         nomeSocial: document.getElementById("nomeSocial").value,
         email: document.getElementById("email").value,
         senha: document.getElementById("senha").value,
-        tipoUsuario: document.getElementById("tipoUsuario").value,
+        tipoUsuario: tiposSelecionados,
         ativo: document.getElementById("ativo").value === "true",
         paciente: document.getElementById("paciente").value
             ? { id: Number(document.getElementById("paciente").value)}
@@ -85,7 +116,7 @@ async function carregarUsuarioParaEdicao() {
         document.getElementById("nomeSocial").value = usuario.nomeSocial || "";
         document.getElementById("email").value = usuario.email || "";
         document.getElementById("senha").value = usuario.senha || "";
-        document.getElementById("tipoUsuario").value = usuario.tipoUsuario || "";
+        marcarTiposUsuario(obterTiposUsuario(usuario));
         document.getElementById("ativo").value = String(usuario.ativo);
         document.getElementById("paciente").value = usuario.paciente ? usuario.paciente.id : "";
         document.getElementById("profissional").value = usuario.profissional ? usuario.profissional.id : "";
@@ -125,7 +156,7 @@ async function carregarProfissionais() {
 }
 
 function controlarCamposVinculo() {
-    const tipoUsuario = document.getElementById("tipoUsuario").value;
+    const tiposUsuario = obterTiposSelecionados();
     const campoPaciente = document.getElementById("campoPaciente");
     const campoProfissional = document.getElementById("campoProfissional");
     const tiposProfissionais = [
@@ -138,19 +169,26 @@ function controlarCamposVinculo() {
         "ALMOXARIFADO"
     ];
 
-    campoPaciente.style.display = tipoUsuario === "PACIENTE" ? "block" : "none";
-    campoProfissional.style.display = tiposProfissionais.includes(tipoUsuario) ? "block" : "none";
+    const temPaciente = tiposUsuario.includes("PACIENTE");
+    const temProfissional = tiposUsuario.some(function (tipoUsuario) {
+        return tiposProfissionais.includes(tipoUsuario);
+    });
 
-    if (tipoUsuario !== "PACIENTE") {
+    campoPaciente.style.display = temPaciente ? "block" : "none";
+    campoProfissional.style.display = temProfissional ? "block" : "none";
+
+    if (!temPaciente) {
         document.getElementById("paciente").value = "";
     }
 
-    if (!tiposProfissionais.includes(tipoUsuario)) {
+    if (!temProfissional) {
         document.getElementById("profissional").value = "";
     }
 }
 
-document.getElementById("tipoUsuario").addEventListener("change", controlarCamposVinculo);
+document.querySelectorAll("input[name='tipoUsuario']").forEach(function (checkbox) {
+    checkbox.addEventListener("change", controlarCamposVinculo);
+});
 
 async function iniciarPagina() {
     await carregarPacientes();

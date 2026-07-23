@@ -1,22 +1,44 @@
+if (window.acessoBloqueado) {
+    throw new Error("Acesso bloqueado.");
+}
+
 const usuarioSalvo = localStorage.getItem("usuarioLogado");
 
+function redirecionar(destino) {
+    window.acessoBloqueado = true;
+    window.location.replace(destino);
+    throw new Error("Redirecionando acesso.");
+}
+
 if (!usuarioSalvo) {
-    window.location.href = "login.html";
+    redirecionar("login.html");
 }
 
 const usuario = JSON.parse(usuarioSalvo);
 const profissional = usuario.profissional;
 
+function temTipo(usuario, tipoUsuario) {
+    const tipos = Array.isArray(usuario.tipoUsuario)
+        ? usuario.tipoUsuario
+        : [usuario.tipoUsuario];
+
+    return tipos.includes(tipoUsuario);
+}
+
+function listarTiposUsuario(usuario) {
+    return Array.isArray(usuario.tipoUsuario)
+        ? usuario.tipoUsuario.join(", ")
+        : usuario.tipoUsuario;
+}
+
 if (!profissional) {
-    window.location.href = usuario.tipoUsuario === "PACIENTE"
-        ? "portal-paciente.html"
-        : "portal-usuario.html";
+    redirecionar("portal-seletor.html");
 }
 
 const API_URL = "http://localhost:8080";
 
 document.getElementById("nomeProfissional").textContent = profissional.nome || usuario.nome;
-document.getElementById("tipoProfissional").textContent = profissional.tipoProfissional || usuario.tipoUsuario;
+document.getElementById("tipoProfissional").textContent = profissional.tipoProfissional || listarTiposUsuario(usuario);
 document.getElementById("emailUsuario").textContent = usuario.email || profissional.email || "-";
 document.getElementById("statusConta").textContent = usuario.ativo ? "Ativa" : "Inativa";
 document.getElementById("especialidadeProfissional").textContent = profissional.especialidadeProfissional || "-";
@@ -30,7 +52,8 @@ document.getElementById("dadoTipo").textContent = profissional.tipoProfissional 
 
 document.getElementById("botaoSair").addEventListener("click", function () {
     localStorage.removeItem("usuarioLogado");
-    window.location.href = "login.html";
+    localStorage.removeItem("perfilSelecionado");
+    window.location.replace("login.html");
 });
 
 async function carregarAgendamentos() {

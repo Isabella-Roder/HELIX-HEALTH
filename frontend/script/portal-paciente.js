@@ -1,14 +1,32 @@
+if (window.acessoBloqueado) {
+    throw new Error("Acesso bloqueado.");
+}
+
 const usuarioSalvo = localStorage.getItem("usuarioLogado");
 
+function redirecionar(destino) {
+    window.acessoBloqueado = true;
+    window.location.replace(destino);
+    throw new Error("Redirecionando acesso.");
+}
+
 if (!usuarioSalvo) {
-    window.location.href = "login.html";
+    redirecionar("login.html");
 }
 
 const usuario = JSON.parse(usuarioSalvo);
 const paciente = usuario.paciente;
 
-if (usuario.tipoUsuario !== "PACIENTE" || !paciente) {
-    window.location.href = "portal-usuario.html";
+function temTipo(usuario, tipoUsuario) {
+    const tipos = Array.isArray(usuario.tipoUsuario)
+        ? usuario.tipoUsuario
+        : [usuario.tipoUsuario];
+
+    return tipos.includes(tipoUsuario);
+}
+
+if (!temTipo(usuario, "PACIENTE") || !paciente) {
+    redirecionar("portal-seletor.html");
 }
 
 document.getElementById("nomePaciente").textContent = paciente.nome;
@@ -25,7 +43,8 @@ document.getElementById("dadoEmergencia").textContent = paciente.contatoEmergenc
 
 document.getElementById("botaoSair").addEventListener("click", function () {
     localStorage.removeItem("usuarioLogado");
-    window.location.href = "login.html";
+    localStorage.removeItem("perfilSelecionado");
+    window.location.replace("login.html");
 });
 
 const API_URL = "http://localhost:8080";

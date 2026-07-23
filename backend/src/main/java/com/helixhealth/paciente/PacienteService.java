@@ -97,7 +97,7 @@ public class PacienteService {
         usuario.setNomeSocial(pacienteSalvo.getNomeSocial());
         usuario.setEmail(request.getEmail());
         usuario.setSenha(request.getSenha());
-        usuario.setTipoUsuario(TipoUsuario.PACIENTE);
+        usuario.setTipoUsuario(List.of(TipoUsuario.PACIENTE));
         usuario.setAtivo(true);
         usuario.setPaciente(pacienteSalvo);
 

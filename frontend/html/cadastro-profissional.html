@@ -20,6 +20,20 @@
     </header>
 
     <form id="formProfissional">
+      <section class="source-panel">
+        <div>
+          <h2>Usar paciente cadastrado</h2>
+          <p>Selecione uma pessoa ja cadastrada como paciente para preencher os dados pessoais.</p>
+        </div>
+
+        <div class="campo">
+          <label for="pacienteOrigem">Paciente cadastrado</label>
+          <select id="pacienteOrigem">
+            <option value="">Preencher manualmente</option>
+          </select>
+        </div>
+      </section>
+
       <div class="campo">
         <label for="nome">Nome completo</label>
         <input type="text" id="nome" required>
@@ -107,7 +121,7 @@
     <p id="mensagem"></p>
   </main>
 
-  <script src="../script/auth.js"></script>
-  <script src="../script/cadastro-profissional.js?v=2"></script>
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/cadastro-profissional.js?v=3"></script>
 </body>
 </html>

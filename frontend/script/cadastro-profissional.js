@@ -1,3 +1,7 @@
+if (window.acessoBloqueado) {
+    throw new Error("Acesso bloqueado.");
+}
+
 const API_URL = "http://localhost:8080";
 
 const form = document.getElementById("formProfissional");
@@ -92,4 +96,44 @@ async function carregarProfissionalParaEdicao() {
     }
 }
 
+async function carregarPacienteOrigem() {
+    const resposta = await fetch(`${API_URL}/pacientes`);
+    const pacientes = await resposta.json();
+
+    const selectPacienteOrigem = document.getElementById("pacienteOrigem");
+
+    pacientes.forEach(function (paciente) {
+        const option = document.createElement("option");
+        option.value = paciente.id;
+        option.textContent = `${paciente.nome} - ${paciente.cpf}`;
+        selectPacienteOrigem.appendChild(option);
+    });
+}
+
+document.getElementById("pacienteOrigem").addEventListener("change", async function () {
+    const pacienteId = document.getElementById("pacienteOrigem").value;
+
+    if (!pacienteId) {
+        return;
+    }
+
+    try {
+        const resposta = await fetch(`${API_URL}/pacientes/${pacienteId}`);
+
+        if (!resposta.ok) {
+            throw new Error("Paciente não encontrado.");
+        }
+
+        const paciente = await resposta.json();
+
+        document.getElementById("nome").value = paciente.nome || "";
+        document.getElementById("nomeSocial").value = paciente.nomeSocial || "";
+        document.getElementById("cpf").value = paciente.cpf || "";
+        document.getElementById("telefone").value = paciente.telefone || "";
+    } catch (erro) {
+        mensagem.textContent = "Erro: " + erro.message;
+    }
+});
+
+carregarPacienteOrigem();
 carregarProfissionalParaEdicao();

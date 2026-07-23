@@ -1,11 +1,16 @@
 package com.helixhealth.usuario;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.helixhealth.paciente.Paciente;
 import com.helixhealth.profissional.Profissional;
 
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -24,8 +29,9 @@ public class Usuario {
     private String email;
     private String senha;
 
+    @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
-    private TipoUsuario tipoUsuario;
+    private List<TipoUsuario> tipoUsuario = new ArrayList<>();
 
     private Boolean ativo;
 
@@ -41,7 +47,7 @@ public class Usuario {
 
     }
 
-    public Usuario(String nome, String nomeSocial, String email, String senha, TipoUsuario tipoUsuario, Boolean ativo, Paciente paciente, Profissional profissional) {
+    public Usuario(String nome, String nomeSocial, String email, String senha, List<TipoUsuario> tipoUsuario, Boolean ativo, Paciente paciente, Profissional profissional) {
         this.nome = nome;
         this.nomeSocial = nomeSocial;
         this.email = email;
@@ -72,7 +78,7 @@ public class Usuario {
         return senha;
     }
 
-    public TipoUsuario getTipoUsuario() {
+    public List<TipoUsuario> getTipoUsuario() {
         return tipoUsuario;
     }
 
@@ -104,7 +110,7 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public void setTipoUsuario(TipoUsuario tipoUsuario) {
+    public void setTipoUsuario(List<TipoUsuario> tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
 

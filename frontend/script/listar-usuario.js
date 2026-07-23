@@ -1,3 +1,7 @@
+if (window.acessoBloqueado) {
+    throw new Error("Acesso bloqueado.");
+}
+
 const API_URL = "http://localhost:8080";
 
 const tabelaUsuarios = document.getElementById("tabelaUsuarios");
@@ -5,6 +9,12 @@ const totalUsuarios = document.getElementById("totalUsuarios");
 const mensagem = document.getElementById("mensagem");
 const botaoAtualizar = document.getElementById("botaoAtualizar");
 const botaoSair = document.getElementById("botaoSair");
+
+function listarTiposUsuario(usuario) {
+    return Array.isArray(usuario.tipoUsuario)
+        ? usuario.tipoUsuario.join(", ")
+        : usuario.tipoUsuario;
+}
 
 async function carregarUsuarios() {
     try {
@@ -39,7 +49,7 @@ async function carregarUsuarios() {
                 <td>${usuario.nome}</td>
                 <td>${usuario.nomeSocial || "-"}</td>
                 <td>${usuario.email}</td>
-                <td>${usuario.tipoUsuario}</td>
+                <td>${listarTiposUsuario(usuario)}</td>
                 <td>${usuario.ativo ? "Ativo" : "Inativo"}</td>
                 <td>
                     <a href="cadastro-usuario.html?id=${usuario.id}">Editar</a>

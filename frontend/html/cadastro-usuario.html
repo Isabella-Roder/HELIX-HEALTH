@@ -42,23 +42,57 @@
         </div>
       </div>
 
-      <div class="linha">
-        <div class="campo">
-          <label for="tipoUsuario">Tipo de Usuario</label>
-          <select id="tipoUsuario" required>
-            <option value="">Selecione</option>
-            <option value="ADMIN">Admin</option>
-            <option value="MEDICO">Medico</option>
-            <option value="ENFERMEIRO">Enfermeiro</option>
-            <option value="RECEPCAO">Recepcao</option>
-            <option value="FICHARIO">Fichario</option>
-            <option value="FINANCEIRO">Financeiro</option>
-            <option value="FARMACIA">Farmacia</option>
-            <option value="ALMOXARIFADO">Almoxarifado</option>
-            <option value="PACIENTE">Paciente</option>
-          </select>
-        </div>
+      <div class="perfil-panel">
+        <label>Perfis de acesso</label>
+        <div class="profile-options">
+          <label class="profile-option">
+            <input type="checkbox" name="tipoUsuario" value="ADMIN">
+            <span>Admin</span>
+          </label>
 
+          <label class="profile-option">
+            <input type="checkbox" name="tipoUsuario" value="MEDICO">
+            <span>Medico</span>
+          </label>
+
+          <label class="profile-option">
+            <input type="checkbox" name="tipoUsuario" value="ENFERMEIRO">
+            <span>Enfermeiro</span>
+          </label>
+
+          <label class="profile-option">
+            <input type="checkbox" name="tipoUsuario" value="RECEPCAO">
+            <span>Recepcao</span>
+          </label>
+
+          <label class="profile-option">
+            <input type="checkbox" name="tipoUsuario" value="FICHARIO">
+            <span>Fichario</span>
+          </label>
+
+          <label class="profile-option">
+            <input type="checkbox" name="tipoUsuario" value="FINANCEIRO">
+            <span>Financeiro</span>
+          </label>
+
+          <label class="profile-option">
+            <input type="checkbox" name="tipoUsuario" value="FARMACIA">
+            <span>Farmacia</span>
+          </label>
+
+          <label class="profile-option">
+            <input type="checkbox" name="tipoUsuario" value="ALMOXARIFADO">
+            <span>Almoxarifado</span>
+          </label>
+
+          <label class="profile-option">
+            <input type="checkbox" name="tipoUsuario" value="PACIENTE">
+            <span>Paciente</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="linha">
         <div class="campo">
           <label for="ativo">Status</label>
           <select id="ativo" required>
@@ -91,7 +125,7 @@
     <p id="mensagem"></p>
   </main>
 
-  <script src="../script/auth.js"></script>
-  <script src="../script/cadastro-usuario.js?v=2"></script>
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/cadastro-usuario.js?v=3"></script>
 </body>
 </html>

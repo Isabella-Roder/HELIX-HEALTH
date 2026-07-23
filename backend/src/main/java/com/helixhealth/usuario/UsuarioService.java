@@ -83,7 +83,7 @@ public class UsuarioService {
     }
 
     public void prepararPacienteVinculado(Usuario usuario) {
-        if (usuario.getTipoUsuario() != TipoUsuario.PACIENTE) {
+        if (!temTipo(usuario, TipoUsuario.PACIENTE)) {
             usuario.setPaciente(null);
             return;
         }
@@ -100,7 +100,7 @@ public class UsuarioService {
     }
 
     public void prepararProfissionalVinculado(Usuario usuario) {
-        if (usuario.getTipoUsuario() == TipoUsuario.PACIENTE) {
+        if (!temTipoProfissional(usuario)) {
             usuario.setProfissional(null);
             return;
         }
@@ -114,6 +114,20 @@ public class UsuarioService {
             .orElseThrow(() -> new IllegalArgumentException("Profissional nao encontrado."));
 
         usuario.setProfissional(profissional);
+    }
+
+    private boolean temTipo(Usuario usuario, TipoUsuario tipoUsuario) {
+        return usuario.getTipoUsuario() != null && usuario.getTipoUsuario().contains(tipoUsuario);
+    }
+
+    private boolean temTipoProfissional(Usuario usuario) {
+        return temTipo(usuario, TipoUsuario.MEDICO)
+            || temTipo(usuario, TipoUsuario.ENFERMEIRO)
+            || temTipo(usuario, TipoUsuario.RECEPCAO)
+            || temTipo(usuario, TipoUsuario.FICHARIO)
+            || temTipo(usuario, TipoUsuario.FINANCEIRO)
+            || temTipo(usuario, TipoUsuario.FARMACIA)
+            || temTipo(usuario, TipoUsuario.ALMOXARIFADO);
     }
 
 }

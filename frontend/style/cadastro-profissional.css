@@ -68,6 +68,35 @@ form {
   box-shadow: 0 12px 30px rgba(22, 62, 80, 0.12);
 }
 
+.source-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: end;
+  margin-bottom: 22px;
+  padding: 18px;
+  border: 1px solid #d8e2e7;
+  border-radius: 8px;
+  background: #f7fbfc;
+}
+
+.source-panel h2 {
+  margin: 0 0 6px;
+  color: #174c5f;
+  font-size: 18px;
+}
+
+.source-panel p {
+  margin: 0;
+  color: #52616b;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.source-panel .campo {
+  margin-bottom: 0;
+}
+
 .linha {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -169,9 +198,14 @@ button:hover {
     font-size: 24px;
   }
 
-  .linha {
+  .linha,
+  .source-panel {
     grid-template-columns: 1fr;
     gap: 0;
+  }
+
+  .source-panel {
+    gap: 16px;
   }
 
   .form-actions {

@@ -45,6 +45,19 @@ body {
   color: #1f7a8c;
 }
 
+.menu .switch-portal {
+  padding: 8px 12px;
+  border: 1px solid #c9d6dc;
+  border-radius: 6px;
+  color: #174c5f;
+  background: #f7fbfc;
+}
+
+.menu .switch-portal:hover {
+  border-color: #1f7a8c;
+  background: #eef8fa;
+}
+
 .page {
   width: min(100%, 1080px);
   margin: 0 auto;

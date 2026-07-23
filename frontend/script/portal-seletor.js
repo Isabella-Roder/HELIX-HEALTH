@@ -21,9 +21,25 @@ const botaoSair = document.getElementById("botaoSair");
 function temTipo(usuario, tipoUsuario) {
     const tipos = Array.isArray(usuario.tipoUsuario)
         ? usuario.tipoUsuario
-        : [usuario.tipoUsuario];
+        : [usuario.tipoUsuario].filter(Boolean);
 
     return tipos.includes(tipoUsuario);
+}
+
+function temTipoProfissional(usuario) {
+    const tiposProfissionais = [
+        "MEDICO",
+        "ENFERMEIRO",
+        "RECEPCAO",
+        "FICHARIO",
+        "FINANCEIRO",
+        "FARMACIA",
+        "ALMOXARIFADO"
+    ];
+
+    return tiposProfissionais.some(function (tipoUsuario) {
+        return temTipo(usuario, tipoUsuario);
+    });
 }
 
 function criarCard(titulo, descricao, perfil, destino) {
@@ -56,7 +72,7 @@ function carregarPerfis() {
         );
     }
 
-    if (usuario.profissional) {
+    if (temTipoProfissional(usuario) && usuario.profissional) {
         criarCard(
             "Profissional",
             "Acompanhar consultas e registrar prontuarios.",
@@ -76,7 +92,7 @@ function carregarPerfis() {
 
     if (!listaPerfis.children.length) {
         listaPerfis.innerHTML = `
-            <p class="empty">Nenhum perfil disponivel para esta conta.</p>
+            <p class="empty">Nenhum portal disponivel. Verifique se o usuario esta ativo, com perfil marcado e vinculado a paciente ou profissional.</p>
         `;
     }
 }

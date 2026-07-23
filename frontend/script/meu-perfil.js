@@ -33,12 +33,16 @@ function carregarDadosPaciente() {
         mostrarTexto("nomePaciente", "Nenhum paciente vinculado");
         mostrarTexto("cpfPaciente", "-");
         mostrarTexto("telefonePaciente", "-");
+        mostrarTexto("sexoPaciente", "-");
+        mostrarTexto("generoPaciente", "-");
         return;
     }
 
     mostrarTexto("nomePaciente", paciente.nome);
     mostrarTexto("cpfPaciente", paciente.cpf);
     mostrarTexto("telefonePaciente", paciente.telefone);
+    mostrarTexto("sexoPaciente", paciente.sexo);
+    mostrarTexto("generoPaciente", paciente.genero);
 }
 
 function carregarDadosProfissional() {

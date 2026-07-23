@@ -101,7 +101,7 @@
 
         <div class="actions">
           <a href="#meusAgendamentos" id="linkMeusAgendamentos">Meus agendamentos</a>
-          <a href="#" id="linkMeuProntuario">Meu prontuario</a>
+          <a href="#meuProntuario" id="linkMeuProntuario">Meu prontuario</a>
           <a href="login.html">Trocar usuario</a>
         </div>
       </article>
@@ -122,13 +122,18 @@
       </div>
     </section>
 
-    <section class="panel full-panel">
-      <div class="panel-heading">
-        <h2>Ultimos registros</h2>
+    <section class="panel full-panel" id="meuProntuario">
+      <div class="panel-heading inline-heading">
+        <div>
+          <p class="eyebrow">Historico medico</p>
+          <h2>Meu prontuario</h2>
+        </div>
+
+        <span class="panel-badge" id="statusProntuarios">Carregando</span>
       </div>
 
       <div class="records-list" id="listaRegistros">
-        <p class="empty">Nenhum registro carregado ainda.</p>
+        <p class="empty">Carregando registros medicos...</p>
       </div>
     </section>
   </main>

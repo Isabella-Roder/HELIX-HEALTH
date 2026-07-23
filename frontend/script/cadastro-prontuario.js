@@ -9,6 +9,9 @@ const botaoSalvar = document.getElementById("botaoSalvar");
 
 const parametros = new URLSearchParams(window.location.search);
 const prontuarioId = parametros.get("id");
+const pacienteId = parametros.get("pacienteId");
+const profissionalId = parametros.get("profissionalId");
+const dataAtendimento = parametros.get("dataAtendimento");
 
 form.addEventListener("submit", async function (event) {
     event.preventDefault();
@@ -119,9 +122,28 @@ async function carregarProntuarioParaEdicao() {
     }
 }
 
+function carregarDadosVindosDaConsulta() {
+    if (prontuarioId) {
+        return;
+    }
+
+    if (pacienteId) {
+        document.getElementById("paciente").value = pacienteId;
+    }
+
+    if (profissionalId) {
+        document.getElementById("profissional").value = profissionalId;
+    }
+
+    if (dataAtendimento) {
+        document.getElementById("dataAtendimento").value = dataAtendimento;
+    }
+}
+
 async function iniciarPagina() {
     await carregarPacientes();
     await carregarProfissionais();
+    carregarDadosVindosDaConsulta();
     await carregarProntuarioParaEdicao();
 }
 

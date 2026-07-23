@@ -83,4 +83,80 @@ async function carregarAgendamentos() {
     }
 }
 
+async function carregarProntuario() {
+    const listaRegistros = document.getElementById("listaRegistros");
+    const totalProntuarios = document.getElementById("totalProntuarios");
+    const statusProntuarios = document.getElementById("statusProntuarios");
+
+    try {
+        const resposta = await fetch(`${API_URL}/prontuarios/paciente/${paciente.id}`);
+
+        if (!resposta.ok) {
+            throw new Error("Não foi possivel carregar prontuarios.");
+        }
+
+        const prontuarios = await resposta.json();
+
+        totalProntuarios.textContent = prontuarios.length;
+        statusProntuarios.textContent = `${prontuarios.length} registros`;
+
+        if (prontuarios.length === 0) {
+            listaRegistros.innerHTML = `
+                <p class="empty">Você ainda não possui registros medicos.</p>
+            `;
+            return;
+        }
+
+        listaRegistros.innerHTML = "";
+
+        prontuarios.forEach(function (prontuario) {
+            const profissional = prontuario.profissional;
+            const card = document.createElement("article");
+
+            card.classList.add("record-card");
+            
+            card.innerHTML = `
+                <div class="record-card-header">
+                    <div>
+                        <h3>${profissional ? profissional.nome : "Atendimento medico"}</h3>
+                        <p>Especialidade: ${profissional ? profissional.especialidadeProfissional || "-" : "-"}</p>
+                    </div>
+
+                    <span class="record-date">${prontuario.dataAtendimento || "-"}</span>
+                </div>
+
+                <div class="record-details">
+                    <div>
+                        <strong>Sintomas</strong>
+                        <p>${prontuario.sintomas || "-"}</p>
+                    </div>
+
+                    <div>
+                        <strong>Diagnostico</strong>
+                        <p>${prontuario.diagnostico || "-"}</p>
+                    </div>
+
+                    <div>
+                        <strong>Prescricao</strong>
+                        <p>${prontuario.prescricao || "-"}</p>
+                    </div>
+
+                    <div>
+                        <strong>Observacoes</strong>
+                        <p>${prontuario.observacoes || "-"}</p>
+                    </div>
+                </div>
+            `;
+
+            listaRegistros.appendChild(card);
+        });
+    } catch (erro) {
+        statusProntuarios.textContent = "Erro";
+        listaRegistros.innerHTML = `
+            <p class="empty">Erro: ${erro.message}</p>
+        `;
+    }
+}
+
 carregarAgendamentos();
+carregarProntuario();

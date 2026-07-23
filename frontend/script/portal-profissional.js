@@ -61,6 +61,9 @@ async function carregarAgendamentos() {
 
         agendamentos.forEach(function (agendamento) {
             const paciente = agendamento.paciente;
+            const linkProntuario = paciente
+                ? `cadastro-prontuario.html?pacienteId=${paciente.id}&profissionalId=${profissional.id}&dataAtendimento=${agendamento.dataConsulta || ""}`
+                : "cadastro-prontuario.html";
             const card = document.createElement("article");
 
             card.classList.add("appointment-card");
@@ -71,6 +74,10 @@ async function carregarAgendamentos() {
                     <p>Paciente: ${paciente ? paciente.nome : "-"}</p>
                     <p>Telefone: ${paciente ? paciente.telefone || "-" : "-"}</p>
                     <p>Observacao: ${agendamento.observacao || "-"}</p>
+
+                    <div class="appointment-actions">
+                        <a href="${linkProntuario}" class="record-link">Registrar prontuario</a>
+                    </div>
                 </div>
 
                 <span class="appointment-status">${agendamento.statusAgendamento || "-"}</span>

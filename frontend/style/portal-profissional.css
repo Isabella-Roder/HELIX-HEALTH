@@ -298,6 +298,31 @@ dd {
   background: #ffffff;
 }
 
+.appointment-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.record-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  background: #1f7a8c;
+}
+
+.record-link:hover {
+  background: #166476;
+}
+
 .empty {
   margin: 0;
   padding: 18px;

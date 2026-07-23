@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Perfil - Helix Health</title>
+  <link rel="stylesheet" href="../style/meu-perfil.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="brand">Helix Health</a>
+
+    <nav class="menu">
+      <a href="portal-seletor.html">Trocar portal</a>
+      <a href="#" id="botaoSair">Sair</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Conta logada</p>
+        <h1>Meu perfil</h1>
+        <p class="subtitle">Dados da conta, paciente e profissional vinculados ao login atual.</p>
+      </div>
+
+      <div class="status-card">
+        <span>Status</span>
+        <strong id="statusUsuario">-</strong>
+      </div>
+    </section>
+
+    <section class="profile-grid">
+      <article class="panel main-panel">
+        <div class="panel-heading">
+          <p class="eyebrow">Usuario</p>
+          <h2>Dados de acesso</h2>
+        </div>
+
+        <dl class="data-list">
+          <div>
+            <dt>Nome</dt>
+            <dd id="nomeUsuario">-</dd>
+          </div>
+
+          <div>
+            <dt>Nome social</dt>
+            <dd id="nomeSocialUsuario">-</dd>
+          </div>
+
+          <div>
+            <dt>Email</dt>
+            <dd id="emailUsuario">-</dd>
+          </div>
+
+          <div>
+            <dt>Perfis</dt>
+            <dd id="perfilUsuario">-</dd>
+          </div>
+        </dl>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <p class="eyebrow">Paciente</p>
+          <h2>Vinculo paciente</h2>
+        </div>
+
+        <dl class="data-list compact">
+          <div>
+            <dt>Nome</dt>
+            <dd id="nomePaciente">-</dd>
+          </div>
+
+          <div>
+            <dt>CPF</dt>
+            <dd id="cpfPaciente">-</dd>
+          </div>
+
+          <div>
+            <dt>Telefone</dt>
+            <dd id="telefonePaciente">-</dd>
+          </div>
+        </dl>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <p class="eyebrow">Profissional</p>
+          <h2>Vinculo profissional</h2>
+        </div>
+
+        <dl class="data-list compact">
+          <div>
+            <dt>Nome</dt>
+            <dd id="nomeProfissional">-</dd>
+          </div>
+
+          <div>
+            <dt>Tipo</dt>
+            <dd id="tipoProfissional">-</dd>
+          </div>
+
+          <div>
+            <dt>Especialidade</dt>
+            <dd>
+              <span id="espacialidadeProfissional">-</span>
+              <span id="especialidadeProfissionais" class="hidden-value">-</span>
+            </dd>
+          </div>
+        </dl>
+      </article>
+    </section>
+  </main>
+
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/meu-perfil.js"></script>
+</body>
+</html>

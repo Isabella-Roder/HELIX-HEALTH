@@ -90,6 +90,45 @@ h2 {
   line-height: 1.45;
 }
 
+.hero-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.hero-actions button,
+.hero-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 15px;
+  border: 1px solid #c9d6dc;
+  border-radius: 6px;
+  color: #174c5f;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.hero-actions button {
+  color: #ffffff;
+  border-color: #1f7a8c;
+  background: #1f7a8c;
+}
+
+.hero-actions button:hover {
+  background: #166476;
+}
+
+.hero-actions a:hover {
+  border-color: #1f7a8c;
+  background: #eef8fa;
+}
+
 .status-card,
 .panel {
   border: 1px solid #d8e2e7;

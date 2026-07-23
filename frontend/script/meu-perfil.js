@@ -62,6 +62,20 @@ document.getElementById("botaoSair").addEventListener("click", function () {
     window.location.href = "login.html";
 });
 
+document.getElementById("botaoVoltar").addEventListener("click", function () {
+    const perfilSelecionado = localStorage.getItem("perfilSelecionado");
+
+    if (perfilSelecionado === "PACIENTE") {
+        window.location.href = "portal-paciente.html";
+    } else if (perfilSelecionado === "PROFISSIONAL") {
+        window.location.href = "portal-profissional.html";
+    } else if (perfilSelecionado === "ADMIN") {
+        window.location.href = "portal-usuario.html";
+    } else {
+        window.location.href = "portal-seletor.html";
+    }
+})
+
 carregarDadosUsuario();
 carregarDadosPaciente();
 carregarDadosProfissional();

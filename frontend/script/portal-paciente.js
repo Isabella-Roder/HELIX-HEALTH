@@ -49,6 +49,16 @@ document.getElementById("botaoSair").addEventListener("click", function () {
 
 const API_URL = "http://localhost:8080";
 
+function formatarEnum(valor) {
+    if (!valor) {
+        return "-";
+    }
+
+    return valor.toLowerCase().replaceAll("_", " ").replace(/\b\w/g, function (letra) {
+        return letra.toUpperCase();
+    });
+}
+
 async function carregarAgendamentos() {
     const listaAgendamentos = document.getElementById("listaAgendamentos");
     const totalAgendamentos = document.getElementById("totalAgendamentos");
@@ -177,5 +187,77 @@ async function carregarProntuario() {
     }
 }
 
+async function carregarExames() {
+    const listaExames = document.getElementById("listaExames");
+    const totalExames = document.getElementById("totalExames");
+    const statusExames = document.getElementById("statusExames");
+
+    try {
+        const resposta = await fetch(`${API_URL}/exames/paciente/${paciente.id}`);
+
+        if (!resposta.ok) {
+            throw new Error("Não foi possivel carregar exames.");
+        }
+
+        const exames = await resposta.json();
+
+        totalExames.textContent = exames.length;
+        statusExames.textContent = `${exames.length} exames`;
+
+        if (exames.length === 0) {
+            listaExames.innerHTML = `
+                <p class="empty">Voce ainda nao possui exames cadastrados.</p>
+            `;
+            return;
+        }
+
+        listaExames.innerHTML = "";
+
+        exames.forEach(function (exame) {
+            const profissional = exame.profissional;
+            const card = document.createElement("article");
+
+            card.classList.add("exam-card");
+
+            card.innerHTML = `
+                <div class="record-card-header">
+                    <div>
+                        <h3>${exame.tipoExame || "Exame"}</h3>
+                        <p>Profissional: ${profissional ? profissional.nome : "-"}</p>
+                        <p>Solicitacao: ${exame.dataSolicitacao || "-"}</p>
+                    </div>
+
+                    <span class="exam-status">${formatarEnum(exame.statusExame)}</span>
+                </div>
+
+                <div class="exam-details">
+                    <div>
+                        <strong>Observacao</strong>
+                        <p>${exame.observacao || "-"}</p>
+                    </div>
+
+                    <div>
+                        <strong>Resultado</strong>
+                        <p>${exame.resultado || "-"}</p>
+                    </div>
+
+                    <div>
+                        <strong>Data do resultado</strong>
+                        <p>${exame.dataResultado || "-"}</p>
+                    </div>
+                </div>
+            `;
+
+            listaExames.appendChild(card);
+        });
+    } catch (erro) {
+        statusExames.textContent = "Erro";
+        listaExames.innerHTML = `
+            <p class="empty">Erro: ${erro.message}</p>
+        `;
+    }
+}
+
 carregarAgendamentos();
 carregarProntuario();
+carregarExames();

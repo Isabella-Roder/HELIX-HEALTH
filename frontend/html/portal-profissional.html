@@ -48,6 +48,11 @@
       </article>
 
       <article class="summary-card">
+        <span class="summary-number" id="totalExames">0</span>
+        <span class="summary-label">Exames</span>
+      </article>
+
+      <article class="summary-card">
         <span class="summary-number" id="especialidadeProfissional">-</span>
         <span class="summary-label">Especialidade</span>
       </article>
@@ -104,6 +109,7 @@
 
         <div class="actions">
           <a href="#minhasConsultas">Minhas consultas</a>
+          <a href="#meusExames" id="linkMeusExames">Exames solicitados</a>
           <a href="cadastro-prontuario.html">Cadastrar prontuario</a>
           <a href="listar-prontuario.html">Consultar prontuarios</a>
           <a href="portal-seletor.html">Trocar portal</a>
@@ -123,6 +129,21 @@
 
       <div class="appointment-list" id="listaAgendamentos">
         <p class="empty">Carregando consultas...</p>
+      </div>
+    </section>
+
+    <section class="panel full-panel" id="meusExames">
+      <div class="panel-heading inline-heading">
+        <div>
+          <p class="eyebrow">Solicitacoes</p>
+          <h2>Exames solicitados</h2>
+        </div>
+
+        <span class="panel-badge" id="statusExames">Carregando</span>
+      </div>
+
+      <div class="exam-list" id="listaExames">
+        <p class="empty">Carregando exames...</p>
       </div>
     </section>
   </main>

@@ -41,8 +41,8 @@ function carregarDadosPaciente() {
     mostrarTexto("nomePaciente", paciente.nome);
     mostrarTexto("cpfPaciente", paciente.cpf);
     mostrarTexto("telefonePaciente", paciente.telefone);
-    mostrarTexto("sexoPaciente", paciente.sexo);
-    mostrarTexto("generoPaciente", paciente.genero);
+    mostrarTexto("sexoPaciente", formatarEnum(paciente.sexo));
+    mostrarTexto("generoPaciente", formatarEnum(paciente.genero));
 }
 
 function carregarDadosProfissional() {
@@ -56,8 +56,8 @@ function carregarDadosProfissional() {
     }
 
     mostrarTexto("nomeProfissional", profissional.nome);
-    mostrarTexto("tipoProfissional", profissional.tipoProfissional);
-    mostrarTexto("espacialidadeProfissional", profissional.especialidade);
+    mostrarTexto("tipoProfissional", formatarEnum(profissional.tipoProfissional));
+    mostrarTexto("espacialidadeProfissional", formatarEnum(profissional.especialidadeProfissional));
 }
 
 document.getElementById("botaoSair").addEventListener("click", function () {
@@ -78,7 +78,17 @@ document.getElementById("botaoVoltar").addEventListener("click", function () {
     } else {
         window.location.href = "portal-seletor.html";
     }
-})
+});
+
+function formatarEnum(valor) {
+    if (!valor) {
+        return "-";
+    }
+
+    return valor.toLowerCasa().replaceAll("_", " ").replace(/\b\w/g, function (letra) {
+        return letra.toUpperCasa();
+    })
+}
 
 carregarDadosUsuario();
 carregarDadosPaciente();

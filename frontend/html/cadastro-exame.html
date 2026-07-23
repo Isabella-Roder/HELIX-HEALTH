@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Exame - Helix Health</title>
+  <link rel="stylesheet" href="../style/cadastro-exame.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="header-actions">
+        <a href="portal-usuario.html" class="voltar">Portal</a>
+        <a href="portal-seletor.html" class="voltar">Trocar portal</a>
+      </div>
+
+      <p class="eyebrow" id="modoPagina">Cadastro</p>
+      <h1 id="tituloPagina">Cadastro de Exame</h1>
+      <p id="descricaoPagina">Registre solicitacoes, status e resultados de exames do paciente.</p>
+    </header>
+
+    <form id="formExame">
+      <div class="linha">
+        <div class="campo">
+          <label for="paciente">Paciente</label>
+          <select id="paciente" required>
+            <option value="">Selecione um paciente</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="profissional">Profissional solicitante</label>
+          <select id="profissional" required>
+            <option value="">Selecione um profissional</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="tipoExame">Tipo do exame</label>
+          <input type="text" id="tipoExame" placeholder="Ex: Hemograma completo" required>
+        </div>
+
+        <div class="campo">
+          <label for="statusExame">Status</label>
+          <select id="statusExame" required>
+            <option value="">Selecione</option>
+            <option value="SOLICITADO">Solicitado</option>
+            <option value="EM_ANALISE">Em analise</option>
+            <option value="CONCLUIDO">Concluido</option>
+            <option value="CANCELADO">Cancelado</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="dataSolicitacao">Data de solicitacao</label>
+          <input type="date" id="dataSolicitacao" required>
+        </div>
+
+        <div class="campo">
+          <label for="dataResultado">Data do resultado</label>
+          <input type="date" id="dataResultado">
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="observacao">Observacao</label>
+        <textarea id="observacao" rows="4" placeholder="Informacoes da solicitacao, preparo ou prioridade do exame."></textarea>
+      </div>
+
+      <div class="campo">
+        <label for="resultado">Resultado</label>
+        <textarea id="resultado" rows="5" placeholder="Resultado ou laudo resumido do exame."></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" id="botaoSalvar">Cadastrar exame</button>
+        <a href="portal-usuario.html" class="secondary-link">Cancelar</a>
+      </div>
+    </form>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/cadastro-exame.js"></script>
+</body>
+</html>

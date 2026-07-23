@@ -9,12 +9,22 @@
 
 ## Login e portal seletor
 
-- [ ] Entrar com `isabella@helixhealth.com` e senha `123456`.
-- [ ] Verificar se aparecem as opcoes Admin, Paciente e Profissional.
-- [ ] Entrar no portal Admin.
-- [ ] Entrar no portal Paciente.
-- [ ] Entrar no portal Profissional.
+- [x] Entrar com `isabella@helixhealth.com` e senha `123456`.
+- [x] Verificar se aparecem as opcoes Admin, Paciente e Profissional.
+- [x] Entrar no portal Admin.
+- [x] Entrar no portal Paciente.
+- [x] Entrar no portal Profissional.
 - [ ] Clicar em Sair e confirmar se volta para o login.
+
+## Meu perfil
+
+- [x] Abrir tela Meu perfil.
+- [x] Botao Voltar retorna para o portal correto.
+- [x] Trocar portal abre o seletor.
+- [x] Mostra dados do usuario.
+- [x] Mostra paciente vinculado.
+- [x] Mostra profissional vinculado.
+- [x] Mostra sexo e genero do paciente.
 
 ## Paciente
 
@@ -58,3 +68,15 @@
 - [ ] Listar prontuarios.
 - [ ] Ver prontuario no portal do paciente.
 
+## Exames
+
+- [x] Criar backend de exames.
+- [x] Cadastrar exame.
+- [x] Listar exames.
+- [x] Editar exame.
+- [x] Deletar exame.
+- [x] Filtrar exames por paciente.
+- [x] Filtrar exames por profissional.
+- [x] Filtrar exames por status.
+- [x] Ver exames no portal do paciente.
+- [x] Ver exames no portal do profissional.

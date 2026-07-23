@@ -160,7 +160,7 @@ h2 {
 
 .summary {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
   margin-bottom: 16px;
 }
@@ -278,10 +278,22 @@ dd {
   gap: 12px;
 }
 
+.exam-list {
+  display: grid;
+  gap: 12px;
+}
+
 .appointment-card {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 14px;
+  padding: 16px;
+  border: 1px solid #e5edf1;
+  border-radius: 8px;
+  background: #f7fbfc;
+}
+
+.exam-card {
   padding: 16px;
   border: 1px solid #e5edf1;
   border-radius: 8px;
@@ -294,7 +306,20 @@ dd {
   font-size: 17px;
 }
 
+.exam-card h3 {
+  margin: 0 0 8px;
+  color: #174c5f;
+  font-size: 17px;
+}
+
 .appointment-card p {
+  margin: 0;
+  color: #52616b;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.exam-card p {
   margin: 0;
   color: #52616b;
   font-size: 14px;
@@ -309,6 +334,38 @@ dd {
   font-size: 12px;
   font-weight: 700;
   background: #ffffff;
+}
+
+.exam-status {
+  align-self: start;
+  padding: 7px 10px;
+  border-radius: 999px;
+  color: #174c5f;
+  font-size: 12px;
+  font-weight: 700;
+  background: #ffffff;
+}
+
+.exam-details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.exam-details div {
+  min-height: 78px;
+  padding: 12px;
+  border: 1px solid #e5edf1;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+.exam-details strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #344955;
+  font-size: 13px;
 }
 
 .appointment-actions {
@@ -368,7 +425,8 @@ dd {
   .summary,
   .content-grid,
   .data-list,
-  .appointment-card {
+  .appointment-card,
+  .exam-details {
     grid-template-columns: 1fr;
   }
 

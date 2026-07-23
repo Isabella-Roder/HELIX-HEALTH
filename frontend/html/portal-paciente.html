@@ -52,6 +52,11 @@
       </article>
 
       <article class="summary-card">
+        <span class="summary-number" id="totalExames">0</span>
+        <span class="summary-label">Exames</span>
+      </article>
+
+      <article class="summary-card">
         <span class="summary-number" id="convenioPaciente">-</span>
         <span class="summary-label">Convenio</span>
       </article>
@@ -104,6 +109,7 @@
         <div class="actions">
           <a href="#meusAgendamentos" id="linkMeusAgendamentos">Meus agendamentos</a>
           <a href="#meuProntuario" id="linkMeuProntuario">Meu prontuario</a>
+          <a href="#meusExames" id="linkMeusExames">Meus exames</a>
           <a href="portal-seletor.html">Trocar portal</a>
         </div>
       </article>
@@ -136,6 +142,21 @@
 
       <div class="records-list" id="listaRegistros">
         <p class="empty">Carregando registros medicos...</p>
+      </div>
+    </section>
+
+    <section class="panel full-panel" id="meusExames">
+      <div class="panel-heading inline-heading">
+        <div>
+          <p class="eyebrow">Resultados e solicitacoes</p>
+          <h2>Meus exames</h2>
+        </div>
+
+        <span class="panel-badge" id="statusExames">Carregando</span>
+      </div>
+
+      <div class="exam-list" id="listaExames">
+        <p class="empty">Carregando exames...</p>
       </div>
     </section>
   </main>

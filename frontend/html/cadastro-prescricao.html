@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Prescricao - Helix Health</title>
+  <link rel="stylesheet" href="../style/cadastro-prescricao.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="header-actions">
+        <a href="portal-usuario.html" class="voltar">Portal</a>
+        <a href="portal-seletor.html" class="voltar">Trocar portal</a>
+      </div>
+
+      <p class="eyebrow" id="modoPagina">Cadastro</p>
+      <h1 id="tituloPagina">Cadastro de Prescricao</h1>
+      <p id="descricaoPagina">Registre medicamentos, dosagens e orientacoes para o paciente.</p>
+    </header>
+
+    <form id="formPrescricao">
+      <div class="linha">
+        <div class="campo">
+          <label for="paciente">Paciente</label>
+          <select id="paciente" required>
+            <option value="">Selecione um paciente</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="profissional">Profissional responsavel</label>
+          <select id="profissional" required>
+            <option value="">Selecione um profissional</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="medicamento">Medicamento</label>
+          <input type="text" id="medicamento" placeholder="Ex: Dipirona" required>
+        </div>
+
+        <div class="campo">
+          <label for="dosagem">Dosagem</label>
+          <input type="text" id="dosagem" placeholder="Ex: 500mg" required>
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="frequencia">Frequencia</label>
+          <input type="text" id="frequencia" placeholder="Ex: A cada 8 horas" required>
+        </div>
+
+        <div class="campo">
+          <label for="duracao">Duracao</label>
+          <input type="text" id="duracao" placeholder="Ex: 7 dias" required>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="dataPrescricao">Data da prescricao</label>
+        <input type="date" id="dataPrescricao" required>
+      </div>
+
+      <div class="campo">
+        <label for="orientacoes">Orientacoes</label>
+        <textarea id="orientacoes" rows="6" placeholder="Ex: Tomar apos alimentacao. Evitar bebida alcoolica durante o tratamento." required></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" id="botaoSalvar">Cadastrar prescricao</button>
+        <a href="portal-usuario.html" class="secondary-link">Cancelar</a>
+      </div>
+    </form>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/cadastro-prescricao.js?v=2"></script>
+</body>
+</html>

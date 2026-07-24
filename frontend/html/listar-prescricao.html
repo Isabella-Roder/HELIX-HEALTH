@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prescricoes - Helix Health</title>
+  <link rel="stylesheet" href="../style/listar-prescricao.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="portal-usuario.html" class="brand">Helix Health</a>
+
+    <nav class="menu">
+      <a href="portal-usuario.html">Portal</a>
+      <a href="cadastro-prescricao.html">Cadastrar prescricao</a>
+      <a href="portal-seletor.html">Trocar portal</a>
+      <a href="#" id="botaoSair">Sair</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="page-header">
+      <div>
+        <p class="eyebrow">Prescricoes</p>
+        <h1>Lista de prescricoes</h1>
+        <p class="subtitle">Acompanhe medicamentos, dosagens e orientacoes registradas para os pacientes.</p>
+      </div>
+
+      <a class="primary-link" href="cadastro-prescricao.html">Nova prescricao</a>
+    </section>
+
+    <section class="filter-panel">
+      <div class="filter-field">
+        <label for="filtroPaciente">Paciente</label>
+        <select id="filtroPaciente">
+          <option value="">Todos os pacientes</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroProfissional">Profissional</label>
+        <select id="filtroProfissional">
+          <option value="">Todos os profissionais</option>
+        </select>
+      </div>
+
+      <div class="filter-actions">
+        <button type="button" id="botaoFiltrar">Filtrar</button>
+        <button type="button" id="botaoLimparFiltro">Limpar</button>
+      </div>
+    </section>
+
+    <section class="table-panel">
+      <div class="table-toolbar">
+        <span id="totalPrescricoes">0 prescricoes encontradas</span>
+        <button type="button" id="botaoAtualizar">Atualizar</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Paciente</th>
+              <th>Profissional</th>
+              <th>Medicamento</th>
+              <th>Dosagem</th>
+              <th>Frequencia</th>
+              <th>Duracao</th>
+              <th>Data</th>
+              <th>Orientacoes</th>
+              <th>Acoes</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaPrescricoes">
+            <tr>
+              <td colspan="10" class="empty">Carregando prescricoes...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/listar-prescricao.js"></script>
+</body>
+</html>

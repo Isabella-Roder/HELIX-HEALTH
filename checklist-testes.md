@@ -80,3 +80,13 @@
 - [x] Filtrar exames por status.
 - [x] Ver exames no portal do paciente.
 - [x] Ver exames no portal do profissional.
+
+## Prescricoes
+
+- [x] Criar backend de prescricoes.
+- [x] Cadastrar prescricao.
+- [x] Listar prescricoes.
+- [x] Editar prescricao.
+- [x] Deletar prescricao.
+- [x] Filtrar prescricoes por paciente.
+- [x] Filtrar prescricoes por profissional.

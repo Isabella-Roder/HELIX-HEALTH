@@ -197,5 +197,77 @@ async function carregarExames() {
     }
 }
 
+async function carregarPrescricoes() {
+    const listaPrescricoes = document.getElementById("listaPrescricoes");
+    const totalPrescricoes = document.getElementById("totalPrescricoes");
+    const statusPrescricoes = document.getElementById("statusPrescricoes");
+
+    try {
+        const resposta = await fetch(`${API_URL}/prescricoes-medicas/profissional/${profissional.id}`);
+
+        if (!resposta.ok) {
+            throw new Error("Nao foi possivel carregar prescricoes.");
+        }
+
+        const prescricoes = await resposta.json();
+
+        totalPrescricoes.textContent = prescricoes.length;
+        statusPrescricoes.textContent = `${prescricoes.length} prescricoes`;
+
+        if (prescricoes.length === 0) {
+            listaPrescricoes.innerHTML = `
+                <p class="empty">Voce ainda nao emitiu prescricoes.</p>
+            `;
+            return;
+        }
+
+        listaPrescricoes.innerHTML = "";
+
+        prescricoes.forEach(function (prescricao) {
+            const paciente = prescricao.paciente;
+            const card = document.createElement("article");
+
+            card.classList.add("prescription-card");
+
+            card.innerHTML = `
+                <div class="record-card-header">
+                    <div>
+                        <h3>${prescricao.medicamento || "Prescricao"}</h3>
+                        <p>Paciente: ${paciente ? paciente.nome : "-"}</p>
+                        <p>Dosagem: ${prescricao.dosagem || "-"}</p>
+                    </div>
+
+                    <span class="prescription-date">${prescricao.dataPrescricao || "-"}</span>
+                </div>
+
+                <div class="prescription-details">
+                    <div>
+                        <strong>Frequencia</strong>
+                        <p>${prescricao.frequencia || "-"}</p>
+                    </div>
+
+                    <div>
+                        <strong>Duracao</strong>
+                        <p>${prescricao.duracao || "-"}</p>
+                    </div>
+
+                    <div>
+                        <strong>Orientacoes</strong>
+                        <p>${prescricao.orientacoes || "-"}</p>
+                    </div>
+                </div>
+            `;
+
+            listaPrescricoes.appendChild(card);
+        });
+    } catch (erro) {
+        statusPrescricoes.textContent = "Erro";
+        listaPrescricoes.innerHTML = `
+            <p class="empty">Erro: ${erro.message}</p>
+        `;
+    }
+}
+
 carregarAgendamentos();
 carregarExames();
+carregarPrescricoes();

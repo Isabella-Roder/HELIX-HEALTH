@@ -53,6 +53,11 @@
       </article>
 
       <article class="summary-card">
+        <span class="summary-number" id="totalPrescricoes">0</span>
+        <span class="summary-label">Prescricoes</span>
+      </article>
+
+      <article class="summary-card">
         <span class="summary-number" id="especialidadeProfissional">-</span>
         <span class="summary-label">Especialidade</span>
       </article>
@@ -110,6 +115,7 @@
         <div class="actions">
           <a href="#minhasConsultas">Minhas consultas</a>
           <a href="#meusExames" id="linkMeusExames">Exames solicitados</a>
+          <a href="#minhasPrescricoes" id="linkMinhasPrescricoes">Prescricoes emitidas</a>
           <a href="cadastro-prontuario.html">Cadastrar prontuario</a>
           <a href="cadastro-prescricao.html">Cadastrar prescricao</a>
           <a href="listar-prescricao.html">Listar prescricoes</a>
@@ -148,9 +154,24 @@
         <p class="empty">Carregando exames...</p>
       </div>
     </section>
+
+    <section class="panel full-panel" id="minhasPrescricoes">
+      <div class="panel-heading inline-heading">
+        <div>
+          <p class="eyebrow">Medicamentos e orientacoes</p>
+          <h2>Prescricoes emitidas</h2>
+        </div>
+
+        <span class="panel-badge" id="statusPrescricoes">Carregando</span>
+      </div>
+
+      <div class="prescription-list" id="listaPrescricoes">
+        <p class="empty">Carregando prescricoes...</p>
+      </div>
+    </section>
   </main>
 
   <script src="../script/auth.js?v=6"></script>
-  <script src="../script/portal-profissional.js?v=4"></script>
+  <script src="../script/portal-profissional.js?v=5"></script>
 </body>
 </html>

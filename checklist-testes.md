@@ -90,3 +90,29 @@
 - [x] Deletar prescricao.
 - [x] Filtrar prescricoes por paciente.
 - [x] Filtrar prescricoes por profissional.
+- [x] Ver prescricoes no portal do paciente.
+- [x] Ver prescricoes no portal do profissional.
+
+## Leitos
+
+- [x] Criar backend de leitos.
+- [x] Cadastrar leito.
+- [x] Listar leitos.
+- [x] Editar leito.
+- [x] Deletar leito.
+- [x] Filtrar leitos por status.
+- [x] Filtrar leitos por setor.
+
+## Internacoes
+
+- [x] Criar backend de internacoes.
+- [x] Cadastrar internacao.
+- [x] Listar internacoes.
+- [x] Editar internacao.
+- [x] Deletar internacao.
+- [x] Filtrar internacoes por paciente.
+- [x] Filtrar internacoes por profissional.
+- [x] Filtrar internacoes por leito.
+- [x] Filtrar internacoes por status.
+- [x] Internacao ativa ocupa leito.
+- [x] Alta, transferencia ou cancelamento libera leito.

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internacoes - Helix Health</title>
+  <link rel="stylesheet" href="../style/listar-internacao.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="portal-usuario.html" class="brand">Helix Health</a>
+
+    <nav class="menu">
+      <a href="portal-usuario.html">Portal</a>
+      <a href="cadastro-internacao.html">Cadastrar internacao</a>
+      <a href="portal-seletor.html">Trocar portal</a>
+      <a href="#" id="botaoSair">Sair</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="page-header">
+      <div>
+        <p class="eyebrow">Internacoes</p>
+        <h1>Lista de internacoes</h1>
+        <p class="subtitle">Acompanhe pacientes internados, leitos ocupados, datas e status da permanencia hospitalar.</p>
+      </div>
+
+      <a class="primary-link" href="cadastro-internacao.html">Nova internacao</a>
+    </section>
+
+    <section class="filter-panel">
+      <div class="filter-field">
+        <label for="filtroPaciente">Paciente</label>
+        <select id="filtroPaciente">
+          <option value="">Todos os pacientes</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroProfissional">Profissional</label>
+        <select id="filtroProfissional">
+          <option value="">Todos os profissionais</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroLeito">Leito</label>
+        <select id="filtroLeito">
+          <option value="">Todos os leitos</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroStatus">Status</label>
+        <select id="filtroStatus">
+          <option value="">Todos os status</option>
+          <option value="ATIVA">Ativa</option>
+          <option value="ALTA">Alta</option>
+          <option value="TRANSFERIDA">Transferida</option>
+          <option value="CANCELADA">Cancelada</option>
+        </select>
+      </div>
+
+      <div class="filter-actions">
+        <button type="button" id="botaoFiltrar">Filtrar</button>
+        <button type="button" id="botaoLimparFiltro">Limpar</button>
+      </div>
+    </section>
+
+    <section class="table-panel">
+      <div class="table-toolbar">
+        <span id="totalInternacoes">0 internacoes encontradas</span>
+        <button type="button" id="botaoAtualizar">Atualizar</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Paciente</th>
+              <th>Profissional</th>
+              <th>Leito</th>
+              <th>Status</th>
+              <th>Entrada</th>
+              <th>Alta</th>
+              <th>Motivo</th>
+              <th>Acoes</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaInternacoes">
+            <tr>
+              <td colspan="9" class="empty">Carregando internacoes...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/listar-internacao.js"></script>
+</body>
+</html>

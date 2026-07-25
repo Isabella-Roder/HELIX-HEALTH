@@ -57,6 +57,11 @@
       </article>
 
       <article class="summary-card">
+        <span class="summary-number" id="totalPrescricoes">0</span>
+        <span class="summary-label">Prescricoes</span>
+      </article>
+
+      <article class="summary-card">
         <span class="summary-number" id="convenioPaciente">-</span>
         <span class="summary-label">Convenio</span>
       </article>
@@ -110,6 +115,7 @@
           <a href="#meusAgendamentos" id="linkMeusAgendamentos">Meus agendamentos</a>
           <a href="#meuProntuario" id="linkMeuProntuario">Meu prontuario</a>
           <a href="#meusExames" id="linkMeusExames">Meus exames</a>
+          <a href="#minhasPrescricoes" id="linkMinhasPrescricoes">Minhas prescricoes</a>
           <a href="portal-seletor.html">Trocar portal</a>
         </div>
       </article>
@@ -159,9 +165,24 @@
         <p class="empty">Carregando exames...</p>
       </div>
     </section>
+
+    <section class="panel full-panel" id="minhasPrescricoes">
+      <div class="panel-heading inline-heading">
+        <div>
+          <p class="eyebrow">Medicamentos e orientacoes</p>
+          <h2>Minhas prescricoes</h2>
+        </div>
+
+        <span class="panel-badge" id="statusPrescricoes">Carregando</span>
+      </div>
+
+      <div class="prescription-list" id="listaPrescricoes">
+        <p class="empty">Carregando prescricoes...</p>
+      </div>
+    </section>
   </main>
 
   <script src="../script/auth.js?v=6"></script>
-  <script src="../script/portal-paciente.js?v=3"></script>
+  <script src="../script/portal-paciente.js?v=4"></script>
 </body>
 </html>

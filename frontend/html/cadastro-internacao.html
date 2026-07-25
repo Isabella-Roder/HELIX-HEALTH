@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Internacao - Helix Health</title>
+  <link rel="stylesheet" href="../style/cadastro-internacao.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="header-actions">
+        <a href="portal-usuario.html" class="voltar">Portal</a>
+        <a href="portal-seletor.html" class="voltar">Trocar portal</a>
+      </div>
+
+      <p class="eyebrow" id="modoPagina">Cadastro</p>
+      <h1 id="tituloPagina">Cadastro de Internacao</h1>
+      <p id="descricaoPagina">Registre a entrada do paciente, o leito ocupado e o profissional responsavel.</p>
+    </header>
+
+    <form id="formInternacao">
+      <div class="linha">
+        <div class="campo">
+          <label for="paciente">Paciente</label>
+          <select id="paciente" required>
+            <option value="">Selecione um paciente</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="profissional">Profissional responsavel</label>
+          <select id="profissional" required>
+            <option value="">Selecione um profissional</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="leito">Leito</label>
+          <select id="leito" required>
+            <option value="">Selecione um leito</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="statusInternacao">Status</label>
+          <select id="statusInternacao" required>
+            <option value="">Selecione</option>
+            <option value="ATIVA">Ativa</option>
+            <option value="ALTA">Alta</option>
+            <option value="TRANSFERIDA">Transferida</option>
+            <option value="CANCELADA">Cancelada</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="dataEntrada">Data de entrada</label>
+          <input type="date" id="dataEntrada" required>
+        </div>
+
+        <div class="campo">
+          <label for="dataAlta">Data de alta</label>
+          <input type="date" id="dataAlta">
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="motivo">Motivo</label>
+        <textarea id="motivo" rows="4" placeholder="Descreva o motivo da internacao." required></textarea>
+      </div>
+
+      <div class="campo">
+        <label for="observacoes">Observacoes</label>
+        <textarea id="observacoes" rows="5" placeholder="Informacoes complementares, cuidados ou restricoes."></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" id="botaoSalvar">Cadastrar internacao</button>
+        <a href="portal-usuario.html" class="secondary-link">Cancelar</a>
+      </div>
+    </form>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/cadastro-internacao.js"></script>
+</body>
+</html>

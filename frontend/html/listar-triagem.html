@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triagens - Helix Health</title>
+  <link rel="stylesheet" href="../style/style.css?v=3">
+</head>
+<body>
+  <header class="topbar">
+    <a href="portal-usuario.html" class="brand">Helix Health</a>
+
+    <nav class="menu">
+      <a href="portal-usuario.html">Portal</a>
+      <a href="cadastro-triagem.html">Cadastrar triagem</a>
+      <a href="portal-seletor.html">Trocar portal</a>
+      <a href="#" id="botaoSair">Sair</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="page-header">
+      <div>
+        <p class="eyebrow">Pronto socorro</p>
+        <h1>Triagens</h1>
+        <p class="subtitle">Acompanhe classificacoes de risco, sinais vitais e status dos pacientes triados.</p>
+      </div>
+
+      <a class="primary-link" href="cadastro-triagem.html">Nova triagem</a>
+    </section>
+
+    <section class="filter-panel">
+      <div class="filter-field">
+        <label for="filtroPaciente">Paciente</label>
+        <select id="filtroPaciente">
+          <option value="">Todos os pacientes</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroProfissional">Profissional</label>
+        <select id="filtroProfissional">
+          <option value="">Todos os profissionais</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroPrioridade">Prioridade</label>
+        <select id="filtroPrioridade">
+          <option value="">Todas as prioridades</option>
+          <option value="AZUL">Azul</option>
+          <option value="VERDE">Verde</option>
+          <option value="AMARELO">Amarelo</option>
+          <option value="LARANJA">Laranja</option>
+          <option value="VERMELHO">Vermelho</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroStatus">Status</label>
+        <select id="filtroStatus">
+          <option value="">Todos os status</option>
+          <option value="AGUARDANDO">Aguardando</option>
+          <option value="EM_ATENDIMENTO">Em atendimento</option>
+          <option value="FINALIZADA">Finalizada</option>
+          <option value="CANCELADA">Cancelada</option>
+        </select>
+      </div>
+
+      <div class="filter-actions">
+        <button type="button" id="botaoFiltrar">Filtrar</button>
+        <button type="button" id="botaoLimparFiltro">Limpar</button>
+      </div>
+    </section>
+
+    <section class="table-panel">
+      <div class="table-toolbar">
+        <span id="totalTriagens">0 triagens encontradas</span>
+        <button type="button" id="botaoAtualizar">Atualizar</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Paciente</th>
+              <th>Profissional</th>
+              <th>Entrada</th>
+              <th>Prioridade</th>
+              <th>Status</th>
+              <th>Sinais vitais</th>
+              <th>Sintomas</th>
+              <th>Acoes</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaTriagens">
+            <tr>
+              <td colspan="9" class="empty">Carregando triagens...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/listar-triagem.js"></script>
+</body>
+</html>

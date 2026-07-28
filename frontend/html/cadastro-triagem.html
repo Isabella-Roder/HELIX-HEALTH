@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Triagem - Helix Health</title>
+  <link rel="stylesheet" href="../style/style.css?v=3">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="header-actions">
+        <a href="portal-usuario.html" class="voltar">Portal</a>
+        <a href="listar-triagem.html" class="voltar">Listar triagens</a>
+      </div>
+
+      <p class="eyebrow" id="modoPagina">Cadastro</p>
+      <h1 id="tituloPagina">Cadastro de Triagem</h1>
+      <p id="descricaoPagina">Registre sinais vitais, sintomas e classificacao de risco do paciente.</p>
+    </header>
+
+    <form id="formTriagem">
+      <div class="linha">
+        <div class="campo">
+          <label for="paciente">Paciente</label>
+          <select id="paciente" required>
+            <option value="">Selecione um paciente</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="profissional">Profissional responsavel</label>
+          <select id="profissional" required>
+            <option value="">Selecione um profissional</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="sintomas">Sintomas</label>
+        <textarea id="sintomas" rows="4" placeholder="Descreva os sintomas relatados pelo paciente."></textarea>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="pressaoArterial">Pressao arterial</label>
+          <input type="text" id="pressaoArterial" placeholder="Ex: 120/80" required>
+        </div>
+
+        <div class="campo">
+          <label for="temperatura">Temperatura</label>
+          <input type="number" id="temperatura" step="0.1" placeholder="Ex: 36.8">
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="frequenciaCardiaca">Frequencia cardiaca</label>
+          <input type="number" id="frequenciaCardiaca" placeholder="Ex: 82" required>
+        </div>
+
+        <div class="campo">
+          <label for="saturacao">Saturacao</label>
+          <input type="text" id="saturacao" placeholder="Ex: 98%">
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="prioridadeTriagem">Prioridade</label>
+          <select id="prioridadeTriagem" required>
+            <option value="">Selecione</option>
+            <option value="AZUL">Azul - Nao urgente</option>
+            <option value="VERDE">Verde - Pouco urgente</option>
+            <option value="AMARELO">Amarelo - Urgente</option>
+            <option value="LARANJA">Laranja - Muito urgente</option>
+            <option value="VERMELHO">Vermelho - Emergencia</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="statusTriagem">Status</label>
+          <select id="statusTriagem" required>
+            <option value="AGUARDANDO">Aguardando</option>
+            <option value="EM_ATENDIMENTO">Em atendimento</option>
+            <option value="FINALIZADA">Finalizada</option>
+            <option value="CANCELADA">Cancelada</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="observacao">Observacao</label>
+        <textarea id="observacao" rows="4" placeholder="Observacoes adicionais da triagem."></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" id="botaoSalvar">Cadastrar triagem</button>
+        <a href="portal-usuario.html" class="secondary-link">Cancelar</a>
+      </div>
+    </form>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/cadastro-triagem.js"></script>
+</body>
+</html>

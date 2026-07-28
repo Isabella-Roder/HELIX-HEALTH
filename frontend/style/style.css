@@ -609,6 +609,31 @@ tbody tr:hover td {
   background: var(--warning-soft);
 }
 
+.status-badge.status-azul {
+  color: #155c6c;
+  background: #e7f5f8;
+}
+
+.status-badge.status-verde {
+  color: var(--success);
+  background: var(--success-soft);
+}
+
+.status-badge.status-amarelo {
+  color: var(--warning);
+  background: var(--warning-soft);
+}
+
+.status-badge.status-laranja {
+  color: #a55310;
+  background: #fff0df;
+}
+
+.status-badge.status-vermelho {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
 .summary,
 .modules,
 .profile-grid,
@@ -618,7 +643,7 @@ tbody tr:hover td {
 }
 
 .summary {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   margin-bottom: 22px;
 }
 
@@ -846,6 +871,99 @@ tbody tr:hover td {
 .prescription-list {
   display: grid;
   gap: 12px;
+}
+
+.appointment-card,
+.exam-card,
+.prescription-card,
+.triage-card {
+  border: 1px solid #e0ebee;
+  border-radius: var(--radius);
+  padding: 16px;
+  background: #fbfdfe;
+}
+
+.appointment-card,
+.record-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.appointment-card h3,
+.exam-card h3,
+.prescription-card h3,
+.triage-card h3 {
+  margin: 0 0 8px;
+  color: var(--primary-dark);
+  font-size: 17px;
+}
+
+.appointment-card p,
+.exam-card p,
+.prescription-card p,
+.triage-card p {
+  margin: 4px 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.appointment-status,
+.exam-status,
+.prescription-date {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  border-radius: 999px;
+  padding: 0 10px;
+  color: var(--primary-dark);
+  font-size: 12px;
+  font-weight: 800;
+  background: #eaf6f8;
+  white-space: nowrap;
+}
+
+.appointment-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.record-link,
+.record-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  width: auto;
+  border-radius: 6px;
+  padding: 0 10px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  background: var(--primary);
+}
+
+.record-link:hover,
+.record-button:hover {
+  background: var(--primary-dark);
+}
+
+.exam-details,
+.prescription-details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.exam-details strong,
+.prescription-details strong {
+  color: var(--primary-dark);
+  font-size: 13px;
 }
 
 .profile-options {

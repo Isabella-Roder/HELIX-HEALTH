@@ -127,7 +127,34 @@
 - [x] Filtrar internacoes por status.
 - [x] Internacao ativa ocupa leito.
 - [x] Alta, transferencia ou cancelamento libera leito.
+## Triagem
 
+- [x] Criar backend de triagens.
+- [x] Cadastrar triagem.
+- [x] Listar triagens.
+- [x] Deletar triagem.
+- [x] Filtrar triagens por paciente.
+- [x] Filtrar triagens por profissional.
+- [x] Filtrar triagens por prioridade.
+- [x] Filtrar triagens por status.
+- [x] Iniciar atendimento pela listagem de triagens.
+- [x] Finalizar atendimento pela listagem de triagens.
+- [x] Iniciar atendimento pelo portal profissional.
+- [x] Finalizar atendimento pelo portal profissional.
 
+## Atendimento medico
 
+- [ ] Criar entidade AtendimentoMedico.
+- [ ] Criar enum StatusAtendimentoMedico.
+- [ ] Criar repository de atendimento medico.
+- [ ] Criar service de atendimento medico.
+- [ ] Criar controller de atendimento medico.
+- [ ] Cadastrar atendimento medico.
+- [ ] Listar atendimentos medicos.
+- [ ] Editar atendimento medico.
+- [ ] Deletar atendimento medico.
+- [ ] Filtrar atendimentos por paciente.
+- [ ] Filtrar atendimentos por profissional.
+- [ ] Filtrar atendimentos por status.
+- [ ] Integrar atendimento medico com prontuario.
 

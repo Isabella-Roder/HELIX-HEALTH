@@ -58,6 +58,11 @@
       </article>
 
       <article class="summary-card">
+        <span class="summary-number" id="totalTriagens">0</span>
+        <span class="summary-label">Triagens</span>
+      </article>
+
+      <article class="summary-card">
         <span class="summary-number" id="especialidadeProfissional">-</span>
         <span class="summary-label">Especialidade</span>
       </article>
@@ -116,8 +121,11 @@
           <a href="#minhasConsultas">Minhas consultas</a>
           <a href="#meusExames" id="linkMeusExames">Exames solicitados</a>
           <a href="#minhasPrescricoes" id="linkMinhasPrescricoes">Prescricoes emitidas</a>
+          <a href="#minhasTriagens" id="linkMinhasTriagens">Triagens em aberto</a>
           <a href="cadastro-prontuario.html">Cadastrar prontuario</a>
           <a href="cadastro-prescricao.html">Cadastrar prescricao</a>
+          <a href="cadastro-triagem.html">Cadastrar triagem</a>
+          <a href="listar-triagem.html">Listar triagens</a>
           <a href="listar-prescricao.html">Listar prescricoes</a>
           <a href="listar-prontuario.html">Consultar prontuarios</a>
           <a href="portal-seletor.html">Trocar portal</a>
@@ -169,10 +177,25 @@
         <p class="empty">Carregando prescricoes...</p>
       </div>
     </section>
+
+    <section class="panel full-panel" id="minhasTriagens">
+      <div class="panel-heading inline-heading">
+        <div>
+          <p class="eyebrow">Pronto atendimento</p>
+          <h2>Triagens em aberto</h2>
+        </div>
+
+        <span class="panel-badge" id="statusTriagens">Carregando</span>
+      </div>
+
+      <div class="records-list" id="listaTriagens">
+        <p class="empty">Carregando triagens...</p>
+      </div>
+    </section>
   </main>
 
   <script src="../script/auth.js?v=6"></script>
-  <script src="../script/portal-profissional.js?v=5"></script>
+  <script src="../script/portal-profissional.js?v=7"></script>
 </body>
 </html>
 

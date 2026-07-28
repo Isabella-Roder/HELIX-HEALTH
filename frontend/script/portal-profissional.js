@@ -66,6 +66,22 @@ function formatarEnum(valor) {
     });
 }
 
+function formatarDataHora(dataHora) {
+    if (!dataHora) {
+        return "-";
+    }
+
+    return new Date(dataHora).toLocaleString("pt-BR");
+}
+
+function classeStatus(valor) {
+    if (!valor) {
+        return "";
+    }
+
+    return "status-" + valor.toLowerCase().replaceAll("_", "-");
+}
+
 async function carregarAgendamentos() {
     const listaAgendamentos = document.getElementById("listaAgendamentos");
     const totalAgendamentos = document.getElementById("totalAgendamentos");
@@ -268,6 +284,153 @@ async function carregarPrescricoes() {
     }
 }
 
+async function iniciarAtendimentoTriagem(id) {
+    if (!confirm("Deseja iniciar o atendimento desta triagem?")) {
+        return;
+    }
+
+    const statusTriagens = document.getElementById("statusTriagens");
+
+    try {
+        statusTriagens.textContent = "Iniciando";
+
+        const resposta = await fetch(`${API_URL}/triagens/${id}/iniciar-atendimento`, {
+            method: "PUT"
+        });
+
+        if (!resposta.ok) {
+            throw new Error("Nao foi possivel iniciar o atendimento.");
+        }
+
+        await carregarTriagens();
+    } catch (erro) {
+        statusTriagens.textContent = "Erro";
+        alert(`Erro: ${erro.message}`);
+    }
+}
+
+async function finalizarAtendimentoTriagem(id) {
+    if (!confirm("Deseja finalizar o atendimento desta triagem?")) {
+        return;
+    }
+
+    const statusTriagens = document.getElementById("statusTriagens");
+
+    try {
+        statusTriagens.textContent = "Finalizando";
+
+        const resposta = await fetch(`${API_URL}/triagens/${id}/finalizar-atendimento`, {
+            method: "PUT"
+        });
+
+        if (!resposta.ok) {
+            throw new Error("Nao foi possivel finalizar o atendimento.");
+        }
+
+        await carregarTriagens();
+    } catch (erro) {
+        statusTriagens.textContent = "Erro";
+        alert(`Erro: ${erro.message}`);
+    }
+}
+
+async function carregarTriagens() {
+    const listaTriagens = document.getElementById("listaTriagens");
+    const totalTriagens = document.getElementById("totalTriagens");
+    const statusTriagens = document.getElementById("statusTriagens");
+
+    try {
+        const resposta = await fetch(`${API_URL}/triagens/profissional/${profissional.id}`);
+
+        if (!resposta.ok) {
+            throw new Error("Nao foi possivel carregar triagens.");
+        }
+
+        const triagens = await resposta.json();
+        const triagensEmAberto = triagens.filter(function (triagem) {
+            return triagem.statusTriagem === "AGUARDANDO" || triagem.statusTriagem === "EM_ATENDIMENTO";
+        });
+
+        totalTriagens.textContent = triagensEmAberto.length;
+        statusTriagens.textContent = `${triagensEmAberto.length} em aberto`;
+
+        if (triagensEmAberto.length === 0) {
+            listaTriagens.innerHTML = `
+                <p class="empty">Nenhuma triagem em aberto para este profissional.</p>
+            `;
+            return;
+        }
+
+        listaTriagens.innerHTML = "";
+
+        triagensEmAberto.forEach(function (triagem) {
+            const paciente = triagem.paciente;
+            const card = document.createElement("article");
+            let botaoAtendimento = "";
+
+            if (triagem.statusTriagem === "AGUARDANDO") {
+                botaoAtendimento = `
+                    <button type="button" class="record-button" onclick="iniciarAtendimentoTriagem(${triagem.id})">Iniciar</button>
+                `;
+            } else if (triagem.statusTriagem === "EM_ATENDIMENTO") {
+                botaoAtendimento = `
+                    <button type="button" class="record-button" onclick="finalizarAtendimentoTriagem(${triagem.id})">Finalizar</button>
+                `;
+            }
+
+            card.classList.add("triage-card");
+
+            card.innerHTML = `
+                <div class="record-card-header">
+                    <div>
+                        <h3>${paciente ? paciente.nome : "Paciente nao informado"}</h3>
+                        <p>Entrada: ${formatarDataHora(triagem.dataHoraEntrada)}</p>
+                        <p>Sintomas: ${triagem.sintomas || "-"}</p>
+                    </div>
+
+                    <span class="status-badge ${classeStatus(triagem.prioridadeTriagem)}">
+                        ${formatarEnum(triagem.prioridadeTriagem)}
+                    </span>
+                </div>
+
+                <div class="exam-details">
+                    <div>
+                        <strong>Pressao</strong>
+                        <p>${triagem.pressaoArterial || "-"}</p>
+                    </div>
+
+                    <div>
+                        <strong>Temperatura</strong>
+                        <p>${triagem.temperatura != null ? `${triagem.temperatura} C` : "-"}</p>
+                    </div>
+
+                    <div>
+                        <strong>Status</strong>
+                        <p>
+                            <span class="status-badge ${classeStatus(triagem.statusTriagem)}">
+                                ${formatarEnum(triagem.statusTriagem)}
+                            </span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="appointment-actions">
+                    ${botaoAtendimento}
+                    <a href="cadastro-triagem.html?id=${triagem.id}" class="record-link">Editar triagem</a>
+                </div>
+            `;
+
+            listaTriagens.appendChild(card);
+        });
+    } catch (erro) {
+        statusTriagens.textContent = "Erro";
+        listaTriagens.innerHTML = `
+            <p class="empty">Erro: ${erro.message}</p>
+        `;
+    }
+}
+
 carregarAgendamentos();
 carregarExames();
 carregarPrescricoes();
+carregarTriagens();

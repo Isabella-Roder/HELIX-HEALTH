@@ -32,6 +32,14 @@ function formatarEnum(valor) {
     });
 }
 
+function classeStatus(status) {
+    if (!status) {
+        return "";
+    }
+
+    return "status-" + status.toLowerCase().replaceAll("_", "-");
+}
+
 async function carregarPacientes() {
     try {
         const resposta = await fetch(`${API_URL}/pacientes`);
@@ -123,11 +131,18 @@ function renderizarAgendamentos(agendamentos) {
             <td>${profissional}</td>
             <td>${agendamento.dataConsulta || "-"}</td>
             <td>${agendamento.horaConsulta || "-"}</td>
-            <td><span class="status-badge">${formatarEnum(agendamento.statusAgendamento)}</span></td>
+            <td><span class="status-badge ${classeStatus(agendamento.statusAgendamento)}">${formatarEnum(agendamento.statusAgendamento)}</span></td>
             <td class="text-long">${agendamento.observacao || "-"}</td>
             <td>
                 <div class="table-actions">
                     <a href="cadastro-agendamento.html?id=${agendamento.id}">Editar</a>
+
+                    ${
+                        agendamento.statusAgendamento !== "CANCELADO"
+                            ? `<button type="button" onclick="cancelarAgendamento(${agendamento.id})">Cancelar</button>`
+                            : ""
+                    }
+
                     <button type="button" onclick="deletarAgendamento(${agendamento.id})">Excluir</button>
                 </div>
             </td>
@@ -135,6 +150,32 @@ function renderizarAgendamentos(agendamentos) {
 
         tabelaAgendamentos.appendChild(linha);
     });
+}
+
+async function cancelarAgendamento(id) {
+    const confirmar = confirm("Deseja cancelar este agendamento?");
+
+    if (!confirmar) {
+        return;
+    }
+
+    try {
+        mensagem.textContent = "Cancelando agendamentos...";
+
+        const resposta = await fetch(`${API_URL}/agendamentos/${id}/cancelar`, {
+            method: "PUT"
+        });
+
+        if (!resposta.ok) {
+            throw new Error("Erro ao cancelar agendamento.");
+        }
+
+        mensagem.textContent = "Agendamento cancelado com sucesso.";
+        await carregarAgendamentos();
+    } catch (erro) {
+        console.error(erro);
+        mensagem.textContent = "Erro: " + erro.message;
+    }
 }
 
 function filtrarAgendamentos() {

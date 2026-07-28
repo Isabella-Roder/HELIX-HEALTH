@@ -67,4 +67,9 @@ public class AgendamentoController {
         agendamentoService.deletar(id);
     }
 
+    @PutMapping("/agendamentos/{id}/cancelar")
+    public Agendamento cancelar(@PathVariable Long id) {
+        return agendamentoService.cancelar(id);
+    }
+
 }

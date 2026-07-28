@@ -14,6 +14,16 @@ const botaoSalvar = document.getElementById("botaoSalvar");
 const parametros = new URLSearchParams(window.location.search);
 const agendamentoId = parametros.get("id");
 
+async function extrairMensagemErro(resposta) {
+    try {
+        const dadosErro = await resposta.json();
+
+        return dadosErro.message || dadosErro.error || "Erro ao salvar agendamento.";
+    } catch (erro) {
+        return "Erro ao salvar agendamento.";
+    }
+}
+
 form.addEventListener("submit", async function (event) {
     event.preventDefault();
 
@@ -46,7 +56,8 @@ form.addEventListener("submit", async function (event) {
         });
 
         if (!resposta.ok) {
-            throw new Error("Erro ao salvar agendamento");
+            const mensagemErro = await extrairMensagemErro(resposta);
+            throw new Error(mensagemErro);
         }
 
         await resposta.json();

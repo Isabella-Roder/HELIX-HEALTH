@@ -2,6 +2,10 @@
 
 ## Estado salvo
 
+- [x] Unificar CSS do frontend.
+- [x] Melhorar visual geral do sistema.
+- [x] Testar telas principais com CSS unico.
+
 - [x] Projeto enviado para o GitHub.
 - [x] Backend compilando com `mvn test`.
 - [x] Usuario inicial Isabella criado automaticamente ao iniciar o Spring Boot.
@@ -64,6 +68,9 @@
 - [x] Filtrar agendamentos por profissional.
 - [x] Filtrar agendamentos por status.
 - [x] Filtrar agendamentos por data.
+- [x] Bloquear conflito de horario para o mesmo profissional.
+- [x] Permitir novo agendamento no horario se o antigo estiver cancelado.
+- [x] Cancelar agendamento pela listagem.
 
 ## Prontuario
 
@@ -120,4 +127,7 @@
 - [x] Filtrar internacoes por status.
 - [x] Internacao ativa ocupa leito.
 - [x] Alta, transferencia ou cancelamento libera leito.
+
+
+
 

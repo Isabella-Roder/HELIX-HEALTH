@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 
 public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> {
@@ -15,5 +16,11 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> 
     List<Agendamento> findByStatusAgendamento(StatusAgendamento statusAgendamento);
     
     List<Agendamento> findByDataConsulta(LocalDate dataConsulta);
+
+    List<Agendamento> findByProfissionalIdAndDataConsultaAndHoraConsulta(
+        Long profissionalId,
+        LocalDate dataConsulta,
+        LocalTime horaConsulta
+    );
 
 }

@@ -64,6 +64,19 @@ public class AgendamentoService {
         }
     }
 
+    public void verificarConflitoHorario(Agendamento agendamento, Long idIgnorado) {
+        List<Agendamento> agendamentosNoMesmoHorario = agendamentoRepository.findByProfissionalIdAndDataConsultaAndHoraConsulta(agendamento.getProfissional().getId(), agendamento.getDataConsulta(), agendamento.getHoraConsulta());
+
+        for (Agendamento agendamentoExistente : agendamentosNoMesmoHorario) {
+            boolean mesmoAgendamento = idIgnorado != null && agendamentoExistente.getId().equals(idIgnorado);
+            boolean estaCancelado = agendamentoExistente.getStatusAgendamento() == StatusAgendamento.CANCELADO;
+
+            if (!mesmoAgendamento && !estaCancelado) {
+                throw new IllegalArgumentException("Este profissional ja possui agendamento neste dia e horario.");
+            }
+        }
+    }
+
     private void prepararRelacionamentos(Agendamento agendamento) {
         Paciente paciente = pacienteRepository.findById(agendamento.getPaciente().getId())
             .orElseThrow(() -> new IllegalArgumentException("Paciente nao encontrado."));
@@ -82,6 +95,7 @@ public class AgendamentoService {
     public Agendamento cadastrar(Agendamento agendamento) {
         verificacoesCadastro(agendamento);
         prepararRelacionamentos(agendamento);
+        verificarConflitoHorario(agendamento, null);
 
         return agendamentoRepository.save(agendamento);
     }
@@ -98,6 +112,15 @@ public class AgendamentoService {
 
         verificacoesCadastro(agendamento);
         prepararRelacionamentos(agendamento);
+        verificarConflitoHorario(agendamento, id);
+
+        return agendamentoRepository.save(agendamento);
+    }
+
+    public Agendamento cancelar(Long id) {
+        Agendamento agendamento =  buscarPorId(id);
+
+        agendamento.setStatusAgendamento(StatusAgendamento.CANCELADO);
 
         return agendamentoRepository.save(agendamento);
     }

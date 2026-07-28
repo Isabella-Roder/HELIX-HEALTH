@@ -54,12 +54,16 @@
 
 ## Agendamento
 
-- [ ] Listar agendamentos.
+- [x] Listar agendamentos.
 - [ ] Cadastrar agendamento.
 - [ ] Editar agendamento.
-- [ ] Deletar agendamento.
+- [x] Deletar agendamento.
 - [ ] Ver agendamento no portal do paciente.
 - [ ] Ver agendamento no portal do profissional.
+- [x] Filtrar agendamentos por paciente.
+- [x] Filtrar agendamentos por profissional.
+- [x] Filtrar agendamentos por status.
+- [x] Filtrar agendamentos por data.
 
 ## Prontuario
 
@@ -116,3 +120,4 @@
 - [x] Filtrar internacoes por status.
 - [x] Internacao ativa ocupa leito.
 - [x] Alta, transferencia ou cancelamento libera leito.
+

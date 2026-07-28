@@ -1,5 +1,6 @@
 package com.helixhealth.agendamento;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -41,6 +42,14 @@ public class AgendamentoService {
 
     public List<Agendamento> listarPorProfissional(Long profissionalId) {
         return agendamentoRepository.findByProfissionalId(profissionalId);
+    }
+
+    public List<Agendamento> listarPorStatus(StatusAgendamento statusAgendamento) {
+        return agendamentoRepository.findByStatusAgendamento(statusAgendamento);
+    }
+
+    public List<Agendamento> listarPorData(LocalDate dataConsulta) {
+        return agendamentoRepository.findByDataConsulta(dataConsulta);
     }
 
     public void verificacoesCadastro(Agendamento agendamento) {

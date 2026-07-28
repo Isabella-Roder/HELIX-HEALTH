@@ -13,6 +13,7 @@
     <nav class="menu">
       <a href="portal-usuario.html">Portal</a>
       <a href="cadastro-agendamento.html">Cadastrar agendamento</a>
+      <a href="portal-seletor.html">Trocar portal</a>
       <a href="#" id="botaoSair">Sair</a>
     </nav>
   </header>
@@ -26,6 +27,43 @@
       </div>
 
       <a class="primary-link" href="cadastro-agendamento.html">Novo agendamento</a>
+    </section>
+
+    <section class="filter-panel">
+      <div class="filter-field">
+        <label for="filtroPaciente">Paciente</label>
+        <select id="filtroPaciente">
+          <option value="">Todos os pacientes</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroProfissional">Profissional</label>
+        <select id="filtroProfissional">
+          <option value="">Todos os profissionais</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroStatus">Status</label>
+        <select id="filtroStatus">
+          <option value="">Todos os status</option>
+          <option value="AGENDADO">Agendado</option>
+          <option value="CANCELADO">Cancelado</option>
+          <option value="REALIZADO">Realizado</option>
+          <option value="REMARCADO">Remarcado</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroData">Data</label>
+        <input type="date" id="filtroData">
+      </div>
+
+      <div class="filter-actions">
+        <button type="button" id="botaoFiltrar">Filtrar</button>
+        <button type="button" id="botaoLimparFiltro">Limpar</button>
+      </div>
     </section>
 
     <section class="table-panel">

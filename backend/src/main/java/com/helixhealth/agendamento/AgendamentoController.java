@@ -1,5 +1,6 @@
 package com.helixhealth.agendamento;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -39,6 +40,16 @@ public class AgendamentoController {
     @GetMapping("/agendamentos/profissional/{profissionalId}")
     public List<Agendamento> listarPorProfissional(@PathVariable Long profissionalId) {
         return agendamentoService.listarPorProfissional(profissionalId);
+    }
+
+    @GetMapping("/agendamentos/status/{statusAgendamento}")
+    public List<Agendamento> listarPorStatus(@PathVariable StatusAgendamento statusAgendamento) {
+        return agendamentoService.listarPorStatus(statusAgendamento);
+    }
+
+    @GetMapping("/agendamentos/data/{dataConsulta}")
+    public List<Agendamento> listarPorData(@PathVariable LocalDate dataConsulta) {
+        return agendamentoService.listarPorData(dataConsulta);
     }
 
     @PostMapping("/agendamentos/cadastrar")

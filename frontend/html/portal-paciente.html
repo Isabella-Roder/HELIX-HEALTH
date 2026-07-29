@@ -52,6 +52,11 @@
       </article>
 
       <article class="summary-card">
+        <span class="summary-number" id="totalAtendimentos">0</span>
+        <span class="summary-label">Atendimentos</span>
+      </article>
+
+      <article class="summary-card">
         <span class="summary-number" id="totalExames">0</span>
         <span class="summary-label">Exames</span>
       </article>
@@ -114,6 +119,7 @@
         <div class="actions">
           <a href="#meusAgendamentos" id="linkMeusAgendamentos">Meus agendamentos</a>
           <a href="#meuProntuario" id="linkMeuProntuario">Meu prontuario</a>
+          <a href="#meusAtendimentos" id="linkMeusAtendimentos">Meus atendimentos</a>
           <a href="#meusExames" id="linkMeusExames">Meus exames</a>
           <a href="#minhasPrescricoes" id="linkMinhasPrescricoes">Minhas prescricoes</a>
           <a href="portal-seletor.html">Trocar portal</a>
@@ -133,6 +139,21 @@
 
       <div class="appointment-list" id="listaAgendamentos">
         <p class="empty">Carregando agendamentos...</p>
+      </div>
+    </section>
+
+    <section class="panel full-panel" id="meusAtendimentos">
+      <div class="panel-heading inline-heading">
+        <div>
+          <p class="eyebrow">Consultas realizadas</p>
+          <h2>Meus atendimentos medicos</h2>
+        </div>
+
+        <span class="panel-badge" id="statusAtendimentos">Carregando</span>
+      </div>
+
+      <div class="records-list" id="listaAtendimentos">
+        <p class="empty">Carregando atendimentos medicos...</p>
       </div>
     </section>
 
@@ -183,7 +204,7 @@
   </main>
 
   <script src="../script/auth.js?v=6"></script>
-  <script src="../script/portal-paciente.js?v=4"></script>
+  <script src="../script/portal-paciente.js?v=5"></script>
 </body>
 </html>
 

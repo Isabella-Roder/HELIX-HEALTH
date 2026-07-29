@@ -367,6 +367,9 @@ async function carregarTriagens() {
             const paciente = triagem.paciente;
             const card = document.createElement("article");
             let botaoAtendimento = "";
+            const linkAtendimentoMedico = paciente
+                ? `cadastro-atendimento-medico.html?pacienteId=${paciente.id}&profissionalId=${profissional.id}&triagemId=${triagem.id}`
+                : "cadastro-atendimento-medico.html";
 
             if (triagem.statusTriagem === "AGUARDANDO") {
                 botaoAtendimento = `
@@ -375,6 +378,7 @@ async function carregarTriagens() {
             } else if (triagem.statusTriagem === "EM_ATENDIMENTO") {
                 botaoAtendimento = `
                     <button type="button" class="record-button" onclick="finalizarAtendimentoTriagem(${triagem.id})">Finalizar</button>
+                    <a href="${linkAtendimentoMedico}" class="record-link">Atender paciente</a>
                 `;
             }
 

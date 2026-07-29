@@ -144,17 +144,20 @@
 
 ## Atendimento medico
 
-- [ ] Criar entidade AtendimentoMedico.
-- [ ] Criar enum StatusAtendimentoMedico.
-- [ ] Criar repository de atendimento medico.
-- [ ] Criar service de atendimento medico.
-- [ ] Criar controller de atendimento medico.
-- [ ] Cadastrar atendimento medico.
-- [ ] Listar atendimentos medicos.
-- [ ] Editar atendimento medico.
+- [x] Criar entidade AtendimentoMedico.
+- [x] Criar enum StatusAtendimentoMedico.
+- [x] Criar repository de atendimento medico.
+- [x] Criar service de atendimento medico.
+- [x] Criar controller de atendimento medico.
+- [x] Cadastrar atendimento medico.
+- [x] Listar atendimentos medicos.
+- [x] Editar atendimento medico.
 - [ ] Deletar atendimento medico.
-- [ ] Filtrar atendimentos por paciente.
-- [ ] Filtrar atendimentos por profissional.
-- [ ] Filtrar atendimentos por status.
-- [ ] Integrar atendimento medico com prontuario.
+- [x] Filtrar atendimentos por paciente.
+- [x] Filtrar atendimentos por profissional.
+- [x] Filtrar atendimentos por status.
+- [x] Integrar atendimento medico com prontuario.
+- [x] Abrir atendimento medico pela listagem de triagens.
+- [x] Abrir atendimento medico pelo portal profissional.
+- [ ] Ver atendimentos medicos no portal do paciente.
 

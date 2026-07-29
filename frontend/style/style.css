@@ -599,6 +599,16 @@ tbody tr:hover td {
   background: var(--success-soft);
 }
 
+.status-badge.status-em-andamento {
+  color: #155c6c;
+  background: #e7f5f8;
+}
+
+.status-badge.status-finalizado {
+  color: var(--success);
+  background: var(--success-soft);
+}
+
 .status-badge.status-cancelado {
   color: var(--danger);
   background: var(--danger-soft);
@@ -876,7 +886,8 @@ tbody tr:hover td {
 .appointment-card,
 .exam-card,
 .prescription-card,
-.triage-card {
+.triage-card,
+.record-card {
   border: 1px solid #e0ebee;
   border-radius: var(--radius);
   padding: 16px;
@@ -894,7 +905,8 @@ tbody tr:hover td {
 .appointment-card h3,
 .exam-card h3,
 .prescription-card h3,
-.triage-card h3 {
+.triage-card h3,
+.record-card h3 {
   margin: 0 0 8px;
   color: var(--primary-dark);
   font-size: 17px;
@@ -903,7 +915,8 @@ tbody tr:hover td {
 .appointment-card p,
 .exam-card p,
 .prescription-card p,
-.triage-card p {
+.triage-card p,
+.record-card p {
   margin: 4px 0;
   color: var(--muted);
   line-height: 1.45;
@@ -911,7 +924,8 @@ tbody tr:hover td {
 
 .appointment-status,
 .exam-status,
-.prescription-date {
+.prescription-date,
+.record-date {
   display: inline-flex;
   align-items: center;
   min-height: 28px;
@@ -953,7 +967,8 @@ tbody tr:hover td {
 }
 
 .exam-details,
-.prescription-details {
+.prescription-details,
+.record-details {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
@@ -961,7 +976,8 @@ tbody tr:hover td {
 }
 
 .exam-details strong,
-.prescription-details strong {
+.prescription-details strong,
+.record-details strong {
   color: var(--primary-dark);
   font-size: 13px;
 }

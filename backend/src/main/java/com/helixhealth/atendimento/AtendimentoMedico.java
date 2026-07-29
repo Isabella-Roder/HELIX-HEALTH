@@ -61,7 +61,7 @@ public class AtendimentoMedico {
         Agendamento agendamento,
         LocalDateTime dataHoraInicio,
         LocalDateTime dataHoraFim,
-        String quexaPrincipal,
+        String queixaPrincipal,
         String historiaDoencaAtual,
         String diagnostico,
         String conduta,
@@ -74,7 +74,7 @@ public class AtendimentoMedico {
         this.agendamento = agendamento;
         this.dataHoraInicio = dataHoraInicio;
         this.dataHoraFim = dataHoraFim;
-        this.queixaPrincipal = quexaPrincipal;
+        this.queixaPrincipal = queixaPrincipal;
         this.historiaDoencaAtual = historiaDoencaAtual;
         this.diagnostico = diagnostico;
         this.conduta = conduta;
@@ -126,7 +126,7 @@ public class AtendimentoMedico {
         return conduta;
     }
 
-    public String getObeservacoes() {
+    public String getObservacoes() {
         return observacoes;
     }
 
@@ -146,7 +146,7 @@ public class AtendimentoMedico {
         this.triagem = triagem;
     }
 
-    public void setAtendimento(Agendamento agendamento) {
+    public void setAgendamento(Agendamento agendamento) {
         this.agendamento = agendamento;
     }
 

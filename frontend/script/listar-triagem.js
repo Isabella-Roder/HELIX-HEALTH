@@ -130,6 +130,9 @@ function renderizarTriagens(triagens) {
         const paciente = triagem.paciente ? triagem.paciente.nome : "Sem paciente";
         const profissional = triagem.profissional ? triagem.profissional.nome : "Sem profissional";
         let botoesAtendimento = "";
+        const linkAtendimento = triagem.paciente && triagem.profissional
+            ? `cadastro-atendimento-medico.html?pacienteId=${triagem.paciente.id}&profissionalId=${triagem.profissional.id}&triagemId=${triagem.id}`
+            : "cadastro-atendimento-medico.html";
 
         if (triagem.statusTriagem === "AGUARDANDO") {
             botoesAtendimento = `
@@ -138,6 +141,7 @@ function renderizarTriagens(triagens) {
         } else if (triagem.statusTriagem === "EM_ATENDIMENTO") {
             botoesAtendimento = `
                 <button type="button" onclick="finalizarAtendimento(${triagem.id})">Finalizar</button>
+                <a href="${linkAtendimento}">Atender paciente</a>
             `;
         }
 

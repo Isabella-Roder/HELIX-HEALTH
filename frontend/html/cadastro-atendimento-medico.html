@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Atendimento Medico - Helix Health</title>
+  <link rel="stylesheet" href="../style/style.css?v=3">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="header-actions">
+        <a href="portal-profissional.html" class="voltar">Portal profissional</a>
+        <a href="listar-triagem.html" class="voltar">Triagens</a>
+      </div>
+
+      <p class="eyebrow" id="modoPagina">Cadastro</p>
+      <h1 id="tituloPagina">Cadastro de Atendimento Medico</h1>
+      <p id="descricaoPagina">Registre a avaliacao medica, diagnostico e conduta do paciente.</p>
+    </header>
+
+    <form id="formAtendimentoMedico">
+      <div class="linha">
+        <div class="campo">
+          <label for="paciente">Paciente</label>
+          <select id="paciente" required>
+            <option value="">Selecione um paciente</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="profissional">Profissional</label>
+          <select id="profissional" required>
+            <option value="">Selecione um profissional</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="triagem">Triagem</label>
+          <select id="triagem">
+            <option value="">Sem triagem vinculada</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="agendamento">Agendamento</label>
+          <select id="agendamento">
+            <option value="">Sem agendamento vinculado</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="dataHoraInicio">Inicio</label>
+          <input type="datetime-local" id="dataHoraInicio">
+        </div>
+
+        <div class="campo">
+          <label for="statusAtendimentoMedico">Status</label>
+          <select id="statusAtendimentoMedico">
+            <option value="EM_ANDAMENTO">Em andamento</option>
+            <option value="FINALIZADO">Finalizado</option>
+            <option value="CANCELADO">Cancelado</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="queixaPrincipal">Queixa principal</label>
+        <textarea id="queixaPrincipal" rows="3" placeholder="Ex: dor no peito, febre, falta de ar..." required></textarea>
+      </div>
+
+      <div class="campo">
+        <label for="historiaDoencaAtual">Historia da doenca atual</label>
+        <textarea id="historiaDoencaAtual" rows="4" placeholder="Descreva a evolucao dos sintomas e informacoes relatadas pelo paciente."></textarea>
+      </div>
+
+      <div class="campo">
+        <label for="diagnostico">Diagnostico</label>
+        <textarea id="diagnostico" rows="4" placeholder="Informe o diagnostico ou hipotese diagnostica."></textarea>
+      </div>
+
+      <div class="campo">
+        <label for="conduta">Conduta</label>
+        <textarea id="conduta" rows="4" placeholder="Informe orientacoes, procedimento, medicacao ou encaminhamento."></textarea>
+      </div>
+
+      <div class="campo">
+        <label for="observacoes">Observacoes</label>
+        <textarea id="observacoes" rows="4" placeholder="Observacoes adicionais do atendimento."></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" id="botaoSalvar">Cadastrar atendimento</button>
+        <a href="portal-profissional.html" class="secondary-link">Cancelar</a>
+      </div>
+    </form>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/cadastro-atendimento-medico.js"></script>
+</body>
+</html>

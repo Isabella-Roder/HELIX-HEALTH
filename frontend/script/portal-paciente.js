@@ -59,6 +59,22 @@ function formatarEnum(valor) {
     });
 }
 
+function formatarDataHora(dataHora) {
+    if (!dataHora) {
+        return "-";
+    }
+
+    return new Date(dataHora).toLocaleString("pt-BR");
+}
+
+function classeStatus(valor) {
+    if (!valor) {
+        return "";
+    }
+
+    return "status-" + valor.toLowerCase().replaceAll("_", "-");
+}
+
 async function carregarAgendamentos() {
     const listaAgendamentos = document.getElementById("listaAgendamentos");
     const totalAgendamentos = document.getElementById("totalAgendamentos");
@@ -182,6 +198,85 @@ async function carregarProntuario() {
     } catch (erro) {
         statusProntuarios.textContent = "Erro";
         listaRegistros.innerHTML = `
+            <p class="empty">Erro: ${erro.message}</p>
+        `;
+    }
+}
+
+async function carregarAtendimentos() {
+    const listaAtendimentos = document.getElementById("listaAtendimentos");
+    const totalAtendimentos = document.getElementById("totalAtendimentos");
+    const statusAtendimentos = document.getElementById("statusAtendimentos");
+
+    try {
+        const resposta = await fetch(`${API_URL}/atendimentos-medicos/paciente/${paciente.id}`);
+
+        if (!resposta.ok) {
+            throw new Error("Nao foi possivel carregar atendimentos medicos.");
+        }
+
+        const atendimentos = await resposta.json();
+
+        totalAtendimentos.textContent = atendimentos.length;
+        statusAtendimentos.textContent = `${atendimentos.length} atendimentos`;
+
+        if (atendimentos.length === 0) {
+            listaAtendimentos.innerHTML = `
+                <p class="empty">Voce ainda nao possui atendimentos medicos.</p>
+            `;
+            return;
+        }
+
+        listaAtendimentos.innerHTML = "";
+
+        atendimentos.forEach(function (atendimento) {
+            const profissional = atendimento.profissional;
+            const card = document.createElement("article");
+
+            card.classList.add("record-card");
+
+            card.innerHTML = `
+                <div class="record-card-header">
+                    <div>
+                        <h3>${profissional ? profissional.nome : "Atendimento medico"}</h3>
+                        <p>Especialidade: ${profissional ? profissional.especialidadeProfissional || "-" : "-"}</p>
+                        <p>Inicio: ${formatarDataHora(atendimento.dataHoraInicio)}</p>
+                        <p>Fim: ${formatarDataHora(atendimento.dataHoraFim)}</p>
+                    </div>
+
+                    <span class="status-badge ${classeStatus(atendimento.statusAtendimentoMedico)}">
+                        ${formatarEnum(atendimento.statusAtendimentoMedico)}
+                    </span>
+                </div>
+
+                <div class="record-details">
+                    <div>
+                        <strong>Queixa principal</strong>
+                        <p>${atendimento.queixaPrincipal || "-"}</p>
+                    </div>
+
+                    <div>
+                        <strong>Diagnostico</strong>
+                        <p>${atendimento.diagnostico || "-"}</p>
+                    </div>
+
+                    <div>
+                        <strong>Conduta</strong>
+                        <p>${atendimento.conduta || "-"}</p>
+                    </div>
+
+                    <div>
+                        <strong>Observacoes</strong>
+                        <p>${atendimento.observacoes || "-"}</p>
+                    </div>
+                </div>
+            `;
+
+            listaAtendimentos.appendChild(card);
+        });
+    } catch (erro) {
+        statusAtendimentos.textContent = "Erro";
+        listaAtendimentos.innerHTML = `
             <p class="empty">Erro: ${erro.message}</p>
         `;
     }
@@ -331,5 +426,6 @@ async function carregarPrescricoes() {
 
 carregarAgendamentos();
 carregarProntuario();
+carregarAtendimentos();
 carregarExames();
 carregarPrescricoes();

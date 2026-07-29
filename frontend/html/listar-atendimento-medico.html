@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atendimentos Medicos - Helix Health</title>
+  <link rel="stylesheet" href="../style/style.css?v=3">
+</head>
+<body>
+  <header class="topbar">
+    <a href="portal-profissional.html" class="brand">Helix Health</a>
+
+    <nav class="menu">
+      <a href="portal-profissional.html">Portal profissional</a>
+      <a href="cadastro-atendimento-medico.html">Novo atendimento</a>
+      <a href="portal-seletor.html">Trocar portal</a>
+      <a href="#" id="botaoSair">Sair</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="page-header">
+      <div>
+        <p class="eyebrow">Atendimento medico</p>
+        <h1>Atendimentos medicos</h1>
+        <p class="subtitle">Acompanhe avaliacoes, diagnosticos, condutas e status dos atendimentos realizados.</p>
+      </div>
+
+      <a class="primary-link" href="cadastro-atendimento-medico.html">Novo atendimento</a>
+    </section>
+
+    <section class="filter-panel">
+      <div class="filter-field">
+        <label for="filtroPaciente">Paciente</label>
+        <select id="filtroPaciente">
+          <option value="">Todos os pacientes</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroProfissional">Profissional</label>
+        <select id="filtroProfissional">
+          <option value="">Todos os profissionais</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroStatus">Status</label>
+        <select id="filtroStatus">
+          <option value="">Todos os status</option>
+          <option value="EM_ANDAMENTO">Em andamento</option>
+          <option value="FINALIZADO">Finalizado</option>
+          <option value="CANCELADO">Cancelado</option>
+        </select>
+      </div>
+
+      <div class="filter-actions">
+        <button type="button" id="botaoFiltrar">Filtrar</button>
+        <button type="button" id="botaoLimparFiltro">Limpar</button>
+      </div>
+    </section>
+
+    <section class="table-panel">
+      <div class="table-toolbar">
+        <span id="totalAtendimentos">0 atendimentos encontrados</span>
+        <button type="button" id="botaoAtualizar">Atualizar</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Paciente</th>
+              <th>Profissional</th>
+              <th>Inicio</th>
+              <th>Fim</th>
+              <th>Status</th>
+              <th>Queixa</th>
+              <th>Diagnostico</th>
+              <th>Conduta</th>
+              <th>Acoes</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaAtendimentos">
+            <tr>
+              <td colspan="10" class="empty">Carregando atendimentos...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/listar-atendimento-medico.js"></script>
+</body>
+</html>

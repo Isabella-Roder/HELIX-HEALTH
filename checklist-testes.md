@@ -11,6 +11,15 @@
 - [x] Usuario inicial Isabella criado automaticamente ao iniciar o Spring Boot.
 - [x] Login simplificado para sempre abrir o seletor de portal.
 
+## Dashboard admin
+
+- [x] Criar tela de dashboard admin.
+- [x] Abrir dashboard pelo portal admin.
+- [x] Mostrar totais de pacientes, profissionais, agendamentos, leitos, exames e triagens.
+- [x] Mostrar status do dia.
+- [x] Mostrar proximos agendamentos, triagens urgentes e exames pendentes.
+- [x] Mostrar resumo de leitos.
+
 ## Login e portal seletor
 
 - [x] Entrar com `isabella@helixhealth.com` e senha `123456`.
@@ -18,7 +27,7 @@
 - [x] Entrar no portal Admin.
 - [x] Entrar no portal Paciente.
 - [x] Entrar no portal Profissional.
-- [ ] Clicar em Sair e confirmar se volta para o login.
+- [x] Clicar em Sair e confirmar se volta para o login.
 
 ## Meu perfil
 
@@ -32,38 +41,41 @@
 
 ## Paciente
 
-- [ ] Listar pacientes.
-- [ ] Cadastrar paciente.
-- [ ] Editar paciente.
-- [ ] Deletar paciente.
-- [ ] Conferir sexo e genero na tela.
+- [x] Listar pacientes.
+- [x] Cadastrar paciente.
+- [x] Editar paciente.
+- [x] Deletar paciente.
+- [x] Conferir sexo e genero na tela.
+- [x] Criar tela de detalhes do paciente.
+- [x] Ver historico completo do paciente por ID.
+- [x] Ver agendamentos, atendimentos, prontuarios, exames, prescricoes, internacoes e triagens nos detalhes.
 
 ## Profissional
 
-- [ ] Listar profissionais.
-- [ ] Cadastrar profissional.
-- [ ] Editar profissional.
-- [ ] Deletar profissional.
-- [ ] Conferir especialidade como enum.
+- [x] Listar profissionais.
+- [x] Cadastrar profissional.
+- [x] Editar profissional.
+- [x] Deletar profissional.
+- [x] Conferir especialidade como enum.
 
 ## Usuario
 
-- [ ] Listar usuarios.
-- [ ] Cadastrar usuario com um perfil.
-- [ ] Cadastrar usuario com mais de um perfil.
-- [ ] Vincular usuario a paciente.
-- [ ] Vincular usuario a profissional.
-- [ ] Editar usuario.
-- [ ] Deletar usuario.
+- [x] Listar usuarios.
+- [x] Cadastrar usuario com um perfil.
+- [x] Cadastrar usuario com mais de um perfil.
+- [x] Vincular usuario a paciente.
+- [x] Vincular usuario a profissional.
+- [x] Editar usuario.
+- [x] Deletar usuario.
 
 ## Agendamento
 
 - [x] Listar agendamentos.
-- [ ] Cadastrar agendamento.
-- [ ] Editar agendamento.
+- [x] Cadastrar agendamento.
+- [x] Editar agendamento.
 - [x] Deletar agendamento.
-- [ ] Ver agendamento no portal do paciente.
-- [ ] Ver agendamento no portal do profissional.
+- [x] Ver agendamento no portal do paciente.
+- [x] Ver agendamento no portal do profissional.
 - [x] Filtrar agendamentos por paciente.
 - [x] Filtrar agendamentos por profissional.
 - [x] Filtrar agendamentos por status.
@@ -74,10 +86,10 @@
 
 ## Prontuario
 
-- [ ] Cadastrar prontuario pelo admin.
-- [ ] Cadastrar prontuario pelo portal profissional.
-- [ ] Listar prontuarios.
-- [ ] Ver prontuario no portal do paciente.
+- [x] Cadastrar prontuario pelo admin.
+- [x] Cadastrar prontuario pelo portal profissional.
+- [x] Listar prontuarios.
+- [x] Ver prontuario no portal do paciente.
 
 ## Exames
 
@@ -152,12 +164,12 @@
 - [x] Cadastrar atendimento medico.
 - [x] Listar atendimentos medicos.
 - [x] Editar atendimento medico.
-- [ ] Deletar atendimento medico.
+- [x] Deletar atendimento medico.
 - [x] Filtrar atendimentos por paciente.
 - [x] Filtrar atendimentos por profissional.
 - [x] Filtrar atendimentos por status.
 - [x] Integrar atendimento medico com prontuario.
 - [x] Abrir atendimento medico pela listagem de triagens.
 - [x] Abrir atendimento medico pelo portal profissional.
-- [ ] Ver atendimentos medicos no portal do paciente.
+- [x] Ver atendimentos medicos no portal do paciente.
 

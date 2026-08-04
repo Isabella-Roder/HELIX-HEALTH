@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin - Helix Health</title>
+  <link rel="stylesheet" href="../style/style.css?v=4">
+</head>
+<body>
+  <header class="topbar">
+    <a href="portal-usuario.html" class="brand">Helix Health</a>
+
+    <nav class="menu">
+      <a href="portal-usuario.html">Portal</a>
+      <a href="listar-paciente.html">Pacientes</a>
+      <a href="listar-agendamento.html">Agendamentos</a>
+      <a href="listar-leito.html">Leitos</a>
+      <a href="#" id="botaoSair">Sair</a>
+    </nav>
+  </header>
+
+  <main class="page dashboard-page">
+    <section class="page-header dashboard-header">
+      <div>
+        <p class="eyebrow">Painel administrativo</p>
+        <h1>Dashboard do hospital</h1>
+        <p class="subtitle" id="resumoDashboard">Acompanhe os principais numeros e pendencias do Helix Health.</p>
+      </div>
+
+      <div class="header-actions">
+        <a class="secondary-link" href="portal-usuario.html">Voltar ao portal</a>
+        <button type="button" id="botaoAtualizarDashboard">Atualizar</button>
+      </div>
+    </section>
+
+    <section class="summary dashboard-summary">
+      <article class="summary-card">
+        <span class="summary-number" id="totalPacientes">0</span>
+        <span class="summary-label">Pacientes</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalProfissionais">0</span>
+        <span class="summary-label">Profissionais</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalAgendamentos">0</span>
+        <span class="summary-label">Agendamentos</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalLeitosOcupados">0</span>
+        <span class="summary-label">Leitos ocupados</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalExamesPendentes">0</span>
+        <span class="summary-label">Exames pendentes</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalTriagensUrgentes">0</span>
+        <span class="summary-label">Triagens urgentes</span>
+      </article>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Atalhos principais</h2>
+        </div>
+
+        <div class="actions dashboard-actions">
+          <a href="cadastro-paciente.html">Novo paciente</a>
+          <a href="cadastro-agendamento.html">Novo agendamento</a>
+          <a href="cadastro-triagem.html">Nova triagem</a>
+          <a href="cadastro-atendimento-medico.html">Novo atendimento</a>
+          <a href="cadastro-exame.html">Novo exame</a>
+          <a href="cadastro-internacao.html">Nova internacao</a>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Status do dia</h2>
+          <span class="panel-badge" id="dataDashboard">Hoje</span>
+        </div>
+
+        <dl class="data-list">
+          <dt>Agendados</dt>
+          <dd id="agendamentosHoje">0</dd>
+
+          <dt>Atendimentos em andamento</dt>
+          <dd id="atendimentosEmAndamento">0</dd>
+
+          <dt>Internacoes ativas</dt>
+          <dd id="internacoesAtivas">0</dd>
+
+          <dt>Leitos livres</dt>
+          <dd id="leitosLivres">0</dd>
+        </dl>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Proximos agendamentos</h2>
+          <a class="panel-badge" href="listar-agendamento.html">Ver todos</a>
+        </div>
+
+        <div class="patient-record-list" id="listaProximosAgendamentos">
+          <p class="empty">Carregando agendamentos...</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Triagens urgentes</h2>
+          <a class="panel-badge" href="listar-triagem.html">Ver todas</a>
+        </div>
+
+        <div class="patient-record-list" id="listaTriagensUrgentes">
+          <p class="empty">Carregando triagens...</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Exames pendentes</h2>
+          <a class="panel-badge" href="listar-exame.html">Ver todos</a>
+        </div>
+
+        <div class="patient-record-list" id="listaExamesPendentes">
+          <p class="empty">Carregando exames...</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Leitos</h2>
+          <a class="panel-badge" href="listar-leito.html">Ver leitos</a>
+        </div>
+
+        <div class="bed-status-grid">
+          <div>
+            <span class="summary-number" id="leitosDisponiveis">0</span>
+            <span class="summary-label">Disponiveis</span>
+          </div>
+
+          <div>
+            <span class="summary-number" id="leitosOcupados">0</span>
+            <span class="summary-label">Ocupados</span>
+          </div>
+
+          <div>
+            <span class="summary-number" id="leitosManutencao">0</span>
+            <span class="summary-label">Manutencao</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/dashboard-admin.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes do Paciente - Helix Health</title>
+  <link rel="stylesheet" href="../style/style.css?v=4">
+</head>
+<body>
+  <header class="topbar">
+    <a href="portal-usuario.html" class="brand">Helix Health</a>
+
+    <nav class="menu">
+      <a href="portal-usuario.html">Portal</a>
+      <a href="listar-paciente.html">Pacientes</a>
+      <a href="#" id="botaoSair">Sair</a>
+    </nav>
+  </header>
+
+  <main class="page patient-details-page">
+    <section class="page-header patient-header">
+      <div>
+        <p class="eyebrow">Historico completo</p>
+        <h1 id="nomePaciente">Detalhes do paciente</h1>
+        <p class="subtitle" id="dadosPaciente">Carregando dados do paciente...</p>
+      </div>
+
+      <div class="header-actions">
+        <a class="secondary-link" href="listar-paciente.html">Voltar</a>
+        <a class="primary-link" id="linkEditarPaciente" href="cadastro-paciente.html">Editar paciente</a>
+      </div>
+    </section>
+
+    <section class="summary patient-summary">
+      <article class="summary-card">
+        <span class="summary-number" id="totalAgendamentos">0</span>
+        <span class="summary-label">Agendamentos</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalAtendimentos">0</span>
+        <span class="summary-label">Atendimentos</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalProntuarios">0</span>
+        <span class="summary-label">Prontuarios</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalExames">0</span>
+        <span class="summary-label">Exames</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalPrescricoes">0</span>
+        <span class="summary-label">Prescricoes</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalInternacoes">0</span>
+        <span class="summary-label">Internacoes</span>
+      </article>
+    </section>
+
+    <section class="patient-profile-grid">
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Dados pessoais</h2>
+          <span class="panel-badge" id="pacienteId">ID</span>
+        </div>
+
+        <dl class="data-list">
+          <dt>CPF</dt>
+          <dd id="cpfPaciente">-</dd>
+
+          <dt>Telefone</dt>
+          <dd id="telefonePaciente">-</dd>
+
+          <dt>Nascimento</dt>
+          <dd id="nascimentoPaciente">-</dd>
+
+          <dt>Sexo</dt>
+          <dd id="sexoPaciente">-</dd>
+
+          <dt>Genero</dt>
+          <dd id="generoPaciente">-</dd>
+
+          <dt>Convenio</dt>
+          <dd id="convenioPaciente">-</dd>
+        </dl>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Acoes rapidas</h2>
+        </div>
+
+        <div class="actions patient-actions">
+          <a id="linkNovoAgendamento" href="cadastro-agendamento.html">Novo agendamento</a>
+          <a id="linkNovaTriagem" href="cadastro-triagem.html">Nova triagem</a>
+          <a id="linkNovoAtendimento" href="cadastro-atendimento-medico.html">Novo atendimento</a>
+          <a id="linkNovoProntuario" href="cadastro-prontuario.html">Novo prontuario</a>
+          <a id="linkNovoExame" href="cadastro-exame.html">Novo exame</a>
+          <a id="linkNovaPrescricao" href="cadastro-prescricao.html">Nova prescricao</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="patient-history-grid">
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Agendamentos</h2>
+        </div>
+        <div class="patient-record-list" id="listaAgendamentos">
+          <p class="empty">Carregando agendamentos...</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Atendimentos medicos</h2>
+        </div>
+        <div class="patient-record-list" id="listaAtendimentos">
+          <p class="empty">Carregando atendimentos...</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Prontuarios</h2>
+        </div>
+        <div class="patient-record-list" id="listaProntuarios">
+          <p class="empty">Carregando prontuarios...</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Exames</h2>
+        </div>
+        <div class="patient-record-list" id="listaExames">
+          <p class="empty">Carregando exames...</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Prescricoes</h2>
+        </div>
+        <div class="patient-record-list" id="listaPrescricoes">
+          <p class="empty">Carregando prescricoes...</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Internacoes</h2>
+        </div>
+        <div class="patient-record-list" id="listaInternacoes">
+          <p class="empty">Carregando internacoes...</p>
+        </div>
+      </article>
+
+      <article class="panel full-panel">
+        <div class="panel-heading">
+          <h2>Triagens</h2>
+        </div>
+        <div class="patient-record-list" id="listaTriagens">
+          <p class="empty">Carregando triagens...</p>
+        </div>
+      </article>
+    </section>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/detalhes-paciente.js?v=1"></script>
+</body>
+</html>

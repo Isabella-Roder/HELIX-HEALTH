@@ -49,6 +49,7 @@ async function carregarPaciente() {
                 <td>${paciente.convenio || "-"}</td>
                 <td>${paciente.dataNascimento || "-"}</td>
                 <td class="actions-cell">
+                    <a class="table-action" href="detalhes-paciente.html?id=${paciente.id}">Detalhes</a>
                     <a class="table-action" href="cadastro-paciente.html?id=${paciente.id}">Editar</a>
                     <button class="table-action danger" type="button" onclick="deletarPaciente(${paciente.id})">Excluir</button>
                 </td>

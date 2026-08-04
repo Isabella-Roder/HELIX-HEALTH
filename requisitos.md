@@ -14,6 +14,8 @@ Sistema hospitalar completo para gerenciamento de pacientes, profissionais, aten
 - Login para paciente.
 - Login para financeiro.
 - Login para farmacia.
+- Dashboard administrativo com indicadores gerais do hospital.
+- Visualizacao rapida de proximos agendamentos, triagens urgentes, exames pendentes e ocupacao de leitos.
 
 ## Pacientes
 
@@ -24,6 +26,8 @@ Sistema hospitalar completo para gerenciamento de pacientes, profissionais, aten
 - Registro de convenio.
 - Registro de contato de emergencia.
 - Historico de atendimentos do paciente.
+- Tela de detalhes do paciente com dados pessoais e historico completo.
+- Visualizacao de agendamentos, atendimentos, prontuarios, exames, prescricoes, internacoes e triagens por paciente.
 
 ## Profissionais
 

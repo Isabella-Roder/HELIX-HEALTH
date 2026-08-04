@@ -1003,6 +1003,89 @@ tbody tr:hover td {
   display: none;
 }
 
+.patient-details-page {
+  width: min(100%, 1240px);
+}
+
+.patient-header {
+  align-items: flex-start;
+}
+
+.patient-summary {
+  grid-template-columns: repeat(6, minmax(130px, 1fr));
+}
+
+.patient-profile-grid,
+.patient-history-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.patient-actions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.patient-record-list {
+  display: grid;
+  gap: 12px;
+}
+
+.patient-record-item {
+  border: 1px solid #e0ebee;
+  border-radius: var(--radius);
+  padding: 15px;
+  background: #fbfdfe;
+}
+
+.patient-record-item h3 {
+  margin: 0 0 8px;
+  color: var(--primary-dark);
+  font-size: 16px;
+}
+
+.patient-record-item p {
+  margin: 4px 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.dashboard-page {
+  width: min(100%, 1240px);
+}
+
+.dashboard-header {
+  align-items: flex-start;
+}
+
+.dashboard-summary {
+  grid-template-columns: repeat(6, minmax(130px, 1fr));
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.dashboard-actions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.bed-status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.bed-status-grid div {
+  border: 1px solid #e0ebee;
+  border-radius: var(--radius);
+  padding: 16px;
+  background: #fbfdfe;
+}
+
 @media (max-width: 960px) {
   .filter-panel {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1017,7 +1100,12 @@ tbody tr:hover td {
   .summary,
   .modules,
   .content-grid,
-  .profile-grid {
+  .profile-grid,
+  .patient-summary,
+  .patient-profile-grid,
+  .patient-history-grid,
+  .dashboard-summary,
+  .dashboard-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -1074,7 +1162,10 @@ tbody tr:hover td {
   .form-actions,
   .filter-panel,
   .filter-actions,
-  .profile-options {
+  .profile-options,
+  .patient-actions,
+  .dashboard-actions,
+  .bed-status-grid {
     grid-template-columns: 1fr;
   }
 

@@ -74,7 +74,7 @@ function renderizarPrescricoes(prescricoes) {
 
 async function carregarPrescricoes() {
     try {
-        mensagem.textContent = "";
+        limparMensagem(mensagem);
 
         const resposta = await fetch(`${API_URL}/prescricoes-medicas`);
 
@@ -85,7 +85,7 @@ async function carregarPrescricoes() {
         prescricoesCarregadas = await resposta.json();
         renderizarPrescricoes(prescricoesCarregadas);
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
         tabelaPrescricoes.innerHTML = `
             <tr>
                 <td colspan="10" class="empty">Erro ao carregar prescricoes.</td>
@@ -110,10 +110,10 @@ async function deletarPrescricao(id) {
             throw new Error("Erro ao deletar prescricao.");
         }
 
-        mensagem.textContent = "Prescricao deletada com sucesso.";
+        mostrarMensagem(mensagem, "Prescricao deletada com sucesso.", "success");
         carregarPrescricoes();
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

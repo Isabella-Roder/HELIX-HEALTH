@@ -77,7 +77,7 @@ function renderizarLeitos(leitos) {
 
 async function carregarLeitos() {
     try {
-        mensagem.textContent = "";
+        limparMensagem(mensagem);
 
         const resposta = await fetch(`${API_URL}/leitos`);
 
@@ -88,7 +88,7 @@ async function carregarLeitos() {
         leitosCarregados = await resposta.json();
         renderizarLeitos(leitosCarregados);
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
         tabelaLeitos.innerHTML = `
             <tr>
                 <td colspan="6" class="empty">Erro ao carregar leitos.</td>
@@ -113,10 +113,10 @@ async function deletarLeito(id) {
             throw new Error("Erro ao deletar leito.");
         }
 
-        mensagem.textContent = "Leito deletado com sucesso.";
+        mostrarMensagem(mensagem, "Leito deletado com sucesso.", "success");
         carregarLeitos();
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

@@ -78,15 +78,13 @@ formPrescricao.addEventListener("submit", async function (event) {
             throw new Error("Erro ao salvar prescricao.");
         }
 
-        mensagem.textContent = prescricaoId
-            ? "Prescrição atualizada com sucesso."
-            : "Prescrição cadastrada com sucesso.";
+        mostrarMensagem(mensagem, prescricaoId ? "Prescrição atualizada com sucesso." : "Prescrição cadastrada com sucesso.", "success");
 
         if (!prescricaoId) {
             formPrescricao.reset();
         }
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 });
 
@@ -118,7 +116,7 @@ async function carregarPrescricaoParaEdicao() {
         document.getElementById("descricaoPagina").textContent = "Atualize as informações da prescrição medica";
         botaoSalvar.textContent = "Salvar alterações";
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

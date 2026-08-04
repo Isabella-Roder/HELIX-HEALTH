@@ -95,15 +95,13 @@ formInternacao.addEventListener("submit", async function (event) {
             throw new Error("Erro ao salvar internacao.");
         }
 
-        mensagem.textContent = internacaoId
-            ? "Internação atualizada com sucesso."
-            : "Internação cadastrada com sucesso.";
+        mostrarMensagem(mensagem, internacaoId ? "Internação atualizada com sucesso." : "Internação cadastrada com sucesso.", "success");
 
         if (!internacaoId) {
             formInternacao.reset();
         }
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 });
 
@@ -135,7 +133,7 @@ async function carregarInternacaoParaEdicao() {
         document.getElementById("descricaoPagina").textContent = "Atualize as informações da internação.";
         botaoSalvar.textContent = "Salvar alterações";
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

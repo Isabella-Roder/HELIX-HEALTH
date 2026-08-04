@@ -12,7 +12,7 @@ const botaoSair = document.getElementById("botaoSair");
 
 async function carregarProfissionais() {
     try {
-        mensagem.textContent = "";
+        limparMensagem(mensagem);
 
         const resposta = await fetch(`${API_URL}/profissionais`);
 
@@ -55,7 +55,7 @@ async function carregarProfissionais() {
             tabelaProfissionais.appendChild(linha);
         });
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 
@@ -75,10 +75,10 @@ async function deletarProfissional(id) {
             throw new Error("Não foi possivel excluir profissional");
         }
 
-        mensagem.textContent = "Profissional excluido com sucesso.";
+        mostrarMensagem(mensagem, "Profissional excluido com sucesso.", "success");
         carregarProfissionais();
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

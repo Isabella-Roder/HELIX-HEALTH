@@ -40,7 +40,7 @@ form.addEventListener("submit", async function (event) {
     const tiposSelecionados = obterTiposSelecionados();
 
     if (tiposSelecionados.length === 0) {
-        mensagem.textContent = "Selecione pelo menos um perfil de acesso.";
+        mostrarMensagem(mensagem, "Selecione pelo menos um perfil de acesso.", "warning");
         return;
     }
 
@@ -80,16 +80,14 @@ form.addEventListener("submit", async function (event) {
 
         await resposta.json();
 
-        mensagem.textContent = usuarioId
-            ? "Usuario atualizado com sucesso."
-            : "Usuario cadastrado com sucesso.";
+        mostrarMensagem(mensagem, usuarioId ? "Usuario atualizado com sucesso." : "Usuario cadastrado com sucesso.", "success");
 
         if (!usuarioId) {
             form.reset();
         }
 
     }catch (erro) {
-        mensagem.textContent = "Erro: " +erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 });
 
@@ -122,7 +120,7 @@ async function carregarUsuarioParaEdicao() {
         document.getElementById("profissional").value = usuario.profissional ? usuario.profissional.id : "";
         controlarCamposVinculo();
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

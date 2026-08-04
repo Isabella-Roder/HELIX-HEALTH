@@ -112,7 +112,7 @@ function renderizarAtendimentos(atendimentos) {
 
 async function carregarAtendimentosMedicos() {
     try {
-        mensagem.textContent = "Carregando atendimentos...";
+        mostrarMensagem(mensagem, "Carregando atendimentos...", "loading");
 
         const resposta = await fetch(`${API_URL}/atendimentos-medicos`);
 
@@ -123,10 +123,10 @@ async function carregarAtendimentosMedicos() {
         atendimentosCarregados = await resposta.json();
 
         renderizarAtendimentos(atendimentosCarregados);
-        mensagem.textContent = "";
+        limparMensagem(mensagem);
     } catch (erro) {
         console.error(erro);
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 
@@ -144,11 +144,11 @@ async function deletarAtendimento(id) {
             throw new Error("Erro ao deletar este atendimento medico.");
         }
 
-        mensagem.textContent = "Atendimento medico deletado com sucesso.";
+        mostrarMensagem(mensagem, "Atendimento medico deletado com sucesso.", "success");
         await carregarAtendimentosMedicos();
     } catch (erro) {
         console.error(erro);
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 
@@ -166,11 +166,11 @@ async function finalizarAtendimento(id) {
             throw new Error("Nao foi possivel finalizar atendimento.");
         }
 
-        mensagem.textContent = "Atendimento finalizado com sucesso.";
+        mostrarMensagem(mensagem, "Atendimento finalizado com sucesso.", "success");
         await carregarAtendimentosMedicos();
     } catch (erro) {
         console.error(erro);
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 
@@ -188,11 +188,11 @@ async function cancelarAtendimento(id) {
             throw new Error("Nao foi possivel cancelar atendimento.");
         }
 
-        mensagem.textContent = "Atendimento cancelado com sucesso.";
+        mostrarMensagem(mensagem, "Atendimento cancelado com sucesso.", "success");
         await carregarAtendimentosMedicos();
     } catch (erro) {
         console.error(erro);
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 
@@ -214,7 +214,7 @@ async function carregarPacientesFiltro() {
         });
     } catch (erro) {
         console.error(erro);
-        mensagem.textContent = "Erro ao carregar pacientes.";
+        mostrarMensagem(mensagem, "Erro ao carregar pacientes.", "error");
     }
 }
 
@@ -236,7 +236,7 @@ async function carregarProfissionaisFiltro() {
         });
     } catch (erro) {
         console.error(erro);
-        mensagem.textContent = "Erro ao carregar profissionais.";
+        mostrarMensagem(mensagem, "Erro ao carregar profissionais.", "error");
     }
 }
 

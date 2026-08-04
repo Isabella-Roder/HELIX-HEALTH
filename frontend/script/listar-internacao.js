@@ -90,7 +90,7 @@ function renderizarInternacoes(internacoes) {
 
 async function carregarInternacoes() {
     try {
-        mensagem.textContent = "";
+        limparMensagem(mensagem);
 
         const resposta = await fetch(`${API_URL}/internacoes`);
 
@@ -101,7 +101,7 @@ async function carregarInternacoes() {
         internacoesCarregadas = await resposta.json();
         renderizarInternacoes(internacoesCarregadas);
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
         tabelaInternacoes.innerHTML = `
             <tr>
                 <td colspan="9" class="empty">Erro ao carregar internacoes.</td>
@@ -126,10 +126,10 @@ async function deletarInternacao(id) {
             throw new Error("Erro ao deletar internacao");
         }
 
-        mensagem.textContent = "Internação deletada com sucesso.";
+        mostrarMensagem(mensagem, "Internação deletada com sucesso.", "success");
         carregarInternacoes();
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

@@ -55,15 +55,13 @@ form.addEventListener("submit", async function (event) {
 
         await resposta.json();
 
-        mensagem.textContent = prontuarioId
-            ? "Prontuario atualizado com sucesso."
-            : "Prontuario cadastrado com sucesso.";
+        mostrarMensagem(mensagem, prontuarioId ? "Prontuario atualizado com sucesso." : "Prontuario cadastrado com sucesso.", "success");
 
         if (!prontuarioId) {
             form.reset();
         }
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 });
 
@@ -122,7 +120,7 @@ async function carregarProntuarioParaEdicao() {
         document.getElementById("prescricao").value = prontuario.prescricao || "";
         document.getElementById("observacoes").value = prontuario.observacoes || "";
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

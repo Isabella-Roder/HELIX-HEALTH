@@ -36,9 +36,9 @@ formPaciente.addEventListener("submit", async function (event) {
 
         await resposta.json();
 
-        mensagem.textContent = "Paciente cadastrado com sucesso.";
+        mostrarMensagem(mensagem, "Paciente cadastrado com sucesso.", "success");
         formPaciente.reset();
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 });

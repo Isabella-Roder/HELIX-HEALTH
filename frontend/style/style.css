@@ -1178,3 +1178,36 @@ tbody tr:hover td {
     width: 100%;
   }
 }
+
+.message {
+  min-height: 42px;
+  margin: 16px 0 0;
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.message.success {
+  color: var(--success);
+  background: var(--success-soft);
+  border: 1px solid rgba(40, 122, 75, 0.25);
+}
+
+.message.error {
+  color: var(--danger);
+  background: var(--danger-soft);
+  border: 1px solid rgba(180, 57, 57, 0.25);
+}
+
+.message.warning {
+  color: var(--warning);
+  background: var(--warning-soft);
+  border: 1px solid rgba(152, 111, 19, 0.25);
+}
+
+.message.loading {
+  color: var(--primary-dark);
+  background: #eaf6f8;
+  border: 1px solid rgba(31, 122, 140, 0.22);
+}

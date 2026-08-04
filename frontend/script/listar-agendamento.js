@@ -59,7 +59,7 @@ async function carregarPacientes() {
         });
     } catch (erro) {
         console.error(erro);
-        mensagem.textContent = "Erro ao carregar pacientes.";
+        mostrarMensagem(mensagem, "Erro ao carregar pacientes.", "error");
     }
 }
 
@@ -81,13 +81,13 @@ async function carregarProfissionais() {
         });
     } catch (erro) {
         console.error(erro);
-        mensagem.textContent = "Erro ao carregar profissionais.";
+        mostrarMensagem(mensagem, "Erro ao carregar profissionais.", "error");
     }
 }
 
 async function carregarAgendamentos() {
     try {
-        mensagem.textContent = "Carregando agendamentos...";
+        mostrarMensagem(mensagem, "Carregando agendamentos...", "loading");
 
         const resposta = await fetch(`${API_URL}/agendamentos`);
 
@@ -98,10 +98,10 @@ async function carregarAgendamentos() {
         agendamentosCarregados = await resposta.json();
 
         renderizarAgendamentos(agendamentosCarregados);
-        mensagem.textContent = "";
+        limparMensagem(mensagem);
     } catch (erro) {
         console.error(erro);
-        mensagem.textContent = "Erro ao carregar agendamentos.";
+        mostrarMensagem(mensagem, "Erro ao carregar agendamentos.", "error");
     }
 }
 
@@ -160,7 +160,7 @@ async function cancelarAgendamento(id) {
     }
 
     try {
-        mensagem.textContent = "Cancelando agendamentos...";
+        mostrarMensagem(mensagem, "Cancelando agendamentos...", "loading");
 
         const resposta = await fetch(`${API_URL}/agendamentos/${id}/cancelar`, {
             method: "PUT"
@@ -170,11 +170,11 @@ async function cancelarAgendamento(id) {
             throw new Error("Erro ao cancelar agendamento.");
         }
 
-        mensagem.textContent = "Agendamento cancelado com sucesso.";
+        mostrarMensagem(mensagem, "Agendamento cancelado com sucesso.", "success");
         await carregarAgendamentos();
     } catch (erro) {
         console.error(erro);
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 
@@ -212,11 +212,11 @@ async function deletarAgendamento(id) {
             throw new Error("Erro ao deletar agendamento.");
         }
 
-        mensagem.textContent = "Agendamento deletado com sucesso.";
+        mostrarMensagem(mensagem, "Agendamento deletado com sucesso.", "success");
         await carregarAgendamentos();
     } catch (erro) {
         console.error(erro);
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

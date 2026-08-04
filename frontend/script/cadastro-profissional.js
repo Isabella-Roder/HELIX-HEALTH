@@ -51,15 +51,13 @@ form.addEventListener("submit", async function (event) {
 
         await resposta.json();
 
-        mensagem.textContent = profissionalId
-            ? "Profissional atualizado com sucesso."
-            : "Profissional cadastrado com sucesso.";
+        mostrarMensagem(mensagem, profissionalId ? "Profissional atualizado com sucesso." : "Profissional cadastrado com sucesso.", "success");
 
         if (!profissionalId) {
             form.reset();
         }
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 });
 
@@ -92,7 +90,7 @@ async function carregarProfissionalParaEdicao() {
         document.getElementById("registroProfissional").value = profissional.registroProfissional || "";
         document.getElementById("ativo").value = String(profissional.ativo);
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 
@@ -131,7 +129,7 @@ document.getElementById("pacienteOrigem").addEventListener("change", async funct
         document.getElementById("cpf").value = paciente.cpf || "";
         document.getElementById("telefone").value = paciente.telefone || "";
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 });
 

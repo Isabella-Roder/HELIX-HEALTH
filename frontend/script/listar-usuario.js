@@ -18,7 +18,7 @@ function listarTiposUsuario(usuario) {
 
 async function carregarUsuarios() {
     try {
-        mensagem.textContent = "";
+        limparMensagem(mensagem);
 
         const resposta = await fetch(`${API_URL}/usuarios`);
 
@@ -61,7 +61,7 @@ async function carregarUsuarios() {
         });
 
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 
@@ -81,10 +81,10 @@ async function deletarUsuario(id) {
             throw new Error("Nao foi possivel excluir usuario");
         }
 
-        mensagem.textContent = "Usuario excluido com sucesso.";
+        mostrarMensagem(mensagem, "Usuario excluido com sucesso.", "success");
         carregarUsuarios();
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

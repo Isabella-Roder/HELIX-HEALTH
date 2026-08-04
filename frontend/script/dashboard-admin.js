@@ -55,7 +55,7 @@ async function buscarJson(url) {
 
 async function carregarDashboard() {
     try {
-        mensagem.textContent = "Carregando dashboard...";
+        mostrarMensagem(mensagem, "Carregando dashboard...", "loading");
 
         const pacientes = await buscarJson(`${API_URL}/pacientes`);
         const profissionais = await buscarJson(`${API_URL}/profissionais`);
@@ -113,10 +113,10 @@ async function carregarDashboard() {
 
         renderizarLeitos(leitos);
 
-        mensagem.textContent = "";
+        limparMensagem(mensagem);
     } catch (erro) {
         console.error(erro);
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

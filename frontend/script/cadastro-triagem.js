@@ -62,15 +62,13 @@ form.addEventListener("submit", async function (event) {
 
         await resposta.json();
 
-        mensagem.textContent = triagemId
-            ? "Triagem atualizada com sucesso."
-            : "Triagem cadastrada com sucesso.";
+        mostrarMensagem(mensagem, triagemId ? "Triagem atualizada com sucesso." : "Triagem cadastrada com sucesso.", "success");
 
         if (!triagemId) {
             form.reset();
         }
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 });
 
@@ -106,7 +104,7 @@ async function carregarProfissionais() {
         `;
 
         if (profissionais.length === 0) {
-            mensagem.textContent = "Nenhum profissional cadastrado.";
+            mostrarMensagem(mensagem, "Nenhum profissional cadastrado.", "warning");
             return;
         }
 
@@ -118,7 +116,7 @@ async function carregarProfissionais() {
             selectProfissional.appendChild(option);
         });
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 
@@ -152,7 +150,7 @@ async function carregarTriagemParaEdicao() {
         document.getElementById("statusTriagem").value = triagem.statusTriagem || "";
         document.getElementById("observacao").value = triagem.observacao || ""; 
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

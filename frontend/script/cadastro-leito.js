@@ -40,15 +40,13 @@ formLeito.addEventListener("submit", async function (event) {
             throw new Error("Erro ao salvar leito.");
         }
 
-        mensagem.textContent = leitoId
-            ? "Leito atualizado com sucesso."
-            : "Leito cadastrado com sucesso.";
+        mostrarMensagem(mensagem, leitoId ? "Leito atualizado com sucesso." : "Leito cadastrado com sucesso.", "success");
 
         if (!leitoId) {
             formLeito.reset();
         }
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 });
 
@@ -76,7 +74,7 @@ async function carregarLeitoParaEdicao() {
         document.getElementById("descricaoPagina").textContent = "Atualiza as informações do leito.";
         botaoSalvar.textContent = "Salvar alterações";
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

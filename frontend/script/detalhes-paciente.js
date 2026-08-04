@@ -258,12 +258,12 @@ async function carregarTriagens() {
 
 async function carregarTudo() {
     if (!pacienteIdUrl) {
-        mensagem.textContent = "Paciente nao informado na URL.";
+        mostrarMensagem(mensagem, "Paciente nao informado na URL.", "warning");
         return;
     }
 
     try {
-        mensagem.textContent = "Carregando histórico do paciente...";
+        mostrarMensagem(mensagem, "Carregando histórico do paciente...", "loading");
 
         await carregarPaciente();
         await carregarAgendamentos();
@@ -274,9 +274,9 @@ async function carregarTudo() {
         await carregarInternacoes();
         await carregarTriagens();
 
-        mensagem.textContent = "";
+        limparMensagem(mensagem);
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

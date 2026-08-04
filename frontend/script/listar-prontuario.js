@@ -29,7 +29,7 @@ function limitarTexto(texto) {
 
 async function carregarProntuarios(url = `${API_URL}/prontuarios`) {
     try {
-        mensagem.textContent = "";
+        limparMensagem(mensagem);
 
         const resposta = await fetch(url);
 
@@ -70,7 +70,7 @@ async function carregarProntuarios(url = `${API_URL}/prontuarios`) {
             tabelaProntuarios.appendChild(linha);
         });
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 
@@ -90,10 +90,10 @@ async function deletarProntuario(id) {
             throw new Error("Nao foi possivel excluir prontuario");
         }
 
-        mensagem.textContent = "Prontuario excluido com sucesso.";
+        mostrarMensagem(mensagem, "Prontuario excluido com sucesso.", "success");
         carregarProntuarios();
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 
@@ -126,7 +126,7 @@ function filtrarProntuarios() {
     const profissionalId = filtroProfissional.value;
 
     if (pacienteId && profissionalId) {
-        mensagem.textContent = "Use apenas um filtro por vez.";
+        mostrarMensagem(mensagem, "Use apenas um filtro por vez.", "warning");
         return;
     }
 

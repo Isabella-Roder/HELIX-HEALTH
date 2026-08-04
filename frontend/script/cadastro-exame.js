@@ -78,15 +78,13 @@ formExame.addEventListener("submit", async function (event) {
             throw new Error("Erro ao salvar exame.");
         }
 
-        mensagem.textContent = exameId
-            ? "Exame atualizado com sucesso."
-            : "Exame cadastrado com sucesso.";
+        mostrarMensagem(mensagem, exameId ? "Exame atualizado com sucesso." : "Exame cadastrado com sucesso.", "success");
 
         if (!exameId) {
             formExame.reset();
         }
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 });
 
@@ -118,7 +116,7 @@ async function carregarExameParaEdicao() {
         document.getElementById("descricaoPagina").textContent = "Atualize as informações da solicitação ou resultado do exame.";
         botaoSalvar.textContent = "Salvar alterações";
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

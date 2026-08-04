@@ -17,6 +17,7 @@ const botaoSalvar = document.getElementById("botaoSalvar");
 
 form.addEventListener("submit", async function (event) {
     event.preventDefault();
+    mostrarMensagem(mensagem, "Salvando paciente...", "loading");
 
     const paciente = {
         nome: document.getElementById("nome").value,
@@ -52,12 +53,14 @@ form.addEventListener("submit", async function (event) {
 
         await resposta.json();
 
-        mensagem.textContent = pacienteId
-            ? "Paciente atualizado com sucesso."
-            : "Paciente cadastrado com sucesso.";
+        mostrarMensagem(
+            mensagem,
+            pacienteId ? "Paciente atualizado com sucesso." : "Paciente cadastrado com sucesso.",
+            "success"
+        );
         form.reset();
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 });
 
@@ -72,6 +75,8 @@ async function carregarPacienteParaEdicao() {
     botaoSalvar.textContent = "Salvar alterações";
 
     try {
+        mostrarMensagem(mensagem, "Carregando dados do paciente...", "loading");
+
         const resposta = await fetch(`${API_URL}/pacientes/${pacienteId}`);
 
         if (!resposta.ok) {
@@ -90,8 +95,9 @@ async function carregarPacienteParaEdicao() {
         document.getElementById("contatoEmergencia").value = paciente.contatoEmergencia || "";
         document.getElementById("sexo").value = paciente.sexo || "";
         document.getElementById("genero").value = paciente.genero || "";
+        limparMensagem(mensagem);
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

@@ -31,6 +31,6 @@ form.addEventListener("submit", async function (event) {
 
         window.location.href = "portal-seletor.html";
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 });

@@ -12,7 +12,7 @@ const botaoSair = document.getElementById("botaoSair");
 
 async function carregarPaciente() {
     try {
-        mensagem.textContent = "";
+        limparMensagem(mensagem);
 
         const resposta = await fetch(`${API_URL}/pacientes`)
 
@@ -59,7 +59,7 @@ async function carregarPaciente() {
         });
 
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 
@@ -79,10 +79,10 @@ async function deletarPaciente(id) {
             throw new Error("Não foi possivel excluir paciente");
         }
 
-        mensagem.textContent = "Paciente excluido com sucesso";
+        mostrarMensagem(mensagem, "Paciente excluido com sucesso", "success");
         carregarPaciente();
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

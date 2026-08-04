@@ -62,15 +62,13 @@ form.addEventListener("submit", async function (event) {
 
         await resposta.json();
 
-        mensagem.textContent = agendamentoId
-            ? "Agendamento atualizado com sucesso."
-            : "Agendamento cadastrado com sucesso.";
+        mostrarMensagem(mensagem, agendamentoId ? "Agendamento atualizado com sucesso." : "Agendamento cadastrado com sucesso.", "success");
 
         if (!agendamentoId) {
             form.reset();
         }
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 });
 
@@ -105,7 +103,7 @@ async function carregarProfissionais() {
         `;
 
         if (profissionais.length === 0) {
-            mensagem.textContent = "Nenhum profissional cadastrado.";
+            mostrarMensagem(mensagem, "Nenhum profissional cadastrado.", "warning");
             return;
         }
 
@@ -116,7 +114,7 @@ async function carregarProfissionais() {
             selectProfissional.appendChild(option);
         });
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 
@@ -146,7 +144,7 @@ async function carregarAgendamentoParaEdicao() {
         document.getElementById("statusAgendamento").value = agendamento.statusAgendamento || "AGENDADO";
         document.getElementById("observacao").value = agendamento.observacao || "";
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

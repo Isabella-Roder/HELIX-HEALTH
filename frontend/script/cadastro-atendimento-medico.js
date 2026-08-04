@@ -65,16 +65,14 @@ form.addEventListener("submit", async function (event) {
 
         await resposta.json();
 
-        mensagem.textContent = atendimentoMedicoId
-            ? "Atendimento medico atualizado com sucesso."
-            : "Atendimento medico cadastrado com sucesso.";
+        mostrarMensagem(mensagem, atendimentoMedicoId ? "Atendimento medico atualizado com sucesso." : "Atendimento medico cadastrado com sucesso.", "success");
 
         if (!atendimentoMedicoId) {
             form.reset();
         }
     } catch (erro) {
         console.error(erro);
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 });
 
@@ -170,7 +168,7 @@ async function carregarAtendimentoMedicoParaEdicao() {
         document.getElementById("observacoes").value = atendimento.observacoes || "";
     } catch (erro) {
         console.error(erro);
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

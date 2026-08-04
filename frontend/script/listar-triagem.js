@@ -66,7 +66,7 @@ async function carregarPacientes() {
         });
     } catch (erro) {
         console.error(erro);
-        mensagem.textContent = "Erro ao carregar pacientes.";
+        mostrarMensagem(mensagem, "Erro ao carregar pacientes.", "error");
     }
 }
 
@@ -88,13 +88,13 @@ async function carregarProfissionais() {
         });
     } catch (erro) {
         console.error(erro);
-        mensagem.textContent = "Erro ao carregar profissionais.";
+        mostrarMensagem(mensagem, "Erro ao carregar profissionais.", "error");
     }
 }
 
 async function carregarTriagens() {
     try {
-        mensagem.textContent = "Carregando triagens...";
+        mostrarMensagem(mensagem, "Carregando triagens...", "loading");
 
         const resposta = await fetch(`${API_URL}/triagens`);
 
@@ -105,10 +105,10 @@ async function carregarTriagens() {
         triagensCarregadas = await resposta.json();
 
         renderizarTriagens(triagensCarregadas);
-        mensagem.textContent = "";
+        limparMensagem(mensagem);
     } catch (erro) {
         console.error(erro);
-        mensagem.textContent = "Erro ao carregar triagens.";
+        mostrarMensagem(mensagem, "Erro ao carregar triagens.", "error");
     }
 }
 
@@ -192,11 +192,11 @@ async function deletarTriagem(id) {
             throw new Error("Nao foi possivel deletar esta triagem.");
         }
 
-        mensagem.textContent = "Triagem deletada com sucesso!";
+        mostrarMensagem(mensagem, "Triagem deletada com sucesso!", "success");
         await carregarTriagens();
     } catch (erro) {
         console.error(erro);
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 
@@ -215,9 +215,9 @@ async function iniciarAtendimento(id) {
         }
 
         await carregarTriagens();
-        mensagem.textContent = "Atendimento iniciado com sucesso.";
+        mostrarMensagem(mensagem, "Atendimento iniciado com sucesso.", "success");
     } catch (erro) {
-        mensagem.textContent = `Erro: ${erro.message}`;
+        mostrarMensagem(mensagem, `Erro: ${erro.message}`, "error");
     }
 }
 
@@ -236,9 +236,9 @@ async function finalizarAtendimento(id) {
         }
 
         await carregarTriagens();
-        mensagem.textContent = "Atendimento finalizado com sucesso.";
+        mostrarMensagem(mensagem, "Atendimento finalizado com sucesso.", "success");
     } catch (erro) {
-        mensagem.textContent = `Erro: ${erro.message}`;
+        mostrarMensagem(mensagem, `Erro: ${erro.message}`, "error");
     }
 }
 

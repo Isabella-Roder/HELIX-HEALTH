@@ -85,7 +85,7 @@ function renderizarExames(exames) {
 
 async function carregarExames() {
     try {
-        mensagem.textContent = "";
+        limparMensagem(mensagem);
 
         const resposta = await fetch(`${API_URL}/exames`);
 
@@ -96,7 +96,7 @@ async function carregarExames() {
         examesCarregados = await resposta.json();
         renderizarExames(examesCarregados);
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
         tabelaExames.innerHTML = `
             <tr>
                 <td colspan="8" class="empty">Erro ao carregar exames.</td>
@@ -121,10 +121,10 @@ async function deletarExame(id) {
             throw new Error("Erro ao deletar exame.");
         }
 
-        mensagem.textContent = "Exame deletado com sucesso.";
+        mostrarMensagem(mensagem, "Exame deletado com sucesso.", "success");
         carregarExames();
     } catch (erro) {
-        mensagem.textContent = "Erro: " + erro.message;
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
     }
 }
 

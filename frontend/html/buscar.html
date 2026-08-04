@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Busca Global - Helix Health</title>
+  <link rel="stylesheet" href="../style/style.css?v=4">
+</head>
+<body>
+  <header class="topbar">
+    <a href="portal-usuario.html" class="brand">Helix Health</a>
+
+    <nav class="menu">
+      <a href="portal-usuario.html">Portal</a>
+      <a href="dashboard-admin.html">Dashboard</a>
+      <a href="listar-paciente.html">Pacientes</a>
+      <a href="#" id="botaoSair">Sair</a>
+    </nav>
+  </header>
+
+  <main class="page search-page">
+    <section class="page-header search-header">
+      <div>
+        <p class="eyebrow">Busca global</p>
+        <h1>Pesquisar no sistema</h1>
+        <p class="subtitle">Encontre rapidamente pacientes, profissionais, usuarios e registros hospitalares.</p>
+      </div>
+
+      <a class="secondary-link" href="portal-usuario.html">Voltar ao portal</a>
+    </section>
+
+    <section class="search-panel">
+      <div class="search-field">
+        <label for="campoBusca">Digite um nome, CPF, email, ID, status ou termo</label>
+        <input type="search" id="campoBusca" placeholder="Ex: Isabella, cardiologia, solicitado, leito 12">
+      </div>
+
+      <div class="search-actions">
+        <button type="button" id="botaoBuscar">Buscar</button>
+        <button type="button" id="botaoLimparBusca">Limpar</button>
+      </div>
+    </section>
+
+    <section class="summary search-summary">
+      <article class="summary-card">
+        <span class="summary-number" id="totalResultados">0</span>
+        <span class="summary-label">Resultados</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalPacientesBusca">0</span>
+        <span class="summary-label">Pacientes</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalProfissionaisBusca">0</span>
+        <span class="summary-label">Profissionais</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalRegistrosBusca">0</span>
+        <span class="summary-label">Registros</span>
+      </article>
+    </section>
+
+    <section class="search-results-grid">
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Pacientes</h2>
+          <a class="panel-badge" href="listar-paciente.html">Abrir lista</a>
+        </div>
+        <div class="search-result-list" id="resultadoPacientes">
+          <p class="empty">Digite um termo para pesquisar.</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Profissionais</h2>
+          <a class="panel-badge" href="listar-profissional.html">Abrir lista</a>
+        </div>
+        <div class="search-result-list" id="resultadoProfissionais">
+          <p class="empty">Digite um termo para pesquisar.</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Usuarios</h2>
+          <a class="panel-badge" href="listar-usuario.html">Abrir lista</a>
+        </div>
+        <div class="search-result-list" id="resultadoUsuarios">
+          <p class="empty">Digite um termo para pesquisar.</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Agendamentos</h2>
+          <a class="panel-badge" href="listar-agendamento.html">Abrir lista</a>
+        </div>
+        <div class="search-result-list" id="resultadoAgendamentos">
+          <p class="empty">Digite um termo para pesquisar.</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Exames</h2>
+          <a class="panel-badge" href="listar-exame.html">Abrir lista</a>
+        </div>
+        <div class="search-result-list" id="resultadoExames">
+          <p class="empty">Digite um termo para pesquisar.</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Prescricoes</h2>
+          <a class="panel-badge" href="listar-prescricao.html">Abrir lista</a>
+        </div>
+        <div class="search-result-list" id="resultadoPrescricoes">
+          <p class="empty">Digite um termo para pesquisar.</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Internacoes</h2>
+          <a class="panel-badge" href="listar-internacao.html">Abrir lista</a>
+        </div>
+        <div class="search-result-list" id="resultadoInternacoes">
+          <p class="empty">Digite um termo para pesquisar.</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Prontuarios</h2>
+          <a class="panel-badge" href="listar-prontuario.html">Abrir lista</a>
+        </div>
+        <div class="search-result-list" id="resultadoProntuarios">
+          <p class="empty">Digite um termo para pesquisar.</p>
+        </div>
+      </article>
+    </section>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/mensagens.js?v=1"></script>
+  <script src="../script/buscar.js?v=1"></script>
+</body>
+</html>

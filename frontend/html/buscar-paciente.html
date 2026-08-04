@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buscar Paciente - Helix Health</title>
+  <link rel="stylesheet" href="../style/style.css?v=4">
+</head>
+<body>
+  <header class="topbar">
+    <a href="portal-usuario.html" class="brand">Helix Health</a>
+
+    <nav class="menu">
+      <a href="portal-usuario.html">Portal</a>
+      <a href="listar-paciente.html">Pacientes</a>
+      <a href="cadastro-paciente.html">Cadastrar paciente</a>
+      <a href="#" id="botaoSair">Sair</a>
+    </nav>
+  </header>
+
+  <main class="page patient-search-page">
+    <section class="page-header search-header">
+      <div>
+        <p class="eyebrow">Busca de paciente</p>
+        <h1>Encontrar paciente</h1>
+        <p class="subtitle">Pesquise por nome, nome social, CPF ou telefone para abrir o historico completo.</p>
+      </div>
+
+      <a class="secondary-link" href="listar-paciente.html">Voltar para lista</a>
+    </section>
+
+    <section class="search-panel patient-search-panel">
+      <div class="search-field">
+        <label for="campoBuscaPaciente">Nome, nome social, CPF ou telefone</label>
+        <input type="search" id="campoBuscaPaciente" placeholder="Ex: Isabella, Isabella Roder, 12345678900">
+      </div>
+
+      <div class="search-actions">
+        <button type="button" id="botaoBuscarPaciente">Buscar</button>
+        <button type="button" id="botaoLimparBuscaPaciente">Limpar</button>
+      </div>
+    </section>
+
+    <section class="summary patient-search-summary">
+      <article class="summary-card">
+        <span class="summary-number" id="totalPacientesEncontrados">0</span>
+        <span class="summary-label">Pacientes encontrados</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalPacientesCadastrados">0</span>
+        <span class="summary-label">Pacientes cadastrados</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="tipoBuscaPaciente">Nome</span>
+        <span class="summary-label">Tipo de busca</span>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <h2>Resultados</h2>
+        <a class="panel-badge" href="cadastro-paciente.html">Novo paciente</a>
+      </div>
+
+      <div class="patient-search-list" id="resultadoBuscaPacientes">
+        <p class="empty">Digite um termo para pesquisar pacientes.</p>
+      </div>
+    </section>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/mensagens.js?v=1"></script>
+  <script src="../script/buscar-paciente.js?v=1"></script>
+</body>
+</html>

@@ -88,10 +88,14 @@ Sistema hospitalar completo para gerenciamento de pacientes, profissionais, aten
 ## Farmacia e Estoque
 
 - Cadastro de medicamentos.
+- Listagem de medicamentos.
+- Edicao e exclusao de medicamentos.
 - Entrada de estoque.
 - Saida de estoque.
 - Controle de validade.
 - Controle de estoque minimo.
+- Controle automatico de status do medicamento por estoque e validade.
+- Filtros de medicamentos por nome, fornecedor e status.
 - Controle de almoxarifado.
 
 ## Financeiro

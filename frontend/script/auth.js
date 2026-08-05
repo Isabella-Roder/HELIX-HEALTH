@@ -99,6 +99,8 @@ if (!usuarioLogado) {
             "listar-profissional.html": ["ADMIN"],
             "cadastro-agendamento.html": ["ADMIN"],
             "listar-agendamento.html": ["ADMIN"],
+            "cadastro-medicamento.html": ["ADMIN"],
+            "listar-medicamento.html": ["ADMIN"],
             "cadastro-prontuario.html": ["ADMIN", "PROFISSIONAL"],
             "listar-prontuario.html": ["ADMIN", "PROFISSIONAL"]
         };

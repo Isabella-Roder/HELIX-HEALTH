@@ -116,6 +116,23 @@
 - [x] Ver prescricoes no portal do paciente.
 - [x] Ver prescricoes no portal do profissional.
 
+## Medicamentos
+
+- [x] Criar entidade Medicamento.
+- [x] Criar enum StatusMedicamento.
+- [x] Criar repository de medicamento.
+- [x] Criar service de medicamento.
+- [x] Criar controller de medicamento.
+- [x] Cadastrar medicamento.
+- [x] Listar medicamentos.
+- [x] Editar medicamento.
+- [x] Deletar medicamento.
+- [x] Filtrar medicamentos por nome.
+- [x] Filtrar medicamentos por fornecedor.
+- [x] Filtrar medicamentos por status.
+- [x] Calcular status automaticamente por estoque e validade.
+- [x] Mostrar resumo de disponiveis, baixo estoque, vencidos e indisponiveis.
+
 ## Leitos
 
 - [x] Criar backend de leitos.

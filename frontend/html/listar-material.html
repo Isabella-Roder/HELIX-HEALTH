@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Materiais - Helix Health</title>
+  <link rel="stylesheet" href="../style/style.css?v=4">
+</head>
+<body>
+  <header class="topbar">
+    <a href="portal-usuario.html" class="brand">Helix Health</a>
+
+    <nav class="menu">
+      <a href="portal-usuario.html">Portal</a>
+      <a href="cadastro-material.html">Cadastrar material</a>
+      <a href="portal-seletor.html">Trocar portal</a>
+      <a href="#" id="botaoSair">Sair</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="page-header">
+      <div>
+        <p class="eyebrow">Almoxarifado</p>
+        <h1>Materiais</h1>
+        <p class="subtitle">Acompanhe estoque, validade, fornecedor, setor de destino e disponibilidade dos materiais hospitalares.</p>
+      </div>
+
+      <a class="primary-link" href="cadastro-material.html">Novo material</a>
+    </section>
+
+    <section class="filter-panel">
+      <div class="filter-field">
+        <label for="filtroNome">Nome</label>
+        <input type="text" id="filtroNome" placeholder="Ex: Luva descartavel">
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroCategoria">Categoria</label>
+        <input type="text" id="filtroCategoria" placeholder="Ex: Descartavel">
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroFornecedor">Fornecedor</label>
+        <input type="text" id="filtroFornecedor" placeholder="Ex: Health Supply">
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroSetor">Setor</label>
+        <input type="text" id="filtroSetor" placeholder="Ex: Enfermagem">
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroStatus">Status</label>
+        <select id="filtroStatus">
+          <option value="">Todos os status</option>
+          <option value="DISPONIVEL">Disponivel</option>
+          <option value="BAIXO_ESTOQUE">Baixo estoque</option>
+          <option value="VENCIDO">Vencido</option>
+          <option value="INDISPONIVEL">Indisponivel</option>
+        </select>
+      </div>
+
+      <div class="filter-actions">
+        <button type="button" id="botaoFiltrar">Filtrar</button>
+        <button type="button" id="botaoLimparFiltro">Limpar</button>
+      </div>
+    </section>
+
+    <section class="summary medicine-summary">
+      <article class="summary-card">
+        <span class="summary-number" id="totalDisponiveis">0</span>
+        <span class="summary-label">Disponiveis</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalBaixoEstoque">0</span>
+        <span class="summary-label">Baixo estoque</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalVencidos">0</span>
+        <span class="summary-label">Vencidos</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalIndisponiveis">0</span>
+        <span class="summary-label">Indisponiveis</span>
+      </article>
+    </section>
+
+    <section class="table-panel">
+      <div class="table-toolbar">
+        <span id="totalMateriais">0 materiais encontrados</span>
+        <button type="button" id="botaoAtualizar">Atualizar</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Categoria</th>
+              <th>Estoque</th>
+              <th>Minimo</th>
+              <th>Unidade</th>
+              <th>Validade</th>
+              <th>Fornecedor</th>
+              <th>Setor</th>
+              <th>Status</th>
+              <th>Acoes</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaMateriais">
+            <tr>
+              <td colspan="11" class="empty">Carregando materiais...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/mensagens.js?v=1"></script>
+  <script src="../script/listar-material.js?v=1"></script>
+</body>
+</html>

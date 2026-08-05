@@ -97,6 +97,11 @@ Sistema hospitalar completo para gerenciamento de pacientes, profissionais, aten
 - Controle automatico de status do medicamento por estoque e validade.
 - Filtros de medicamentos por nome, fornecedor e status.
 - Controle de almoxarifado.
+- Cadastro de materiais hospitalares.
+- Listagem de materiais hospitalares.
+- Edicao e exclusao de materiais hospitalares.
+- Filtros de materiais por nome, categoria, fornecedor, setor e status.
+- Resumo de materiais por status: disponiveis, baixo estoque, vencidos e indisponiveis.
 
 ## Financeiro
 

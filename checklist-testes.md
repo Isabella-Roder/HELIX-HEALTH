@@ -133,6 +133,24 @@
 - [x] Calcular status automaticamente por estoque e validade.
 - [x] Mostrar resumo de disponiveis, baixo estoque, vencidos e indisponiveis.
 
+## Almoxarifado
+
+- [x] Criar entidade Almoxarifado.
+- [x] Criar enum StatusAlmoxarifado.
+- [x] Criar repository de almoxarifado.
+- [x] Criar service de almoxarifado.
+- [x] Criar controller de almoxarifado.
+- [x] Cadastrar material.
+- [x] Listar materiais.
+- [x] Editar material.
+- [x] Deletar material.
+- [x] Filtrar materiais por nome.
+- [x] Filtrar materiais por categoria.
+- [x] Filtrar materiais por fornecedor.
+- [x] Filtrar materiais por setor.
+- [x] Filtrar materiais por status.
+- [x] Mostrar resumo de disponiveis, baixo estoque, vencidos e indisponiveis.
+
 ## Leitos
 
 - [x] Criar backend de leitos.

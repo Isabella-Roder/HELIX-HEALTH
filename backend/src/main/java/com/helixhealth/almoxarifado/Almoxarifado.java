@@ -23,7 +23,6 @@ public class Almoxarifado {
     private String unidadeMedida;
     private LocalDate dataValidade;
     private String fornecedor;
-    private String setorDestino;
 
     @Enumerated(EnumType.STRING)
     private StatusAlmoxarifado statusAlmoxarifado;
@@ -40,7 +39,6 @@ public class Almoxarifado {
         String unidadeMedida,
         LocalDate dataValidade,
         String fornecedor,
-        String setorDestino,
         StatusAlmoxarifado statusAlmoxarifado
     ) {
         this.nome = nome;
@@ -50,7 +48,6 @@ public class Almoxarifado {
         this.unidadeMedida = unidadeMedida;
         this.dataValidade = dataValidade;
         this.fornecedor = fornecedor;
-        this.setorDestino = setorDestino;
         this.statusAlmoxarifado = statusAlmoxarifado;
     }
 
@@ -86,10 +83,6 @@ public class Almoxarifado {
         return fornecedor;
     }
 
-    public String getSetorDestino() {
-        return setorDestino;
-    }
-
     public StatusAlmoxarifado getStatusAlmoxarifado() {
         return statusAlmoxarifado;
     }
@@ -120,10 +113,6 @@ public class Almoxarifado {
 
     public void setFornecedor(String fornecedor) {
         this.fornecedor = fornecedor;
-    }
-
-    public void setSetorDestino(String setorDestino) {
-        this.setorDestino = setorDestino;
     }
 
     public void setStatusAlmoxarifado(StatusAlmoxarifado statusAlmoxarifado) {

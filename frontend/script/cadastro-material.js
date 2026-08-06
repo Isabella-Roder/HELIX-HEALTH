@@ -26,7 +26,6 @@ form.addEventListener("submit", async (event) => {
         unidadeMedida: document.getElementById("unidadeMedida").value,
         dataValidade: document.getElementById("dataValidade").value, 
         fornecedor: document.getElementById("fornecedor").value,
-        setorDestino: document.getElementById("setorDestino").value,
         statusAlmoxarifado: document.getElementById("statusAlmoxarifado").value || null
     };
 
@@ -96,7 +95,6 @@ async function carregarMaterialParaEdicao() {
         document.getElementById("unidadeMedida").value = material.unidadeMedida || "";
         document.getElementById("dataValidade").value = material.dataValidade || "";
         document.getElementById("fornecedor").value = material.fornecedor || "";
-        document.getElementById("setorDestino").value = material.setorDestino || "";
         document.getElementById("statusAlmoxarifado").value = material.statusAlmoxarifado || "";
 
         limparMensagem(mensagem);

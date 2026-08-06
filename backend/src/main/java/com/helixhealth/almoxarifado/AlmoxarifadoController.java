@@ -48,11 +48,6 @@ public class AlmoxarifadoController {
         return almoxarifadoService.listarPorFornecedor(fornecedor);
     }
 
-    @GetMapping("/setor/{setorDestino}")
-    public List<Almoxarifado> listarPorSetorDestino(@PathVariable String setorDestino) {
-        return almoxarifadoService.listarPorSetorDestino(setorDestino);
-    }
-
     @GetMapping("/status/{statusAlmoxarifado}")
     public List<Almoxarifado> listarPorStatus(@PathVariable StatusAlmoxarifado statusAlmoxarifado) {
         return almoxarifadoService.listarPorStatus(statusAlmoxarifado);

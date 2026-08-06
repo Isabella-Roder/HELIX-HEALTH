@@ -11,7 +11,6 @@ const mensagem = document.getElementById("mensagem");
 const filtroNome = document.getElementById("filtroNome");
 const filtroCategoria = document.getElementById("filtroCategoria");
 const filtroFornecedor = document.getElementById("filtroFornecedor");
-const filtroSetor = document.getElementById("filtroSetor");
 const filtroStatus = document.getElementById("filtroStatus");
 
 const totalDisponiveis = document.getElementById("totalDisponiveis");
@@ -45,20 +44,18 @@ function classeStatus(status) {
 }
 
 function filtrarMateriais() {
-    const nome = filtroNome.value;
-    const categoria = filtroCategoria.value;
-    const fornecedor = filtroFornecedor.value;
-    const setor = filtroSetor.value;
+    const nome = filtroNome.value.toLowerCase().trim();
+    const categoria = filtroCategoria.value.toLowerCase().trim();
+    const fornecedor = filtroFornecedor.value.toLowerCase().trim();
     const status = filtroStatus.value;
 
     const materiaisFiltrados = materiaisCarregados.filter((material) => {
-        const nomeIgual = !nome || material.nome === nome;
-        const categoriaIgual = !categoria || material.categoria === categoria;
-        const fornecedorIgual = !fornecedor || material.fornecedor === fornecedor;
-        const setorIgual = !setor || material.setorDestino === setor;
+        const nomeIgual = !nome || (material.nome && material.nome.toLowerCase().includes(nome));
+        const categoriaIgual = !categoria || (material.categoria && material.categoria.toLowerCase().includes(categoria));
+        const fornecedorIgual = !fornecedor || (material.fornecedor && material.fornecedor.toLowerCase().includes(fornecedor));
         const statusIgual = !status || material.statusAlmoxarifado === status;
 
-        return nomeIgual && categoriaIgual && fornecedorIgual && setorIgual && statusIgual;
+        return nomeIgual && categoriaIgual && fornecedorIgual && statusIgual;
     });
 
     renderizarMateriais(materiaisFiltrados);
@@ -73,7 +70,7 @@ function renderizarMateriais(materiais) {
     if (materiais.length === 0) {
         tabelaMateriais.innerHTML = `
             <tr>
-                <td colspan="11" class="empty">Nenhum material encontrado.</td>
+                <td colspan="10" class="empty">Nenhum material encontrado.</td>
             </tr>
         `;
         return;
@@ -91,7 +88,6 @@ function renderizarMateriais(materiais) {
             <td>${material.unidadeMedida || "-"}</td>
             <td>${material.dataValidade || "-"}</td>
             <td>${material.fornecedor || "-"}</td>
-            <td>${material.setorDestino || "-"}</td>
             <td>
                 <span class="status-badge ${classeStatus(material.statusAlmoxarifado)}">
                     ${formatarEnum(material.statusAlmoxarifado)}
@@ -144,7 +140,7 @@ async function carregarMateriais() {
         mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
         tabelaMateriais.innerHTML = `
             <tr>
-                <td colspan="11" class="empty">Erro ao carregar materiais.</td>
+                <td colspan="10" class="empty">Erro ao carregar materiais.</td>
             </tr>
         `;
     }
@@ -178,7 +174,6 @@ botaoLimparFiltro.addEventListener("click", () => {
     filtroNome.value = "";
     filtroCategoria.value = "";
     filtroFornecedor.value = "";
-    filtroSetor.value = "";
     filtroStatus.value = "";
     renderizarMateriais(materiaisCarregados);
 });

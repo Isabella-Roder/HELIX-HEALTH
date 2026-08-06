@@ -34,10 +34,6 @@ public class AlmoxarifadoService {
         return almoxarifadoRepository.findByFornecedorContainingIgnoreCase(fornecedor);
     }
 
-    public List<Almoxarifado> listarPorSetorDestino(String setorDestino) {
-        return almoxarifadoRepository.findBySetorDestinoContainingIgnoreCase(setorDestino);
-    }
-
     public List<Almoxarifado> listarPorStatus(StatusAlmoxarifado statusAlmoxarifado) {
         return almoxarifadoRepository.findByStatusAlmoxarifado(statusAlmoxarifado);
     }
@@ -74,7 +70,6 @@ public class AlmoxarifadoService {
         almoxarifado.setUnidadeMedida(dadosAtualizados.getUnidadeMedida());
         almoxarifado.setDataValidade(dadosAtualizados.getDataValidade());
         almoxarifado.setFornecedor(dadosAtualizados.getFornecedor());
-        almoxarifado.setSetorDestino(dadosAtualizados.getSetorDestino());
         almoxarifado.setStatusAlmoxarifado(dadosAtualizados.getStatusAlmoxarifado());
 
         validacoes(almoxarifado);

@@ -13,6 +13,4 @@ public interface AlmoxarifadoRepository extends JpaRepository<Almoxarifado, Long
     List<Almoxarifado> findByCategoriaContainingIgnoreCase(String categoria);
 
     List<Almoxarifado> findByFornecedorContainingIgnoreCase(String fornecedor);
-
-    List<Almoxarifado> findBySetorDestinoContainingIgnoreCase(String setorDestino);
 }

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fornecedores - Helix Health</title>
+  <link rel="stylesheet" href="../style/style.css?v=4">
+</head>
+<body>
+  <header class="topbar">
+    <a href="portal-usuario.html" class="brand">Helix Health</a>
+
+    <nav class="menu">
+      <a href="portal-usuario.html">Portal</a>
+      <a href="cadastro-fornecedor.html">Cadastrar fornecedor</a>
+      <a href="portal-seletor.html">Trocar portal</a>
+      <a href="#" id="botaoSair">Sair</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="page-header">
+      <div>
+        <p class="eyebrow">Fornecedores</p>
+        <h1>Fornecedores</h1>
+        <p class="subtitle">Acompanhe empresas parceiras, contatos, CNPJ e status de atividade.</p>
+      </div>
+
+      <a class="primary-link" href="cadastro-fornecedor.html">Novo fornecedor</a>
+    </section>
+
+    <section class="filter-panel medicine-filter-panel">
+      <div class="filter-field">
+        <label for="filtroNome">Nome</label>
+        <input type="text" id="filtroNome" placeholder="Ex: Health Supply">
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroCnpj">CNPJ</label>
+        <input type="text" id="filtroCnpj" placeholder="Ex: 12.345.678/0001-90">
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroAtivo">Status</label>
+        <select id="filtroAtivo">
+          <option value="">Todos</option>
+          <option value="true">Ativo</option>
+          <option value="false">Inativo</option>
+        </select>
+      </div>
+
+      <div class="filter-actions">
+        <button type="button" id="botaoFiltrar">Filtrar</button>
+        <button type="button" id="botaoLimparFiltro">Limpar</button>
+      </div>
+    </section>
+
+    <section class="summary patient-search-summary">
+      <article class="summary-card">
+        <span class="summary-number" id="totalAtivos">0</span>
+        <span class="summary-label">Ativos</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalInativos">0</span>
+        <span class="summary-label">Inativos</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalGeral">0</span>
+        <span class="summary-label">Total</span>
+      </article>
+    </section>
+
+    <section class="table-panel">
+      <div class="table-toolbar">
+        <span id="totalFornecedores">0 fornecedores encontrados</span>
+        <button type="button" id="botaoAtualizar">Atualizar</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>CNPJ</th>
+              <th>Telefone</th>
+              <th>E-mail</th>
+              <th>Endereco</th>
+              <th>Status</th>
+              <th>Acoes</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaFornecedores">
+            <tr>
+              <td colspan="8" class="empty">Carregando fornecedores...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/mensagens.js?v=1"></script>
+  <script src="../script/listar-fornecedor.js?v=1"></script>
+</body>
+</html>

@@ -147,9 +147,23 @@
 - [x] Filtrar materiais por nome.
 - [x] Filtrar materiais por categoria.
 - [x] Filtrar materiais por fornecedor.
-- [x] Filtrar materiais por setor.
 - [x] Filtrar materiais por status.
 - [x] Mostrar resumo de disponiveis, baixo estoque, vencidos e indisponiveis.
+
+## Fornecedores
+
+- [x] Criar entidade Fornecedor.
+- [x] Criar repository de fornecedor.
+- [x] Criar service de fornecedor.
+- [x] Criar controller de fornecedor.
+- [x] Cadastrar fornecedor.
+- [x] Listar fornecedores.
+- [x] Editar fornecedor.
+- [x] Deletar fornecedor.
+- [x] Filtrar fornecedores por nome.
+- [x] Filtrar fornecedores por CNPJ.
+- [x] Filtrar fornecedores por status ativo/inativo.
+- [x] Mostrar resumo de fornecedores ativos, inativos e total.
 
 ## Leitos
 

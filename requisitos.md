@@ -100,8 +100,13 @@ Sistema hospitalar completo para gerenciamento de pacientes, profissionais, aten
 - Cadastro de materiais hospitalares.
 - Listagem de materiais hospitalares.
 - Edicao e exclusao de materiais hospitalares.
-- Filtros de materiais por nome, categoria, fornecedor, setor e status.
+- Filtros de materiais por nome, categoria, fornecedor e status.
 - Resumo de materiais por status: disponiveis, baixo estoque, vencidos e indisponiveis.
+- Cadastro de fornecedores.
+- Listagem de fornecedores.
+- Edicao e exclusao de fornecedores.
+- Filtros de fornecedores por nome, CNPJ e status ativo/inativo.
+- Resumo de fornecedores ativos, inativos e total.
 
 ## Financeiro
 

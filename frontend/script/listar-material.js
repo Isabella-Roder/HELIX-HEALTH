@@ -46,13 +46,13 @@ function classeStatus(status) {
 function filtrarMateriais() {
     const nome = filtroNome.value.toLowerCase().trim();
     const categoria = filtroCategoria.value.toLowerCase().trim();
-    const fornecedor = filtroFornecedor.value.toLowerCase().trim();
+    const fornecedorId = filtroFornecedor.value;
     const status = filtroStatus.value;
 
     const materiaisFiltrados = materiaisCarregados.filter((material) => {
         const nomeIgual = !nome || (material.nome && material.nome.toLowerCase().includes(nome));
         const categoriaIgual = !categoria || (material.categoria && material.categoria.toLowerCase().includes(categoria));
-        const fornecedorIgual = !fornecedor || (material.fornecedor && material.fornecedor.toLowerCase().includes(fornecedor));
+        const fornecedorIgual = !fornecedorId || String(material.fornecedor?.id) === fornecedorId;
         const statusIgual = !status || material.statusAlmoxarifado === status;
 
         return nomeIgual && categoriaIgual && fornecedorIgual && statusIgual;
@@ -87,7 +87,7 @@ function renderizarMateriais(materiais) {
             <td>${material.estoqueMinimo ?? "-"}</td>
             <td>${material.unidadeMedida || "-"}</td>
             <td>${material.dataValidade || "-"}</td>
-            <td>${material.fornecedor || "-"}</td>
+            <td>${material.fornecedor?.nome || "-"}</td>
             <td>
                 <span class="status-badge ${classeStatus(material.statusAlmoxarifado)}">
                     ${formatarEnum(material.statusAlmoxarifado)}
@@ -168,6 +168,30 @@ async function deletarMaterial(id) {
     }
 }
 
+async function carregarFornecedorFiltro() {
+    try {
+        const resposta = await fetch(`${API_URL}/fornecedores`);
+
+        if (!resposta.ok) {
+            throw new Error("Erro ao carregar fornecedores.");
+        }
+
+        const fornecedores = await resposta.json();
+        const selectFornecedor = filtroFornecedor;
+
+        fornecedores.forEach((fornecedor) => {
+            const option = document.createElement("option");
+            option.value = fornecedor.id;
+            option.textContent = fornecedor.nome;
+
+            selectFornecedor.appendChild(option);
+        });
+    } catch (erro) {
+        console.error(erro);
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
+    }
+}
+
 botaoFiltrar.addEventListener("click", filtrarMateriais);
 
 botaoLimparFiltro.addEventListener("click", () => {
@@ -186,4 +210,9 @@ botaoSair.addEventListener("click", () => {
     window.location.href = "login.html";
 });
 
-carregarMateriais();
+async function iniciarPagina() {
+    await carregarFornecedorFiltro();
+    await carregarMateriais();
+}
+
+iniciarPagina();

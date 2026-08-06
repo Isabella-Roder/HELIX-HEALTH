@@ -165,6 +165,26 @@
 - [x] Filtrar fornecedores por status ativo/inativo.
 - [x] Mostrar resumo de fornecedores ativos, inativos e total.
 
+## Movimentacao de estoque
+
+- [x] Criar entidade MovimentacaoEstoque.
+- [x] Criar enum TipoMovimentacao.
+- [x] Criar repository de movimentacao de estoque.
+- [x] Criar service de movimentacao de estoque.
+- [x] Criar controller de movimentacao de estoque.
+- [x] Cadastrar entrada de estoque.
+- [x] Cadastrar saida de estoque.
+- [x] Atualizar quantidade do material automaticamente na entrada.
+- [x] Atualizar quantidade do material automaticamente na saida.
+- [x] Bloquear saida com estoque insuficiente.
+- [x] Exigir setor destino para saida.
+- [x] Listar movimentacoes.
+- [x] Filtrar movimentacoes por material.
+- [x] Filtrar movimentacoes por tipo.
+- [x] Filtrar movimentacoes por setor.
+- [x] Filtrar movimentacoes por responsavel.
+- [x] Mostrar resumo de entradas, saidas e quantidades movimentadas.
+
 ## Leitos
 
 - [x] Criar backend de leitos.

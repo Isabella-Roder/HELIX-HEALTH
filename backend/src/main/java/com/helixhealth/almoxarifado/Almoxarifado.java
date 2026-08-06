@@ -2,12 +2,15 @@ package com.helixhealth.almoxarifado;
 
 import java.time.LocalDate;
 
+import com.helixhealth.fornecedor.Fornecedor;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Almoxarifado {
@@ -22,7 +25,9 @@ public class Almoxarifado {
     private Integer estoqueMinimo;
     private String unidadeMedida;
     private LocalDate dataValidade;
-    private String fornecedor;
+    
+    @ManyToOne
+    private Fornecedor fornecedor;
 
     @Enumerated(EnumType.STRING)
     private StatusAlmoxarifado statusAlmoxarifado;
@@ -38,7 +43,7 @@ public class Almoxarifado {
         Integer estoqueMinimo,
         String unidadeMedida,
         LocalDate dataValidade,
-        String fornecedor,
+        Fornecedor fornecedor,
         StatusAlmoxarifado statusAlmoxarifado
     ) {
         this.nome = nome;
@@ -79,7 +84,7 @@ public class Almoxarifado {
         return dataValidade;
     }
 
-    public String getFornecedor() {
+    public Fornecedor getFornecedor() {
         return fornecedor;
     }
 
@@ -111,7 +116,7 @@ public class Almoxarifado {
         this.dataValidade = dataValidade;
     }
 
-    public void setFornecedor(String fornecedor) {
+    public void setFornecedor(Fornecedor fornecedor) {
         this.fornecedor = fornecedor;
     }
 

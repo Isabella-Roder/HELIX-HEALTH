@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movimentacao de Estoque - Helix Health</title>
+  <link rel="stylesheet" href="../style/style.css?v=4">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="header-actions">
+        <a href="portal-usuario.html" class="voltar">Portal</a>
+        <a href="listar-movimentacao.html" class="voltar">Listar movimentacoes</a>
+        <a href="listar-material.html" class="voltar">Materiais</a>
+      </div>
+
+      <p class="eyebrow" id="modoPagina">Almoxarifado</p>
+      <h1 id="tituloPagina">Movimentacao de Estoque</h1>
+      <p id="descricaoPagina">Registre entradas e saidas de materiais hospitalares.</p>
+    </header>
+
+    <form id="formMovimentacao">
+      <div class="linha">
+        <div class="campo">
+          <label for="material">Material</label>
+          <select id="material" required>
+            <option value="">Selecione um material</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="tipoMovimentacao">Tipo de movimentacao</label>
+          <select id="tipoMovimentacao" required>
+            <option value="">Selecione</option>
+            <option value="ENTRADA">Entrada</option>
+            <option value="SAIDA">Saida</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="quantidade">Quantidade</label>
+          <input type="number" id="quantidade" min="1" placeholder="Ex: 10" required>
+        </div>
+
+        <div class="campo">
+          <label for="dataMovimentacao">Data e hora</label>
+          <input type="datetime-local" id="dataMovimentacao">
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="setorDestino">Setor destino</label>
+          <select id="setorDestino">
+            <option value="">Sem setor</option>
+            <option value="Recepcao">Recepcao</option>
+            <option value="Enfermagem">Enfermagem</option>
+            <option value="Emergencia">Emergencia</option>
+            <option value="Centro Cirurgico">Centro Cirurgico</option>
+            <option value="Internacao">Internacao</option>
+            <option value="Laboratorio">Laboratorio</option>
+            <option value="Farmacia">Farmacia</option>
+            <option value="Limpeza">Limpeza</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="responsavel">Responsavel</label>
+          <select id="responsavel" required>
+            <option value="">Selecione um profissional</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="observacao">Observacao</label>
+        <textarea id="observacao" placeholder="Ex: Reposicao de estoque, retirada para setor, ajuste operacional..."></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" id="botaoSalvar">Registrar movimentacao</button>
+        <a href="listar-movimentacao.html" class="secondary-link">Cancelar</a>
+      </div>
+    </form>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/mensagens.js?v=1"></script>
+  <script src="../script/cadastro-movimentacao.js?v=1"></script>
+</body>
+</html>

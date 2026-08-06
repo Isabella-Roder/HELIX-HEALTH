@@ -107,6 +107,12 @@ Sistema hospitalar completo para gerenciamento de pacientes, profissionais, aten
 - Edicao e exclusao de fornecedores.
 - Filtros de fornecedores por nome, CNPJ e status ativo/inativo.
 - Resumo de fornecedores ativos, inativos e total.
+- Movimentacao de estoque com entrada e saida de materiais.
+- Atualizacao automatica da quantidade em estoque na entrada e na saida.
+- Bloqueio de saida quando o estoque for insuficiente.
+- Registro de setor destino e responsavel pela movimentacao.
+- Listagem e filtros de movimentacoes por material, tipo, setor e responsavel.
+- Resumo de entradas, saidas e quantidades movimentadas.
 
 ## Financeiro
 

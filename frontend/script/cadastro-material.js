@@ -25,7 +25,9 @@ form.addEventListener("submit", async (event) => {
         estoqueMinimo: Number(document.getElementById("estoqueMinimo").value),
         unidadeMedida: document.getElementById("unidadeMedida").value,
         dataValidade: document.getElementById("dataValidade").value, 
-        fornecedor: document.getElementById("fornecedor").value,
+        fornecedor: {
+            id: Number(document.getElementById("fornecedor").value)
+        },
         statusAlmoxarifado: document.getElementById("statusAlmoxarifado").value || null
     };
 
@@ -94,7 +96,7 @@ async function carregarMaterialParaEdicao() {
         document.getElementById("estoqueMinimo").value = material.estoqueMinimo ?? "";
         document.getElementById("unidadeMedida").value = material.unidadeMedida || "";
         document.getElementById("dataValidade").value = material.dataValidade || "";
-        document.getElementById("fornecedor").value = material.fornecedor || "";
+        document.getElementById("fornecedor").value = material.fornecedor?.id || "";
         document.getElementById("statusAlmoxarifado").value = material.statusAlmoxarifado || "";
 
         limparMensagem(mensagem);
@@ -104,4 +106,33 @@ async function carregarMaterialParaEdicao() {
     }
 }
 
-carregarMaterialParaEdicao();
+async function carregarFornecedores() {
+    try {
+        const resposta = await fetch(`${API_URL}/fornecedores`);
+
+        if (!resposta.ok) {
+            throw new Error("Erro ao carregar fornecedores.");
+        }
+
+        const fornecedores = await resposta.json();
+        const selectFornecedor = document.getElementById("fornecedor");
+
+        fornecedores.forEach((fornecedor) => {
+            const option = document.createElement("option");
+            option.value = fornecedor.id;
+            option.textContent = fornecedor.nome;
+
+            selectFornecedor.appendChild(option);
+        });
+    } catch (erro) {
+        console.error(erro);
+        mostrarMensagem(mensagem, "Erro: " + erro.message, "error");
+    }
+}
+
+async function iniciarPagina() {
+    await carregarFornecedores();
+    await carregarMaterialParaEdicao();
+}
+
+iniciarPagina();

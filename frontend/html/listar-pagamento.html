@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamentos - Helix Health</title>
+  <link rel="stylesheet" href="../style/style.css?v=4">
+</head>
+<body>
+  <header class="topbar">
+    <a href="portal-usuario.html" class="brand">Helix Health</a>
+
+    <nav class="menu">
+      <a href="portal-usuario.html">Portal</a>
+      <a href="cadastro-pagamento.html">Cadastrar pagamento</a>
+      <a href="portal-seletor.html">Trocar portal</a>
+      <a href="#" id="botaoSair">Sair</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="page-header">
+      <div>
+        <p class="eyebrow">Financeiro</p>
+        <h1>Pagamentos</h1>
+        <p class="subtitle">Acompanhe cobrancas, vencimentos, formas de pagamento e status financeiro dos pacientes.</p>
+      </div>
+
+      <a class="primary-link" href="cadastro-pagamento.html">Novo pagamento</a>
+    </section>
+
+    <section class="filter-panel">
+      <div class="filter-field">
+        <label for="filtroPaciente">Paciente</label>
+        <select id="filtroPaciente">
+          <option value="">Todos os pacientes</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroStatusPagamento">Status</label>
+        <select id="filtroStatusPagamento">
+          <option value="">Todos os status</option>
+          <option value="PENDENTE">Pendente</option>
+          <option value="PAGO">Pago</option>
+          <option value="CANCELADO">Cancelado</option>
+          <option value="ATRASADO">Atrasado</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroFormaPagamento">Forma</label>
+        <select id="filtroFormaPagamento">
+          <option value="">Todas as formas</option>
+          <option value="DINHEIRO">Dinheiro</option>
+          <option value="PIX">Pix</option>
+          <option value="CARTAO_CREDITO">Cartao de credito</option>
+          <option value="CARTAO_DEBITO">Cartao de debito</option>
+          <option value="CONVENIO">Convenio</option>
+          <option value="BOLETO">Boleto</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroDataVencimento">Vencimento</label>
+        <input type="date" id="filtroDataVencimento">
+      </div>
+
+      <div class="filter-field">
+        <label for="filtroDataPagamento">Pagamento</label>
+        <input type="date" id="filtroDataPagamento">
+      </div>
+
+      <div class="filter-actions">
+        <button type="button" id="botaoFiltrar">Filtrar</button>
+        <button type="button" id="botaoLimparFiltro">Limpar</button>
+      </div>
+    </section>
+
+    <section class="summary medicine-summary">
+      <article class="summary-card">
+        <span class="summary-number" id="totalPendentes">0</span>
+        <span class="summary-label">Pendentes</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalPagos">0</span>
+        <span class="summary-label">Pagos</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalAtrasados">0</span>
+        <span class="summary-label">Atrasados</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalCancelados">0</span>
+        <span class="summary-label">Cancelados</span>
+      </article>
+    </section>
+
+    <section class="table-panel">
+      <div class="table-toolbar">
+        <span id="totalPagamentos">0 pagamentos encontrados</span>
+        <button type="button" id="botaoAtualizar">Atualizar</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Paciente</th>
+              <th>Descricao</th>
+              <th>Valor</th>
+              <th>Vencimento</th>
+              <th>Pagamento</th>
+              <th>Forma</th>
+              <th>Status</th>
+              <th>Acoes</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaPagamentos">
+            <tr>
+              <td colspan="9" class="empty">Carregando pagamentos...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/mensagens.js?v=1"></script>
+  <script src="../script/listar-pagamento.js?v=1"></script>
+</body>
+</html>

@@ -15,6 +15,8 @@
       <a href="listar-paciente.html">Pacientes</a>
       <a href="listar-agendamento.html">Agendamentos</a>
       <a href="listar-leito.html">Leitos</a>
+      <a href="listar-material.html">Estoque</a>
+      <a href="listar-pagamento.html">Financeiro</a>
       <a href="#" id="botaoSair">Sair</a>
     </nav>
   </header>
@@ -63,6 +65,26 @@
         <span class="summary-number" id="totalTriagensUrgentes">0</span>
         <span class="summary-label">Triagens urgentes</span>
       </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalMateriais">0</span>
+        <span class="summary-label">Materiais</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalFornecedores">0</span>
+        <span class="summary-label">Fornecedores</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalPagamentosPendentes">0</span>
+        <span class="summary-label">Pagamentos pendentes</span>
+      </article>
+
+      <article class="summary-card">
+        <span class="summary-number" id="totalRecebido">R$ 0,00</span>
+        <span class="summary-label">Recebido</span>
+      </article>
     </section>
 
     <section class="dashboard-grid">
@@ -78,6 +100,12 @@
           <a href="cadastro-atendimento-medico.html">Novo atendimento</a>
           <a href="cadastro-exame.html">Novo exame</a>
           <a href="cadastro-internacao.html">Nova internacao</a>
+          <a href="cadastro-material.html">Novo material</a>
+          <a href="cadastro-fornecedor.html">Novo fornecedor</a>
+          <a href="cadastro-movimentacao.html">Movimentar estoque</a>
+          <a href="listar-movimentacao.html">Historico de estoque</a>
+          <a href="cadastro-pagamento.html">Novo pagamento</a>
+          <a href="listar-pagamento.html">Pagamentos</a>
         </div>
       </article>
 
@@ -156,6 +184,76 @@
             <span class="summary-number" id="leitosManutencao">0</span>
             <span class="summary-label">Manutencao</span>
           </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Estoque</h2>
+          <a class="panel-badge" href="listar-material.html">Ver materiais</a>
+        </div>
+
+        <div class="bed-status-grid">
+          <div>
+            <span class="summary-number" id="materiaisDisponiveis">0</span>
+            <span class="summary-label">Disponiveis</span>
+          </div>
+
+          <div>
+            <span class="summary-number" id="materiaisBaixoEstoque">0</span>
+            <span class="summary-label">Baixo estoque</span>
+          </div>
+
+          <div>
+            <span class="summary-number" id="materiaisVencidos">0</span>
+            <span class="summary-label">Vencidos</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Ultimas movimentacoes</h2>
+          <a class="panel-badge" href="listar-movimentacao.html">Ver historico</a>
+        </div>
+
+        <div class="patient-record-list" id="listaMovimentacoesRecentes">
+          <p class="empty">Carregando movimentacoes...</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Financeiro</h2>
+          <a class="panel-badge" href="listar-pagamento.html">Ver pagamentos</a>
+        </div>
+
+        <div class="bed-status-grid">
+          <div>
+            <span class="summary-number" id="pagamentosPendentes">0</span>
+            <span class="summary-label">Pendentes</span>
+          </div>
+
+          <div>
+            <span class="summary-number" id="pagamentosPagos">0</span>
+            <span class="summary-label">Pagos</span>
+          </div>
+
+          <div>
+            <span class="summary-number" id="pagamentosAtrasados">0</span>
+            <span class="summary-label">Atrasados</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <h2>Pagamentos recentes</h2>
+          <a class="panel-badge" href="cadastro-pagamento.html">Novo</a>
+        </div>
+
+        <div class="patient-record-list" id="listaPagamentosRecentes">
+          <p class="empty">Carregando pagamentos...</p>
         </div>
       </article>
     </section>

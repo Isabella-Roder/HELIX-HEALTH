@@ -16,9 +16,14 @@
 - [x] Criar tela de dashboard admin.
 - [x] Abrir dashboard pelo portal admin.
 - [x] Mostrar totais de pacientes, profissionais, agendamentos, leitos, exames e triagens.
+- [x] Mostrar totais de materiais e fornecedores.
 - [x] Mostrar status do dia.
 - [x] Mostrar proximos agendamentos, triagens urgentes e exames pendentes.
 - [x] Mostrar resumo de leitos.
+- [x] Mostrar resumo de estoque.
+- [x] Mostrar ultimas movimentacoes de estoque.
+- [x] Mostrar resumo financeiro.
+- [x] Mostrar pagamentos recentes.
 
 ## Login e portal seletor
 
@@ -184,6 +189,29 @@
 - [x] Filtrar movimentacoes por setor.
 - [x] Filtrar movimentacoes por responsavel.
 - [x] Mostrar resumo de entradas, saidas e quantidades movimentadas.
+- [x] Adicionar atalhos de estoque no portal do usuario.
+- [x] Adicionar atalhos de estoque no dashboard admin.
+
+## Financeiro
+
+- [x] Criar entidade Pagamento.
+- [x] Criar enum FormaPagamento.
+- [x] Criar enum StatusPagamento.
+- [x] Criar repository de pagamento.
+- [x] Criar service de pagamento.
+- [x] Criar controller de pagamento.
+- [x] Cadastrar pagamento.
+- [x] Listar pagamentos.
+- [x] Editar pagamento.
+- [x] Deletar pagamento.
+- [x] Filtrar pagamentos por paciente.
+- [x] Filtrar pagamentos por status.
+- [x] Filtrar pagamentos por forma de pagamento.
+- [x] Filtrar pagamentos por vencimento.
+- [x] Filtrar pagamentos por data de pagamento.
+- [x] Marcar pagamento como pago.
+- [x] Adicionar atalhos de financeiro no portal do usuario.
+- [x] Adicionar financeiro no dashboard admin.
 
 ## Leitos
 

@@ -16,6 +16,8 @@ Sistema hospitalar completo para gerenciamento de pacientes, profissionais, aten
 - Login para farmacia.
 - Dashboard administrativo com indicadores gerais do hospital.
 - Visualizacao rapida de proximos agendamentos, triagens urgentes, exames pendentes e ocupacao de leitos.
+- Visualizacao rapida de materiais, fornecedores e movimentacoes recentes no dashboard administrativo.
+- Visualizacao rapida de pagamentos pendentes, valores recebidos e pagamentos recentes no dashboard administrativo.
 
 ## Pacientes
 
@@ -116,7 +118,13 @@ Sistema hospitalar completo para gerenciamento de pacientes, profissionais, aten
 
 ## Financeiro
 
-- Pagamentos.
+- Cadastro de pagamentos.
+- Listagem de pagamentos.
+- Edicao e exclusao de pagamentos.
+- Filtros de pagamentos por paciente, status, forma de pagamento, vencimento e data de pagamento.
+- Resumo financeiro por pagamentos pendentes, pagos, atrasados e cancelados.
+- Marcacao de pagamento como pago.
+- Indicadores financeiros no dashboard administrativo.
 - Convenios.
 - Faturas.
 - Custos.

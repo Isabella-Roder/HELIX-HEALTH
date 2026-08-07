@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Pagamento - Helix Health</title>
+  <link rel="stylesheet" href="../style/style.css?v=4">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="header-actions">
+        <a href="portal-usuario.html" class="voltar">Portal</a>
+        <a href="listar-pagamento.html" class="voltar">Listar pagamentos</a>
+      </div>
+
+      <p class="eyebrow" id="modoPagina">Financeiro</p>
+      <h1 id="tituloPagina">Cadastro de Pagamento</h1>
+      <p id="descricaoPagina">Registre cobrancas, vencimentos, formas de pagamento e status financeiro do paciente.</p>
+    </header>
+
+    <form id="formPagamento">
+      <div class="linha">
+        <div class="campo">
+          <label for="paciente">Paciente</label>
+          <select id="paciente" required>
+            <option value="">Selecione um paciente</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="valor">Valor</label>
+          <input type="number" id="valor" min="0.01" step="0.01" placeholder="Ex: 150.00" required>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="descricao">Descricao</label>
+        <input type="text" id="descricao" placeholder="Ex: Consulta cardiologia, exame, internacao..." required>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="dataVencimento">Data de vencimento</label>
+          <input type="date" id="dataVencimento" required>
+        </div>
+
+        <div class="campo">
+          <label for="dataPagamento">Data de pagamento</label>
+          <input type="date" id="dataPagamento">
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="formaPagamento">Forma de pagamento</label>
+          <select id="formaPagamento" required>
+            <option value="">Selecione</option>
+            <option value="DINHEIRO">Dinheiro</option>
+            <option value="PIX">Pix</option>
+            <option value="CARTAO_CREDITO">Cartao de credito</option>
+            <option value="CARTAO_DEBITO">Cartao de debito</option>
+            <option value="CONVENIO">Convenio</option>
+            <option value="BOLETO">Boleto</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="statusPagamento">Status</label>
+          <select id="statusPagamento" required>
+            <option value="PENDENTE">Pendente</option>
+            <option value="PAGO">Pago</option>
+            <option value="CANCELADO">Cancelado</option>
+            <option value="ATRASADO">Atrasado</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" id="botaoSalvar">Cadastrar pagamento</button>
+        <a href="listar-pagamento.html" class="secondary-link">Cancelar</a>
+      </div>
+    </form>
+
+    <p id="mensagem"></p>
+  </main>
+
+  <script src="../script/auth.js?v=6"></script>
+  <script src="../script/mensagens.js?v=1"></script>
+  <script src="../script/cadastro-pagamento.js?v=1"></script>
+</body>
+</html>
